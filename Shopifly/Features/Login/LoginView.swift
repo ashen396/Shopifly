@@ -14,6 +14,7 @@ struct LoginView: View {
     @State private var password = ""
     
     var body: some View{
+        NavigationView{
         VStack{
             
             // Heading
@@ -21,14 +22,14 @@ struct LoginView: View {
                 Text("Shopifly")
                     .font(.system(size: 54))
                     .fontWeight(.bold)
-                    .padding(.bottom, 20)
+//                    .padding(.bottom, 20)
                 
                 Text("Review products to share experience with others")
                     .font(.callout)
                     .multilineTextAlignment(.center)
                     .frame(width: 200, height: .none, alignment: .center)
             }.frame(width: .none, height: .none, alignment: .top)
-            .padding(.top, 50)
+//            .padding(.top, 50)
             
             VStack{
                 // Email Textfield
@@ -74,7 +75,11 @@ struct LoginView: View {
                     CustomButton(title: "Continue with Apple", foregroundColor: Color.white, backgroundColor: Color.black)
                     
                     // Login with Google Button
-                    CustomButton(title: "Continue with Google", foregroundColor: Color.black, backgroundColor: Color.white, stroke: true, padding: 10)
+                    NavigationLink(
+                        destination: SignUpView(),
+                        label: {
+                            CustomButton(title: "Continue with Google", foregroundColor: Color.black, backgroundColor: Color.white, stroke: true, padding: 10)
+                        })
                     
                 }.padding(.top, 15)
                 
@@ -90,6 +95,7 @@ struct LoginView: View {
             
         }.frame(minWidth: 0, idealWidth: .infinity, maxWidth: .infinity, minHeight: 0, idealHeight: .infinity, maxHeight: .infinity, alignment: .top)
         .padding(.horizontal, 25)
+        }
     }
 }
 
