@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040C32642D982411006325BA /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C32632D982411006325BA /* CustomButton.swift */; };
+		040C326C2D982FDB006325BA /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C326B2D982FDB006325BA /* CustomTextField.swift */; };
+		04267E842D985831001768AE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04267E832D985830001768AE /* LoginView.swift */; };
+		04267E912D98596F001768AE /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04267E902D98596F001768AE /* SignUpView.swift */; };
 		0468DBFA2D97A98B0006A7CA /* ShopiflyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0468DBF92D97A98B0006A7CA /* ShopiflyApp.swift */; };
 		0468DBFC2D97A98B0006A7CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0468DBFB2D97A98B0006A7CA /* ContentView.swift */; };
 		0468DBFE2D97A98D0006A7CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0468DBFD2D97A98D0006A7CA /* Assets.xcassets */; };
@@ -35,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		040C32632D982411006325BA /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		040C326B2D982FDB006325BA /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		04267E832D985830001768AE /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		04267E902D98596F001768AE /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		0468DBF62D97A98B0006A7CA /* Shopifly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shopifly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0468DBF92D97A98B0006A7CA /* ShopiflyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopiflyApp.swift; sourceTree = "<group>"; };
 		0468DBFB2D97A98B0006A7CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -76,6 +84,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		040C32622D98226D006325BA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				040C32632D982411006325BA /* CustomButton.swift */,
+				040C326B2D982FDB006325BA /* CustomTextField.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		040C32702D9856FF006325BA /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				04267E8F2D98595D001768AE /* SignUp */,
+				04267E882D98583F001768AE /* Login */,
+				040C32622D98226D006325BA /* Components */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		04267E882D98583F001768AE /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				04267E832D985830001768AE /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		04267E8F2D98595D001768AE /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				04267E902D98596F001768AE /* SignUpView.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
 		0468DBED2D97A98B0006A7CA = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +142,7 @@
 		0468DBF82D97A98B0006A7CA /* Shopifly */ = {
 			isa = PBXGroup;
 			children = (
+				040C32702D9856FF006325BA /* Features */,
 				0468DBF92D97A98B0006A7CA /* ShopiflyApp.swift */,
 				0468DBFB2D97A98B0006A7CA /* ContentView.swift */,
 				0468DBFD2D97A98D0006A7CA /* Assets.xcassets */,
@@ -265,10 +309,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04267E842D985831001768AE /* LoginView.swift in Sources */,
 				0468DC032D97A98D0006A7CA /* Persistence.swift in Sources */,
 				0468DBFC2D97A98B0006A7CA /* ContentView.swift in Sources */,
+				040C326C2D982FDB006325BA /* CustomTextField.swift in Sources */,
+				04267E912D98596F001768AE /* SignUpView.swift in Sources */,
 				0468DBFA2D97A98B0006A7CA /* ShopiflyApp.swift in Sources */,
 				0468DC062D97A98D0006A7CA /* Shopifly.xcdatamodeld in Sources */,
+				040C32642D982411006325BA /* CustomButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
