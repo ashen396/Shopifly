@@ -8,10 +8,10 @@
 import Foundation
 import SwiftUI
 
-func CustomButton(title: String, foregroundColor: Color, backgroundColor: Color, stroke: Bool? = false, padding: CGFloat = 10.0, function: ()? = nil) -> some View{
+func CustomButton(title: String, foregroundColor: Color, backgroundColor: Color, stroke: Bool? = false, padding: CGFloat = 10.0, function: (() -> Void)? = nil) -> some View{
     return Button(title)
     {
-        function
+        function?()
     }.frame(minWidth: 0, idealWidth: 314, maxWidth: 314, minHeight: 0, idealHeight: 44, maxHeight: 44, alignment: .center)
     .font(.system(size: 18, weight: .bold))
     .foregroundColor(foregroundColor)

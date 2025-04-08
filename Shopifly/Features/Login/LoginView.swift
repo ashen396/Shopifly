@@ -2,11 +2,12 @@
 //  Login.swift
 //  Shopifly
 //
-//  Created by Mac on 3/29/25.
+//  Created by yr4cobsccomp232p-044 on 3/29/25.
 //
 
 import Foundation
 import SwiftUI
+import FirebaseFirestore
 
 struct LoginView: View {
     
@@ -72,7 +73,9 @@ struct LoginView: View {
                 VStack{
                     
                     // Login with Apple Button
-                    CustomButton(title: "Continue with Apple", foregroundColor: Color.white, backgroundColor: Color.black)
+                    CustomButton(title: "Continue with Apple", foregroundColor: Color.white, backgroundColor: Color.black, function: {
+                        SetData()
+                    })
                     
                     // Login with Google Button
                     NavigationLink(
@@ -97,6 +100,12 @@ struct LoginView: View {
         .padding(.horizontal, 25)
         }
     }
+}
+
+func SetData(){
+    let database = Firestore.firestore()
+    let docRef = database.document("Items/item01")
+    docRef.setData(["text": "Hello World"])
 }
 
 struct LoginView_Preview: PreviewProvider {
