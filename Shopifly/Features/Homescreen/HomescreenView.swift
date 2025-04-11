@@ -22,7 +22,7 @@ struct HomescreenView: View{
                         .fontWeight(.bold)
                     
                     Spacer()
-                        .frame(width: 100, height: 100, alignment: .leading)
+                        .frame(width: 60, height: 20, alignment: .leading)
                 }
                 
                 HStack{
@@ -39,7 +39,8 @@ struct HomescreenView: View{
                         .resizable()
                         .frame(width: 50, height: 50, alignment: .trailing)
                 }
-            }.frame(width: 425, height: 100, alignment: .center)
+            }.padding(.horizontal, 40)
+            .frame(width: 425, height: 100, alignment: .center)
     
             CustomTextField(title: "Search", bindState: $search)
             
@@ -68,7 +69,7 @@ struct HomescreenView: View{
                             ProductCardView()
                             ProductCardView()
                         }
-                    }.frame(width: .infinity, height: .infinity, alignment: .leading)
+                    }
                 }
                 
                 Spacer()
@@ -86,7 +87,7 @@ struct HomescreenView: View{
                     
                 }.frame(width: 380, height: .infinity, alignment: .leading)
                 
-            }.frame(minWidth: 0, idealWidth: 400, maxWidth: .infinity, minHeight: 0, idealHeight: .infinity, maxHeight: .infinity, alignment: .leading)
+            }
         }
     }
 }
