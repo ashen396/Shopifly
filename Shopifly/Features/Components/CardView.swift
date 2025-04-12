@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SwiftUI
 
 func CardView(cardName: String, isFirst: Bool = false, isLast: Bool = false) -> some View{
     return
@@ -15,12 +14,10 @@ func CardView(cardName: String, isFirst: Bool = false, isLast: Bool = false) -> 
                 Image(cardName)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .padding(.leading, 40)
             }else if(isLast == true){
                 Image(cardName)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .padding(.trailing, 40)
             }else{
                 Image(cardName)
                     .resizable()

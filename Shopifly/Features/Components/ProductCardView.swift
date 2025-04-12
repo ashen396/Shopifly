@@ -8,15 +8,15 @@
 import SwiftUI
 import SwiftUI
 
-func ProductCardView() -> some View{
+func ProductCardView(image: String, backgroundColor:Color, title: String, price: String, storeName: String) -> some View{
     
     return Rectangle()
         .frame(width: 320, height: 122, alignment: .leading)
         .cornerRadius(10.0)
-        .foregroundColor(Color(UIColor(red: 0.81, green: 0.00, blue: 0.11, alpha: 1.00)))
+        .foregroundColor(backgroundColor)
         .overlay(
             HStack{
-                Image("RedShoe")
+                Image(image)
                     .resizable()
                     .frame(width: 100, height: 100, alignment: .center)
                 
@@ -24,13 +24,13 @@ func ProductCardView() -> some View{
                     .frame(width: 40, height: 100, alignment: .center)
                 
                 VStack{
-                    Text("Red Shoe")
+                    Text(title)
                         .foregroundColor(Color.white)
                         .font(.title2)
                         .fontWeight(.bold)
                         .frame(width: 150, height: 25, alignment: .leading)
                     
-                    Text("Rs. 1199")
+                    Text("Rs. \(price)")
                         .foregroundColor(Color.white)
                         .font(.title3)
                         .fontWeight(.semibold)
@@ -39,7 +39,7 @@ func ProductCardView() -> some View{
                     Spacer()
                         .frame(width: 150, height: 20, alignment: .center)
                     
-                    Text("Shoe Marketplace")
+                    Text(storeName)
                         .foregroundColor(Color.white)
                         .font(.callout)
                         .fontWeight(.semibold)
@@ -47,24 +47,4 @@ func ProductCardView() -> some View{
                 }.frame(width: 150, height: 100, alignment: .leading)
             }
         ).padding(.leading, 25)
-//    return HStack{
-//        Image("RedShoe")
-//            .resizable()
-//            .frame(width: 80, height: 80, alignment: .center)
-//    }.frame(width: 277, height: 122, alignment: .center)
-//    .background(Color(UIColor(red: 0.81, green: 0.00, blue: 0.11, alpha: 1.00)))
-    
-//    return RoundedRectangle(cornerRadius: 10, style: RoundedCornerStyle.circular)
-//        .frame(width: 277, height: 122, alignment: .center)
-//        .overlay(
-//            Image("RedShoe")
-//                .resizable()
-//                .frame(width: 80, height: 80, alignment: .center)
-//        )
-}
-
-struct ProductCardView_Preview: PreviewProvider{
-    static var previews: some View{
-        ProductCardView()
-    }
 }

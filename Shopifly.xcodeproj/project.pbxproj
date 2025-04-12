@@ -13,6 +13,7 @@
 		040C449B2DA780F700B183B5 /* HomescreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C449A2DA780F700B183B5 /* HomescreenView.swift */; };
 		040C44A02DA7991C00B183B5 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C449F2DA7991C00B183B5 /* CardView.swift */; };
 		041016C32DA36DCF00371293 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 041016C22DA36DCF00371293 /* GoogleService-Info.plist */; };
+		0415D5A82DAA8372008B11CC /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415D5A72DAA8372008B11CC /* ProductListView.swift */; };
 		04267E842D985831001768AE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04267E832D985830001768AE /* LoginView.swift */; };
 		04267E912D98596F001768AE /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04267E902D98596F001768AE /* SignUpView.swift */; };
 		04571D0C2DA6AC3D0010C3D4 /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04571D0B2DA6AC3D0010C3D4 /* NavigationButton.swift */; };
@@ -27,6 +28,7 @@
 		04826A332DA6D3AA00F05667 /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04826A322DA6D3AA00F05667 /* OTPView.swift */; };
 		0485783E2DA79D260071C78E /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485783D2DA79D260071C78E /* CardStack.swift */; };
 		048578432DA7B9AE0071C78E /* ProductCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048578422DA7B9AE0071C78E /* ProductCardView.swift */; };
+		04BCCE312DAA439B00D0924A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCCE302DAA439B00D0924A /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,7 @@
 		040C449A2DA780F700B183B5 /* HomescreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomescreenView.swift; sourceTree = "<group>"; };
 		040C449F2DA7991C00B183B5 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		041016C22DA36DCF00371293 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0415D5A72DAA8372008B11CC /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
 		04267E832D985830001768AE /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		04267E902D98596F001768AE /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		04571D0B2DA6AC3D0010C3D4 /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
@@ -73,6 +76,7 @@
 		04826A322DA6D3AA00F05667 /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
 		0485783D2DA79D260071C78E /* CardStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStack.swift; sourceTree = "<group>"; };
 		048578422DA7B9AE0071C78E /* ProductCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardView.swift; sourceTree = "<group>"; };
+		04BCCE302DAA439B00D0924A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,7 @@
 				040C449F2DA7991C00B183B5 /* CardView.swift */,
 				0485783D2DA79D260071C78E /* CardStack.swift */,
 				048578422DA7B9AE0071C78E /* ProductCardView.swift */,
+				0415D5A72DAA8372008B11CC /* ProductListView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -174,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				040C32702D9856FF006325BA /* Features */,
+				04BCCE2F2DAA437500D0924A /* Resources */,
 				0468DBF92D97A98B0006A7CA /* ShopiflyApp.swift */,
 				0468DBFB2D97A98B0006A7CA /* ContentView.swift */,
 				0468DBFD2D97A98D0006A7CA /* Assets.xcassets */,
@@ -218,6 +224,14 @@
 				04826A322DA6D3AA00F05667 /* OTPView.swift */,
 			);
 			path = OTP;
+			sourceTree = "<group>";
+		};
+		04BCCE2F2DAA437500D0924A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				04BCCE302DAA439B00D0924A /* Constants.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,12 +375,14 @@
 				040C326C2D982FDB006325BA /* CustomTextField.swift in Sources */,
 				04267E912D98596F001768AE /* SignUpView.swift in Sources */,
 				0485783E2DA79D260071C78E /* CardStack.swift in Sources */,
+				04BCCE312DAA439B00D0924A /* Constants.swift in Sources */,
 				04826A332DA6D3AA00F05667 /* OTPView.swift in Sources */,
 				040C44A02DA7991C00B183B5 /* CardView.swift in Sources */,
 				048578432DA7B9AE0071C78E /* ProductCardView.swift in Sources */,
 				040C44942DA77D1400B183B5 /* OTPTextField.swift in Sources */,
 				0468DBFA2D97A98B0006A7CA /* ShopiflyApp.swift in Sources */,
 				0468DC062D97A98D0006A7CA /* Shopifly.xcdatamodeld in Sources */,
+				0415D5A82DAA8372008B11CC /* ProductListView.swift in Sources */,
 				040C32642D982411006325BA /* CustomButton.swift in Sources */,
 				040C449B2DA780F700B183B5 /* HomescreenView.swift in Sources */,
 			);
@@ -531,7 +547,7 @@
 				DEVELOPMENT_TEAM = U7VHNY5377;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Shopifly/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -554,7 +570,7 @@
 				DEVELOPMENT_TEAM = U7VHNY5377;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Shopifly/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
