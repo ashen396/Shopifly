@@ -14,6 +14,7 @@
 		040C44A02DA7991C00B183B5 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C449F2DA7991C00B183B5 /* CardView.swift */; };
 		041016C32DA36DCF00371293 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 041016C22DA36DCF00371293 /* GoogleService-Info.plist */; };
 		0415D5A82DAA8372008B11CC /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415D5A72DAA8372008B11CC /* ProductListView.swift */; };
+		0421D0682DAA90C200677FFF /* SearchscreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0421D0672DAA90C200677FFF /* SearchscreenView.swift */; };
 		04267E842D985831001768AE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04267E832D985830001768AE /* LoginView.swift */; };
 		04267E912D98596F001768AE /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04267E902D98596F001768AE /* SignUpView.swift */; };
 		04571D0C2DA6AC3D0010C3D4 /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04571D0B2DA6AC3D0010C3D4 /* NavigationButton.swift */; };
@@ -56,6 +57,7 @@
 		040C449F2DA7991C00B183B5 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		041016C22DA36DCF00371293 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0415D5A72DAA8372008B11CC /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
+		0421D0672DAA90C200677FFF /* SearchscreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchscreenView.swift; sourceTree = "<group>"; };
 		04267E832D985830001768AE /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		04267E902D98596F001768AE /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		04571D0B2DA6AC3D0010C3D4 /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		040C32702D9856FF006325BA /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				0421D0632DAA909C00677FFF /* Searchscreen */,
 				040C44992DA780E900B183B5 /* Homescreen */,
 				04826A312DA6D39A00F05667 /* OTP */,
 				04267E8F2D98595D001768AE /* SignUp */,
@@ -137,6 +140,14 @@
 				040C449A2DA780F700B183B5 /* HomescreenView.swift */,
 			);
 			path = Homescreen;
+			sourceTree = "<group>";
+		};
+		0421D0632DAA909C00677FFF /* Searchscreen */ = {
+			isa = PBXGroup;
+			children = (
+				0421D0672DAA90C200677FFF /* SearchscreenView.swift */,
+			);
+			path = Searchscreen;
 			sourceTree = "<group>";
 		};
 		04267E882D98583F001768AE /* Login */ = {
@@ -370,6 +381,7 @@
 			files = (
 				04267E842D985831001768AE /* LoginView.swift in Sources */,
 				0468DC032D97A98D0006A7CA /* Persistence.swift in Sources */,
+				0421D0682DAA90C200677FFF /* SearchscreenView.swift in Sources */,
 				04571D0C2DA6AC3D0010C3D4 /* NavigationButton.swift in Sources */,
 				0468DBFC2D97A98B0006A7CA /* ContentView.swift in Sources */,
 				040C326C2D982FDB006325BA /* CustomTextField.swift in Sources */,
