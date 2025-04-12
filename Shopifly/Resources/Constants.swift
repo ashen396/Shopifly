@@ -10,6 +10,7 @@ import SwiftUI
 
 struct Constants {
     static let screenWidth = UIScreen.main.bounds.width
+    static let screenHeight = UIScreen.main.bounds.height - 80 // 80 pixels are for bounds
     static let spacingHeight: CGFloat = 25.0
     static let spacingHeight2: CGFloat = 40.0
     
