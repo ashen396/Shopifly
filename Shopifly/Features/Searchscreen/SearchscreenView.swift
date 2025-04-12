@@ -104,7 +104,7 @@ struct SearchscreenView: View {
                 .frame(width: Constants.screenWidth, height: 20, alignment: .leading)
             }
             
-        }.frame(width: Constants.screenWidth, height: UIScreen.main.bounds.height - 80, alignment: .top)
+        }.frame(width: Constants.screenWidth, height: Constants.screenHeight, alignment: .top)
     }
 }
 
