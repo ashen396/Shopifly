@@ -14,21 +14,26 @@ struct HomescreenView: View{
     
     var body: some View{
         VStack{
+            Spacer()
+                .frame(width: Constants.screenWidth, height: 25, alignment: .center)
+            
             //Header
             HStack{
                 HStack{
+                    Spacer()
+                        .frame(width: 5, height: 25, alignment: .center)
+                    
                     Text("Shopifly")
                         .font(.title)
                         .fontWeight(.bold)
                     
                     Spacer()
-                        .frame(width: 100, height: 100, alignment: .leading)
                 }
                 
                 HStack{
                     VStack{
                         Text("John Doe")
-                            .font(.title)
+                            .font(.title2)
                         
                         Text("Colombo")
                             .font(.callout)
@@ -38,55 +43,71 @@ struct HomescreenView: View{
                     Image("ProfilePicture")
                         .resizable()
                         .frame(width: 50, height: 50, alignment: .trailing)
+                    
+                    Spacer()
+                        .frame(width: 5, height: 25, alignment: .center)
                 }
-            }.frame(width: 425, height: 100, alignment: .center)
+            }.padding(.horizontal, 25)
+            .frame(width: UIScreen.main.bounds.width, height: 50, alignment: .leading)
     
             CustomTextField(title: "Search", bindState: $search)
+            
+            Spacer()
+                .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
             
             ScrollView(.vertical, showsIndicators: true){
                 CardStack()
                 
                 Spacer()
-                    .frame(width: 160, height: 25, alignment: .center)
+                    .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
                 
                 //Products
                 VStack{
                     HStack{
                         Text("Nearby Favourites")
+                            .font(.title3)
+                            .fontWeight(.regular)
                         
                         Spacer()
-                            .frame(width: 160, height: 50, alignment: .center)
                         
                         Text("Show All")
                             .font(.callout)
+                            .fontWeight(.semibold)
                             .foregroundColor(.blue)
-                    }
+                        
+                    }.padding(.horizontal, 25)
+                    
+                    Spacer()
+                        .frame(width: Constants.screenWidth, height: 15, alignment: .center)
                     
                     //Product Cards
                     ScrollView(.horizontal, showsIndicators: false){
-                        HStack{
-                            ProductCardView()
-                            ProductCardView()
+                        LazyHStack{
+                            ProductCardView(image: "RedShoe", backgroundColor: Constants.productBackgroundColor, title: "Red Shoe", price: "1199", storeName:"Shoe Marketplace")
+                            ProductCardView(image: "GreenShoe", backgroundColor: Constants.productBackgroundColor2, title: "Green Shoe", price: "1199", storeName:"Shoe Marketplace")
                         }
-                    }.frame(width: .infinity, height: .infinity, alignment: .leading)
+                    }
                 }
                 
                 Spacer()
-                    .frame(width: 160, height: 50, alignment: .center)
+                    .frame(width: Constants.screenWidth, height: Constants.spacingHeight2, alignment: .center)
                 
-                VStack{
-                    HStack{
-                        Text("Recommendations")
-                    }.frame(width: 380, height: .infinity, alignment: .leading)
-                    
-                    VStack{
-                        ProductCardView()
-                        ProductCardView()
-                    }
-                    
-                }.frame(width: 380, height: .infinity, alignment: .leading)
+                Text("Recommendations")
+                    .font(.title3)
+                    .fontWeight(.regular)
+                    .padding(.horizontal, 25)
+                    .frame(width: Constants.screenWidth, height: 20, alignment: .leading)
                 
-            }.frame(minWidth: 0, idealWidth: 400, maxWidth: .infinity, minHeight: 0, idealHeight: .infinity, maxHeight: .infinity, alignment: .leading)
+                Spacer()
+                    .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
+                
+                LazyVStack{
+                    ProductListView()
+                    ProductListView()
+                    ProductListView()
+                    ProductListView()
+                }
+            }
         }
     }
 }
