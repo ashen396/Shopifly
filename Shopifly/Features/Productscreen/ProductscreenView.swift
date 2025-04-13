@@ -52,6 +52,23 @@ struct ProductscreenView: View {
                             }
                         }.padding(.horizontal, 25)
                         .frame(width: Constants.screenWidth, height: 40, alignment: .leading)
+                        
+                        Spacer()
+                            .frame(width: Constants.screenWidth, height: 150, alignment: .top)
+                        
+                        HStack{
+                            RoundedRectangle(cornerRadius: 40.0)
+                                .frame(width: 60, height: 60, alignment: .center)
+                                .foregroundColor(.white)
+                                .shadow(color: Color.init( white: 0, opacity: 0.2), radius: 10, x: 0.0, y: 2.0)
+                                .overlay(
+                                    Image(systemName: "heart")
+                                        .resizable()
+                                        .frame(width: 40, height: 35, alignment: .center)
+                                        .font(.system(size: 40, weight: Font.Weight.ultraLight))
+                                )
+                        }.frame(width: Constants.screenWidth, height: 75, alignment: .topTrailing)
+                        .padding(.trailing, 25)
                     }
                 }.frame(width: Constants.screenWidth, height: Constants.screenWidth, alignment: .top)
                 .padding(.top, 40)
@@ -68,68 +85,274 @@ struct ProductscreenView: View {
                 .padding(.top, 25)
                 .padding(.leading, 40)
             
-            Text("Rs. 1199")
-                .font(.body)
-                .fontWeight(.regular)
-                .foregroundColor(Color(UIColor.systemGray))
-                .frame(width: Constants.screenWidth, height: 20, alignment: .leading)
-                .padding(.top, 10)
-                .padding(.leading, 40)
+            HStack{
+                Text("Rs. 1199")
+                    .font(.body)
+                    .fontWeight(.regular)
+                    .foregroundColor(Color(UIColor.systemGray))
+                    Spacer()
+            
+                HStack{
+                    Text("Compare")
+                        .foregroundColor(.blue)
+                    
+                    Image(systemName: "chevron.right")
+                        .resizable()
+                        .frame(width: 10, height: 20, alignment: .center)
+                        .font(.system(size: 40, weight: Font.Weight.light))
+                        .foregroundColor(.blue)
+                }
+            }.padding(.top, 5)
+            .padding(.horizontal, 20)
+            .frame(width: Constants.screenWidth, height: 40, alignment: .leading)
             
             Spacer()
                 .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
             
             // Ratings
-            VStack{
-                HStack{
-                    Image("ProfilePic1")
-                        .resizable()
-                        .frame(width: 60, height: 60, alignment: .topLeading)
-                    
+            ScrollView{
+                VStack{
+                    // Rating 01
                     VStack{
-                        
-                        // Username
                         HStack{
-                            Text("@JohnSmith")
-                                .foregroundColor(Color(UIColor.systemGray2))
-                        }.frame(width: Constants.screenWidth - 85, height: 20, alignment: .leading)
-                        
-                        // Comment
-                        VStack{
-                            Text("Lorem ipsum dolor sit amet, consectetur adispsicing elit...")
-                                .padding(.trailing, 50)
-                                .frame(width: Constants.screenWidth - 85, height: 50, alignment: .leading)
-                                .multilineTextAlignment(.leading)
+                            Image("ProfilePic1")
+                                .resizable()
+                                .frame(width: 60, height: 60, alignment: .topLeading)
+                            
+                            VStack{
+                                
+                                // Username
+                                HStack{
+                                    Text("@JohnSmith")
+                                        .foregroundColor(Color.gray)
+                                    
+                                    RatingBar()
+                                    
+                                    Spacer()
+                                    
+                                    Text("1 day ago")
+                                        .font(.callout)
+                                        .fontWeight(.light)
+                                        .foregroundColor(Color.gray)
+                                        .padding(.trailing, 25)
+                                }.frame(width: Constants.screenWidth - 85, height: 20, alignment: .leading)
+                                
+                                // Comment
+                                VStack{
+                                    Text("Lorem ipsum dolor sit amet, consectetur adispsicing elit...")
+                                        .padding(.trailing, 50)
+                                        .frame(width: Constants.screenWidth - 85, height: 50, alignment: .leading)
+                                        .multilineTextAlignment(.leading)
+                                }
+                                
+                                
+                            }.frame(width: Constants.screenWidth - 85, height: 50, alignment: .topLeading)
+                            
                         }
                         
+                        Spacer()
+                            .frame(width: Constants.screenWidth, height: 25, alignment: .center)
                         
-                    }.frame(width: Constants.screenWidth - 85, height: 50, alignment: .topLeading)
+                        HStack{
+                            Image("ReviewImage")
+                                .resizable()
+                                .frame(width: 48, height: 48, alignment: .leading)
+                            
+                            Image("ReviewImage")
+                                .resizable()
+                                .frame(width: 48, height: 48, alignment: .leading)
+                            
+                            Image("ReviewImage")
+                                .resizable()
+                                .frame(width: 48, height: 48, alignment: .leading)
+                        }.padding(.leading, 40)
+                        .frame(width: Constants.screenWidth - 85, height: 48, alignment: .leading)
+                        
+                    }.padding(.horizontal, 15)
+                    .frame(width: Constants.screenWidth, height: 150, alignment: .topLeading)
                     
+                    
+                    //Rating 02
+                    VStack{
+                        HStack{
+                            Image("ProfilePic1")
+                                .resizable()
+                                .frame(width: 60, height: 60, alignment: .topLeading)
+                            
+                            VStack{
+                                
+                                // Username
+                                HStack{
+                                    Text("@JohnSmith")
+                                        .foregroundColor(Color.gray)
+                                    
+                                    RatingBar()
+                                    
+                                    Spacer()
+                                    
+                                    Text("1 day ago")
+                                        .font(.callout)
+                                        .fontWeight(.light)
+                                        .foregroundColor(Color.gray)
+                                        .padding(.trailing, 25)
+                                }.frame(width: Constants.screenWidth - 85, height: 20, alignment: .leading)
+                                
+                                // Comment
+                                VStack{
+                                    Text("Lorem ipsum dolor sit amet, consectetur adispsicing elit...")
+                                        .padding(.trailing, 50)
+                                        .frame(width: Constants.screenWidth - 85, height: 50, alignment: .leading)
+                                        .multilineTextAlignment(.leading)
+                                }
+                                
+                                
+                            }.frame(width: Constants.screenWidth - 85, height: 50, alignment: .topLeading)
+                            
+                        }
+                        
+                        Spacer()
+                            .frame(width: Constants.screenWidth, height: 25, alignment: .center)
+                        
+                        HStack{
+                            Image("ReviewImage")
+                                .resizable()
+                                .frame(width: 48, height: 48, alignment: .leading)
+                            
+                            Image("ReviewImage")
+                                .resizable()
+                                .frame(width: 48, height: 48, alignment: .leading)
+                            
+                            Image("ReviewImage")
+                                .resizable()
+                                .frame(width: 48, height: 48, alignment: .leading)
+                        }.padding(.leading, 40)
+                        .frame(width: Constants.screenWidth - 85, height: 48, alignment: .leading)
+                        
+                    }.padding(.horizontal, 15)
+                    .frame(width: Constants.screenWidth, height: 150, alignment: .topLeading)
+
+                    //Rating 03
+                    VStack{
+                        HStack{
+                            Image("ProfilePic1")
+                                .resizable()
+                                .frame(width: 60, height: 60, alignment: .topLeading)
+                            
+                            VStack{
+                                
+                                // Username
+                                HStack{
+                                    Text("@JohnSmith")
+                                        .foregroundColor(Color.gray)
+                                    
+                                    RatingBar()
+                                    
+                                    Spacer()
+                                    
+                                    Text("1 day ago")
+                                        .font(.callout)
+                                        .fontWeight(.light)
+                                        .foregroundColor(Color.gray)
+                                        .padding(.trailing, 25)
+                                }.frame(width: Constants.screenWidth - 85, height: 20, alignment: .leading)
+                                
+                                // Comment
+                                VStack{
+                                    Text("Lorem ipsum dolor sit amet, consectetur adispsicing elit...")
+                                        .padding(.trailing, 50)
+                                        .frame(width: Constants.screenWidth - 85, height: 50, alignment: .leading)
+                                        .multilineTextAlignment(.leading)
+                                }
+                                
+                                
+                            }.frame(width: Constants.screenWidth - 85, height: 50, alignment: .topLeading)
+                            
+                        }
+                        
+                        Spacer()
+                            .frame(width: Constants.screenWidth, height: 25, alignment: .center)
+                        
+                        HStack{
+                            Image("ReviewImage")
+                                .resizable()
+                                .frame(width: 48, height: 48, alignment: .leading)
+                            
+                            Image("ReviewImage")
+                                .resizable()
+                                .frame(width: 48, height: 48, alignment: .leading)
+                            
+                            Image("ReviewImage")
+                                .resizable()
+                                .frame(width: 48, height: 48, alignment: .leading)
+                        }.padding(.leading, 40)
+                        .frame(width: Constants.screenWidth - 85, height: 48, alignment: .leading)
+                        
+                    }.padding(.horizontal, 15)
+                    .frame(width: Constants.screenWidth, height: 150, alignment: .topLeading)
+
+                    //Rating 04
+                    VStack{
+                        HStack{
+                            Image("ProfilePic1")
+                                .resizable()
+                                .frame(width: 60, height: 60, alignment: .topLeading)
+                            
+                            VStack{
+                                
+                                // Username
+                                HStack{
+                                    Text("@JohnSmith")
+                                        .foregroundColor(Color.gray)
+                                    
+                                    RatingBar()
+                                    
+                                    Spacer()
+                                    
+                                    Text("1 day ago")
+                                        .font(.callout)
+                                        .fontWeight(.light)
+                                        .foregroundColor(Color.gray)
+                                        .padding(.trailing, 25)
+                                }.frame(width: Constants.screenWidth - 85, height: 20, alignment: .leading)
+                                
+                                // Comment
+                                VStack{
+                                    Text("Lorem ipsum dolor sit amet, consectetur adispsicing elit...")
+                                        .padding(.trailing, 50)
+                                        .frame(width: Constants.screenWidth - 85, height: 50, alignment: .leading)
+                                        .multilineTextAlignment(.leading)
+                                }
+                                
+                                
+                            }.frame(width: Constants.screenWidth - 85, height: 50, alignment: .topLeading)
+                            
+                        }
+                        
+                        Spacer()
+                            .frame(width: Constants.screenWidth, height: 25, alignment: .center)
+                        
+                        HStack{
+                            Image("ReviewImage")
+                                .resizable()
+                                .frame(width: 48, height: 48, alignment: .leading)
+                            
+                            Image("ReviewImage")
+                                .resizable()
+                                .frame(width: 48, height: 48, alignment: .leading)
+                            
+                            Image("ReviewImage")
+                                .resizable()
+                                .frame(width: 48, height: 48, alignment: .leading)
+                        }.padding(.leading, 40)
+                        .frame(width: Constants.screenWidth - 85, height: 48, alignment: .leading)
+                        
+                    }.padding(.horizontal, 15)
+                    .frame(width: Constants.screenWidth, height: 150, alignment: .topLeading)
+
                 }
-                
-                Spacer()
-                    .frame(width: Constants.screenWidth, height: 20, alignment: .center)
-                
-                HStack{
-                    Image("ReviewImage")
-                        .resizable()
-                        .frame(width: 48, height: 48, alignment: .leading)
-                    
-                    Image("ReviewImage")
-                        .resizable()
-                        .frame(width: 48, height: 48, alignment: .leading)
-                    
-                    Image("ReviewImage")
-                        .resizable()
-                        .frame(width: 48, height: 48, alignment: .leading)
-                }.padding(.leading, 40)
-                .frame(width: Constants.screenWidth - 85, height: 48, alignment: .leading)
-                
-            }.padding(.horizontal, 15)
-            .frame(width: Constants.screenWidth, height: 150, alignment: .topLeading)
+            }.frame(width: Constants.screenWidth, height: 300, alignment: .topLeading)
             
             CustomButton(title: "Write a Review", foregroundColor: .white, backgroundColor: .blue)
-            
         }.frame(width: Constants.screenWidth, height: UIScreen.main.bounds.height, alignment: .top)
         .ignoresSafeArea()
     }
