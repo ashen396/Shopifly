@@ -14,6 +14,7 @@
 		040C44A02DA7991C00B183B5 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C449F2DA7991C00B183B5 /* CardView.swift */; };
 		040F59942DAD0D60002A5FA7 /* CompareProductsSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F59932DAD0D60002A5FA7 /* CompareProductsSearchView.swift */; };
 		040F59992DAD10A5002A5FA7 /* CompareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F59982DAD10A5002A5FA7 /* CompareButton.swift */; };
+		040F59AC2DAD23F9002A5FA7 /* CompareProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F59AB2DAD23F9002A5FA7 /* CompareProductsView.swift */; };
 		041016C32DA36DCF00371293 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 041016C22DA36DCF00371293 /* GoogleService-Info.plist */; };
 		0415D5A82DAA8372008B11CC /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415D5A72DAA8372008B11CC /* ProductListView.swift */; };
 		0421D0682DAA90C200677FFF /* SearchscreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0421D0672DAA90C200677FFF /* SearchscreenView.swift */; };
@@ -65,6 +66,7 @@
 		040C449F2DA7991C00B183B5 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		040F59932DAD0D60002A5FA7 /* CompareProductsSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareProductsSearchView.swift; sourceTree = "<group>"; };
 		040F59982DAD10A5002A5FA7 /* CompareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareButton.swift; sourceTree = "<group>"; };
+		040F59AB2DAD23F9002A5FA7 /* CompareProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareProductsView.swift; sourceTree = "<group>"; };
 		041016C22DA36DCF00371293 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0415D5A72DAA8372008B11CC /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
 		0421D0672DAA90C200677FFF /* SearchscreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchscreenView.swift; sourceTree = "<group>"; };
@@ -143,16 +145,17 @@
 		040C32702D9856FF006325BA /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				040F59A02DAD1EDA002A5FA7 /* CompareProductsSearch */,
-				0468C3E42DABFCF100960B31 /* NearByShops */,
-				04A727192DABBEE900A894FD /* UserProfile */,
-				0421D0782DAAA22100677FFF /* Productscreen */,
-				0421D06F2DAA9CF600677FFF /* Wishlist */,
-				0421D0632DAA909C00677FFF /* Searchscreen */,
-				040C44992DA780E900B183B5 /* Homescreen */,
-				04826A312DA6D39A00F05667 /* OTP */,
-				04267E8F2D98595D001768AE /* SignUp */,
 				04267E882D98583F001768AE /* Login */,
+				04267E8F2D98595D001768AE /* SignUp */,
+				04826A312DA6D39A00F05667 /* OTP */,
+				040C44992DA780E900B183B5 /* Homescreen */,
+				0421D0632DAA909C00677FFF /* Searchscreen */,
+				0421D06F2DAA9CF600677FFF /* Wishlist */,
+				0468C3E42DABFCF100960B31 /* NearByShops */,
+				0421D0782DAAA22100677FFF /* Productscreen */,
+				04A727192DABBEE900A894FD /* UserProfile */,
+				040F59A02DAD1EDA002A5FA7 /* CompareProductsSearch */,
+				040F59AA2DAD23DC002A5FA7 /* CompareProducts */,
 				040C32622D98226D006325BA /* Components */,
 			);
 			path = Features;
@@ -172,6 +175,14 @@
 				040F59932DAD0D60002A5FA7 /* CompareProductsSearchView.swift */,
 			);
 			path = CompareProductsSearch;
+			sourceTree = "<group>";
+		};
+		040F59AA2DAD23DC002A5FA7 /* CompareProducts */ = {
+			isa = PBXGroup;
+			children = (
+				040F59AB2DAD23F9002A5FA7 /* CompareProductsView.swift */,
+			);
+			path = CompareProducts;
 			sourceTree = "<group>";
 		};
 		0421D0632DAA909C00677FFF /* Searchscreen */ = {
@@ -464,6 +475,7 @@
 				0468C3E62DABFD0500960B31 /* NearByShopsView.swift in Sources */,
 				040C326C2D982FDB006325BA /* CustomTextField.swift in Sources */,
 				04267E912D98596F001768AE /* SignUpView.swift in Sources */,
+				040F59AC2DAD23F9002A5FA7 /* CompareProductsView.swift in Sources */,
 				0485783E2DA79D260071C78E /* CardStack.swift in Sources */,
 				04BCCE312DAA439B00D0924A /* Constants.swift in Sources */,
 				04826A332DA6D3AA00F05667 /* OTPView.swift in Sources */,
