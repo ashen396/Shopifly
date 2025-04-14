@@ -12,13 +12,17 @@
 		040C44942DA77D1400B183B5 /* OTPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C44932DA77D1400B183B5 /* OTPTextField.swift */; };
 		040C449B2DA780F700B183B5 /* HomescreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C449A2DA780F700B183B5 /* HomescreenView.swift */; };
 		040C44A02DA7991C00B183B5 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C449F2DA7991C00B183B5 /* CardView.swift */; };
+		040F59942DAD0D60002A5FA7 /* CompareProductsSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F59932DAD0D60002A5FA7 /* CompareProductsSearchView.swift */; };
+		040F59992DAD10A5002A5FA7 /* CompareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F59982DAD10A5002A5FA7 /* CompareButton.swift */; };
 		041016C32DA36DCF00371293 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 041016C22DA36DCF00371293 /* GoogleService-Info.plist */; };
 		0415D5A82DAA8372008B11CC /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415D5A72DAA8372008B11CC /* ProductListView.swift */; };
 		0421D0682DAA90C200677FFF /* SearchscreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0421D0672DAA90C200677FFF /* SearchscreenView.swift */; };
 		0421D0712DAA9D0200677FFF /* WishlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0421D0702DAA9D0200677FFF /* WishlistView.swift */; };
+		0421D07A2DAAA23000677FFF /* ProductscreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0421D0792DAAA23000677FFF /* ProductscreenView.swift */; };
 		04267E842D985831001768AE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04267E832D985830001768AE /* LoginView.swift */; };
 		04267E912D98596F001768AE /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04267E902D98596F001768AE /* SignUpView.swift */; };
 		04571D0C2DA6AC3D0010C3D4 /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04571D0B2DA6AC3D0010C3D4 /* NavigationButton.swift */; };
+		0468C3E62DABFD0500960B31 /* NearByShopsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0468C3E52DABFD0500960B31 /* NearByShopsView.swift */; };
 		0468DBFA2D97A98B0006A7CA /* ShopiflyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0468DBF92D97A98B0006A7CA /* ShopiflyApp.swift */; };
 		0468DBFC2D97A98B0006A7CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0468DBFB2D97A98B0006A7CA /* ContentView.swift */; };
 		0468DBFE2D97A98D0006A7CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0468DBFD2D97A98D0006A7CA /* Assets.xcassets */; };
@@ -30,7 +34,10 @@
 		04826A332DA6D3AA00F05667 /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04826A322DA6D3AA00F05667 /* OTPView.swift */; };
 		0485783E2DA79D260071C78E /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485783D2DA79D260071C78E /* CardStack.swift */; };
 		048578432DA7B9AE0071C78E /* ProductCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048578422DA7B9AE0071C78E /* ProductCardView.swift */; };
+		04A727152DABB5A900A894FD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A727142DABB5A900A894FD /* MapKit.framework */; };
+		04A7271B2DABC66700A894FD /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7271A2DABC66700A894FD /* UserProfileView.swift */; };
 		04BCCE312DAA439B00D0924A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCCE302DAA439B00D0924A /* Constants.swift */; };
+		04BF660B2DABA6A1002F0B7E /* RatingBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BF660A2DABA6A1002F0B7E /* RatingBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,13 +63,17 @@
 		040C44932DA77D1400B183B5 /* OTPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPTextField.swift; sourceTree = "<group>"; };
 		040C449A2DA780F700B183B5 /* HomescreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomescreenView.swift; sourceTree = "<group>"; };
 		040C449F2DA7991C00B183B5 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		040F59932DAD0D60002A5FA7 /* CompareProductsSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareProductsSearchView.swift; sourceTree = "<group>"; };
+		040F59982DAD10A5002A5FA7 /* CompareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareButton.swift; sourceTree = "<group>"; };
 		041016C22DA36DCF00371293 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0415D5A72DAA8372008B11CC /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
 		0421D0672DAA90C200677FFF /* SearchscreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchscreenView.swift; sourceTree = "<group>"; };
 		0421D0702DAA9D0200677FFF /* WishlistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistView.swift; sourceTree = "<group>"; };
+		0421D0792DAAA23000677FFF /* ProductscreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductscreenView.swift; sourceTree = "<group>"; };
 		04267E832D985830001768AE /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		04267E902D98596F001768AE /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		04571D0B2DA6AC3D0010C3D4 /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
+		0468C3E52DABFD0500960B31 /* NearByShopsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearByShopsView.swift; sourceTree = "<group>"; };
 		0468DBF62D97A98B0006A7CA /* Shopifly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shopifly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0468DBF92D97A98B0006A7CA /* ShopiflyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopiflyApp.swift; sourceTree = "<group>"; };
 		0468DBFB2D97A98B0006A7CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -80,7 +91,10 @@
 		04826A322DA6D3AA00F05667 /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
 		0485783D2DA79D260071C78E /* CardStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStack.swift; sourceTree = "<group>"; };
 		048578422DA7B9AE0071C78E /* ProductCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardView.swift; sourceTree = "<group>"; };
+		04A727142DABB5A900A894FD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		04A7271A2DABC66700A894FD /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		04BCCE302DAA439B00D0924A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		04BF660A2DABA6A1002F0B7E /* RatingBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04A727152DABB5A900A894FD /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +134,8 @@
 				0485783D2DA79D260071C78E /* CardStack.swift */,
 				048578422DA7B9AE0071C78E /* ProductCardView.swift */,
 				0415D5A72DAA8372008B11CC /* ProductListView.swift */,
+				04BF660A2DABA6A1002F0B7E /* RatingBar.swift */,
+				040F59982DAD10A5002A5FA7 /* CompareButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -126,6 +143,10 @@
 		040C32702D9856FF006325BA /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				040F59A02DAD1EDA002A5FA7 /* CompareProductsSearch */,
+				0468C3E42DABFCF100960B31 /* NearByShops */,
+				04A727192DABBEE900A894FD /* UserProfile */,
+				0421D0782DAAA22100677FFF /* Productscreen */,
 				0421D06F2DAA9CF600677FFF /* Wishlist */,
 				0421D0632DAA909C00677FFF /* Searchscreen */,
 				040C44992DA780E900B183B5 /* Homescreen */,
@@ -145,6 +166,14 @@
 			path = Homescreen;
 			sourceTree = "<group>";
 		};
+		040F59A02DAD1EDA002A5FA7 /* CompareProductsSearch */ = {
+			isa = PBXGroup;
+			children = (
+				040F59932DAD0D60002A5FA7 /* CompareProductsSearchView.swift */,
+			);
+			path = CompareProductsSearch;
+			sourceTree = "<group>";
+		};
 		0421D0632DAA909C00677FFF /* Searchscreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +188,14 @@
 				0421D0702DAA9D0200677FFF /* WishlistView.swift */,
 			);
 			path = Wishlist;
+			sourceTree = "<group>";
+		};
+		0421D0782DAAA22100677FFF /* Productscreen */ = {
+			isa = PBXGroup;
+			children = (
+				0421D0792DAAA23000677FFF /* ProductscreenView.swift */,
+			);
+			path = Productscreen;
 			sourceTree = "<group>";
 		};
 		04267E882D98583F001768AE /* Login */ = {
@@ -177,6 +214,14 @@
 			path = SignUp;
 			sourceTree = "<group>";
 		};
+		0468C3E42DABFCF100960B31 /* NearByShops */ = {
+			isa = PBXGroup;
+			children = (
+				0468C3E52DABFD0500960B31 /* NearByShopsView.swift */,
+			);
+			path = NearByShops;
+			sourceTree = "<group>";
+		};
 		0468DBED2D97A98B0006A7CA = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +229,7 @@
 				0468DC0F2D97A98D0006A7CA /* ShopiflyTests */,
 				0468DC1A2D97A98D0006A7CA /* ShopiflyUITests */,
 				0468DBF72D97A98B0006A7CA /* Products */,
+				04A727132DABB5A900A894FD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -246,6 +292,22 @@
 				04826A322DA6D3AA00F05667 /* OTPView.swift */,
 			);
 			path = OTP;
+			sourceTree = "<group>";
+		};
+		04A727132DABB5A900A894FD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				04A727142DABB5A900A894FD /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		04A727192DABBEE900A894FD /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				04A7271A2DABC66700A894FD /* UserProfileView.swift */,
+			);
+			path = UserProfile;
 			sourceTree = "<group>";
 		};
 		04BCCE2F2DAA437500D0924A /* Resources */ = {
@@ -392,18 +454,24 @@
 			files = (
 				04267E842D985831001768AE /* LoginView.swift in Sources */,
 				0421D0712DAA9D0200677FFF /* WishlistView.swift in Sources */,
+				0421D07A2DAAA23000677FFF /* ProductscreenView.swift in Sources */,
 				0468DC032D97A98D0006A7CA /* Persistence.swift in Sources */,
 				0421D0682DAA90C200677FFF /* SearchscreenView.swift in Sources */,
 				04571D0C2DA6AC3D0010C3D4 /* NavigationButton.swift in Sources */,
 				0468DBFC2D97A98B0006A7CA /* ContentView.swift in Sources */,
+				040F59942DAD0D60002A5FA7 /* CompareProductsSearchView.swift in Sources */,
+				04A7271B2DABC66700A894FD /* UserProfileView.swift in Sources */,
+				0468C3E62DABFD0500960B31 /* NearByShopsView.swift in Sources */,
 				040C326C2D982FDB006325BA /* CustomTextField.swift in Sources */,
 				04267E912D98596F001768AE /* SignUpView.swift in Sources */,
 				0485783E2DA79D260071C78E /* CardStack.swift in Sources */,
 				04BCCE312DAA439B00D0924A /* Constants.swift in Sources */,
 				04826A332DA6D3AA00F05667 /* OTPView.swift in Sources */,
+				040F59992DAD10A5002A5FA7 /* CompareButton.swift in Sources */,
 				040C44A02DA7991C00B183B5 /* CardView.swift in Sources */,
 				048578432DA7B9AE0071C78E /* ProductCardView.swift in Sources */,
 				040C44942DA77D1400B183B5 /* OTPTextField.swift in Sources */,
+				04BF660B2DABA6A1002F0B7E /* RatingBar.swift in Sources */,
 				0468DBFA2D97A98B0006A7CA /* ShopiflyApp.swift in Sources */,
 				0468DC062D97A98D0006A7CA /* Shopifly.xcdatamodeld in Sources */,
 				0415D5A82DAA8372008B11CC /* ProductListView.swift in Sources */,
