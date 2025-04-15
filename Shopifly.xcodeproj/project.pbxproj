@@ -42,6 +42,7 @@
 		04A7271B2DABC66700A894FD /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7271A2DABC66700A894FD /* UserProfileView.swift */; };
 		04BCCE312DAA439B00D0924A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCCE302DAA439B00D0924A /* Constants.swift */; };
 		04BF660B2DABA6A1002F0B7E /* RatingBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BF660A2DABA6A1002F0B7E /* RatingBar.swift */; };
+		04FEA4312DAE73C100B058F0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FEA4302DAE73C100B058F0 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		04A7271A2DABC66700A894FD /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		04BCCE302DAA439B00D0924A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		04BF660A2DABA6A1002F0B7E /* RatingBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingBar.swift; sourceTree = "<group>"; };
+		04FEA4302DAE73C100B058F0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 				0421D0632DAA909C00677FFF /* Searchscreen */,
 				0421D06F2DAA9CF600677FFF /* Wishlist */,
 				040F59B02DAD3B57002A5FA7 /* AddItem */,
+				04FEA42F2DAE73AB00B058F0 /* Settings */,
 				0468C3E42DABFCF100960B31 /* NearByShops */,
 				0421D0782DAAA22100677FFF /* Productscreen */,
 				04A727192DABBEE900A894FD /* UserProfile */,
@@ -362,6 +365,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		04FEA42F2DAE73AB00B058F0 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				04FEA4302DAE73C100B058F0 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -511,6 +522,7 @@
 				04267E912D98596F001768AE /* SignUpView.swift in Sources */,
 				044CC0DE2DAE23A3001BB8CF /* ReportProductView.swift in Sources */,
 				044CC0D52DAE1C86001BB8CF /* WriteReviewView.swift in Sources */,
+				04FEA4312DAE73C100B058F0 /* SettingsView.swift in Sources */,
 				040F59AC2DAD23F9002A5FA7 /* CompareProductsView.swift in Sources */,
 				0485783E2DA79D260071C78E /* CardStack.swift in Sources */,
 				04BCCE312DAA439B00D0924A /* Constants.swift in Sources */,
