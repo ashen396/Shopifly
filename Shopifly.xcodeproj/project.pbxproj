@@ -23,6 +23,7 @@
 		0421D07A2DAAA23000677FFF /* ProductscreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0421D0792DAAA23000677FFF /* ProductscreenView.swift */; };
 		04267E842D985831001768AE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04267E832D985830001768AE /* LoginView.swift */; };
 		04267E912D98596F001768AE /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04267E902D98596F001768AE /* SignUpView.swift */; };
+		044CC0D52DAE1C86001BB8CF /* WriteReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CC0D42DAE1C86001BB8CF /* WriteReviewView.swift */; };
 		04571D0C2DA6AC3D0010C3D4 /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04571D0B2DA6AC3D0010C3D4 /* NavigationButton.swift */; };
 		0468C3E62DABFD0500960B31 /* NearByShopsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0468C3E52DABFD0500960B31 /* NearByShopsView.swift */; };
 		0468DBFA2D97A98B0006A7CA /* ShopiflyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0468DBF92D97A98B0006A7CA /* ShopiflyApp.swift */; };
@@ -76,6 +77,7 @@
 		0421D0792DAAA23000677FFF /* ProductscreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductscreenView.swift; sourceTree = "<group>"; };
 		04267E832D985830001768AE /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		04267E902D98596F001768AE /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		044CC0D42DAE1C86001BB8CF /* WriteReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewView.swift; sourceTree = "<group>"; };
 		04571D0B2DA6AC3D0010C3D4 /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
 		0468C3E52DABFD0500960B31 /* NearByShopsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearByShopsView.swift; sourceTree = "<group>"; };
 		0468DBF62D97A98B0006A7CA /* Shopifly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shopifly.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +159,7 @@
 				0468C3E42DABFCF100960B31 /* NearByShops */,
 				0421D0782DAAA22100677FFF /* Productscreen */,
 				04A727192DABBEE900A894FD /* UserProfile */,
+				044CC0D32DAE1C71001BB8CF /* WriteReview */,
 				040F59A02DAD1EDA002A5FA7 /* CompareProductsSearch */,
 				040F59AA2DAD23DC002A5FA7 /* CompareProducts */,
 				040C32622D98226D006325BA /* Components */,
@@ -234,6 +237,14 @@
 				04267E902D98596F001768AE /* SignUpView.swift */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		044CC0D32DAE1C71001BB8CF /* WriteReview */ = {
+			isa = PBXGroup;
+			children = (
+				044CC0D42DAE1C86001BB8CF /* WriteReviewView.swift */,
+			);
+			path = WriteReview;
 			sourceTree = "<group>";
 		};
 		0468C3E42DABFCF100960B31 /* NearByShops */ = {
@@ -487,6 +498,7 @@
 				040F59B22DAD3B71002A5FA7 /* AddItemView.swift in Sources */,
 				040C326C2D982FDB006325BA /* CustomTextField.swift in Sources */,
 				04267E912D98596F001768AE /* SignUpView.swift in Sources */,
+				044CC0D52DAE1C86001BB8CF /* WriteReviewView.swift in Sources */,
 				040F59AC2DAD23F9002A5FA7 /* CompareProductsView.swift in Sources */,
 				0485783E2DA79D260071C78E /* CardStack.swift in Sources */,
 				04BCCE312DAA439B00D0924A /* Constants.swift in Sources */,
