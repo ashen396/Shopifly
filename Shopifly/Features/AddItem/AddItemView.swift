@@ -132,6 +132,9 @@ struct AddItemView: View {
                 }
             }
         }.frame(width: Constants.screenWidth, height: Constants.screenHeight - 120, alignment: .top)
+        .navigationBarBackButtonHidden(true)
+        .navigationBarHidden(true)
+        .gesture(DragGesture())
     }
 }
 

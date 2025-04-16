@@ -63,6 +63,9 @@ struct SettingsView: View {
                 CustomButton(title: "Update", foregroundColor: .white, backgroundColor: .blue)
             }
         }.frame(width: Constants.screenWidth, height: Constants.screenHeight - 150, alignment: .top)
+        .navigationBarBackButtonHidden(true)
+        .navigationBarHidden(true)
+        .gesture(DragGesture())
     }
 }
 

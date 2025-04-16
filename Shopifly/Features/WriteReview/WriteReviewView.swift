@@ -113,9 +113,12 @@ struct WriteReviewView: View {
                         .frame(width: Constants.screenWidth, height: Constants.spacingHeight2, alignment: .center)
                     
                     CustomButton(title: "Post Review", foregroundColor: .white, backgroundColor: .blue)
+                    
+                    Spacer()
+                        .frame(width: Constants.screenWidth, height: Constants.spacingHeight2, alignment: .center)
                 }
             }
-        }.frame(width: Constants.screenWidth, height: Constants.screenHeight - 150, alignment: .top)
+        }.frame(width: Constants.screenWidth, height: Constants.screenHeight, alignment: .top)
     }
 }
 

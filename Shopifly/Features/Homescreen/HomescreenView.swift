@@ -50,7 +50,7 @@ struct HomescreenView: View{
             }.padding(.horizontal, 25)
             .frame(width: UIScreen.main.bounds.width, height: 50, alignment: .leading)
     
-            CustomTextField(title: "Search", bindState: $search)
+            CustomImageTextField(title: "Search", bindState: $search, imageName: "magnifyingglass")
             
             Spacer()
                 .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
@@ -102,13 +102,19 @@ struct HomescreenView: View{
                     .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
                 
                 LazyVStack{
-                    ProductListView()
+                    NavigationLink(
+                        destination: ProductNavigationView(),
+                        label: {
+                            ProductListView()
+                    })
                     ProductListView()
                     ProductListView()
                     ProductListView()
                 }
             }
-        }
+        }.navigationBarBackButtonHidden(true)
+        .navigationBarHidden(true)
+        .gesture(DragGesture())
     }
 }
 

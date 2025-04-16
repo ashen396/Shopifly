@@ -36,8 +36,14 @@ struct LoginView: View {
                 // Email Textfield
                 CustomTextField(title: "Email", bindState: $email)
                 
+                Spacer()
+                    .frame(width: Constants.screenWidth, height: 20, alignment: .center)
+                
                 // Password Textfield
                 CustomTextField(title: "Password", bindState: $password)
+                
+                Spacer()
+                    .frame(width: Constants.screenWidth, height: 15, alignment: .center)
                 
                 // Forgot Password
                 HStack{
@@ -47,9 +53,10 @@ struct LoginView: View {
                 }.frame(minWidth: 0, idealWidth: 100, maxWidth: .infinity, minHeight: 20, idealHeight: 20, maxHeight: 20, alignment: .trailing)
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 20))
                 .padding(.bottom, 25)
+                .padding(.trailing, 10)
                 
                 // Login Button
-                CustomButton(title: "Continue", foregroundColor: Color.white, backgroundColor: Color.blue)
+                NavigationButton(title: "Continue", foregroundColor: .white, backgroundColor: .blue, destination: HomeNavigationView())
 
                 
                 // Separator
@@ -78,9 +85,15 @@ struct LoginView: View {
 //                    })
                     NavigationButton(title: "Continue with Apple", foregroundColor: Color.white, backgroundColor: Color.black, stroke: false, padding: 0, destination: SignUpView())
                     
+                    Spacer()
+                        .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
+                    
                     // Login with Google Button
                     NavigationButton(title: "Continue with Google", foregroundColor: Color.black, backgroundColor: Color.white, stroke: true, padding: 0, destination: SignUpView())
                 }.padding(.top, 15)
+                
+                Spacer()
+                    .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
                 
                 Text("By continuing, you agree to Shopifly’s Terms & Conditions")
                     .font(.caption)

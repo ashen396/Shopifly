@@ -10,9 +10,6 @@ import SwiftUI
 struct WishlistView: View {
     var body: some View {
         VStack{
-            Spacer()
-                .frame(width: Constants.screenWidth, height: 40, alignment: .center)
-            
             // Header
             HStack{
                 Text("Wish List")
@@ -36,7 +33,10 @@ struct WishlistView: View {
                 }
             }
             
-        }.frame(width: Constants.screenWidth, height: Constants.screenHeight, alignment: .topLeading)
+        }.frame(width: Constants.screenWidth, height: Constants.screenHeight - 120, alignment: .topLeading)
+        .navigationBarBackButtonHidden(true)
+        .navigationBarHidden(true)
+        .gesture(DragGesture())
     }
 }
 

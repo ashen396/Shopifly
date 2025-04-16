@@ -20,26 +20,62 @@ struct SignUpView: View{
     var body: some View{
         VStack{
             Text("Sign Up")
-                .font(.largeTitle)
+                .font(.system(size: 40))
                 .fontWeight(.bold)
             
             VStack{
-                CustomTextField(title: "First Name", bindState: $fname)
+                Group{
+                    CustomTextField(title: "First Name", bindState: $fname)
+                    
+                    Spacer()
+                        .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
+                }
                 
-                CustomTextField(title: "Last Name", bindState: $lname)
+                Group{
+                    CustomTextField(title: "Last Name", bindState: $lname)
+                    
+                    Spacer()
+                        .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
+                }
                 
-                CustomTextField(title: "Email", bindState: $lname)
+                Group{
+                    CustomTextField(title: "Email", bindState: $lname)
+                   
+                    Spacer()
+                        .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
+                }
                 
-                CustomTextField(title: "Mobile", bindState: $lname)
+                Group{
+                    CustomTextField(title: "Mobile", bindState: $lname)
+                    
+                    Spacer()
+                        .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
+                }
                 
-                CustomTextField(title: "Location", bindState: $lname)
+                Group{
+                    CustomTextField(title: "Location", bindState: $lname)
+                    
+                    Spacer()
+                        .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
+                }
                 
-                CustomTextField(title: "Password", bindState: $lname)
+                Group{
+                    CustomTextField(title: "Password", bindState: $lname)
+                    
+                    Spacer()
+                        .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
+                }
                 
-                CustomTextField(title: "Confirm Password", bindState: $lname)
+                Group{
+                    CustomTextField(title: "Confirm Password", bindState: $lname)
+                    
+                    Spacer()
+                        .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
+                }
             }
             
             Toggle("By clicking the checkbox, you accept to follow the terms and conditions. View terms & conditions", isOn: $isChecked)
+                .padding(.horizontal, 40)
             
             NavigationButton(title: "Continue", foregroundColor: Color.white, backgroundColor: Color.blue, destination: OTPView())
 

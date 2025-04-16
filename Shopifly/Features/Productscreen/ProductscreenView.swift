@@ -115,9 +115,13 @@ struct ProductscreenView: View {
                     // Rating 01
                     VStack{
                         HStack{
-                            Image("ProfilePic1")
-                                .resizable()
-                                .frame(width: 60, height: 60, alignment: .topLeading)
+                            NavigationLink(
+                                destination: UserProfileView(),
+                                label: {
+                                    Image("ProfilePic1")
+                                        .resizable()
+                                        .frame(width: 60, height: 60, alignment: .topLeading)
+                                })
                             
                             VStack{
                                 
@@ -347,14 +351,17 @@ struct ProductscreenView: View {
                         .frame(width: Constants.screenWidth - 85, height: 48, alignment: .leading)
                         
                     }.padding(.horizontal, 15)
-                    .frame(width: Constants.screenWidth, height: 150, alignment: .topLeading)
+                    .frame(width: Constants.screenWidth, height: 120, alignment: .topLeading)
 
                 }
-            }.frame(width: Constants.screenWidth, height: 300, alignment: .topLeading)
+            }.frame(width: Constants.screenWidth, height: 270, alignment: .topLeading)
             
-            CustomButton(title: "Write a Review", foregroundColor: .white, backgroundColor: .blue)
+            NavigationButton(title: "Write a Review", foregroundColor: .white, backgroundColor: .blue, destination: WriteReviewView())
         }.frame(width: Constants.screenWidth, height: UIScreen.main.bounds.height, alignment: .top)
         .ignoresSafeArea()
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
+        .gesture(DragGesture())
     }
 }
 
