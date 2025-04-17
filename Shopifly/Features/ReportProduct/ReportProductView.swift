@@ -14,12 +14,17 @@ struct ReportProductView: View {
     
     var body: some View {
         VStack{
-            HStack{
-                Text("Report Item")
-                    .font(.title)
-                    .fontWeight(.bold)
-            }.padding(.horizontal, 25)
-            .frame(width: Constants.screenWidth, height: 30, alignment: .leading)
+            Group{
+                Spacer()
+                    .frame(width: Constants.screenWidth, height: Constants.spacingHeight2, alignment: .center)
+                
+                HStack{
+                    Text("Report Item")
+                        .font(.title)
+                        .fontWeight(.bold)
+                }.padding(.horizontal, 25)
+                .frame(width: Constants.screenWidth, height: 30, alignment: .leading)
+            }
             
             Spacer()
                 .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
@@ -79,7 +84,7 @@ struct ReportProductView: View {
             
             CustomButton(title: "Report", foregroundColor: .white, backgroundColor: .blue)
             
-        }.frame(width: Constants.screenWidth, height: Constants.screenHeight - 150, alignment: .top)
+        }.frame(width: Constants.screenWidth, height: Constants.screenHeight, alignment: .top)
     }
 }
 

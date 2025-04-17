@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ProductscreenView: View {
+    
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         VStack{
             LinearGradient(gradient: Gradient(colors: [Color(red: 0.44, green: 0.03, blue: 0.07, opacity: 1.00), Color(red: 0.84, green: 0.02, blue: 0.12, opacity: 1.00)]), startPoint: .top, endPoint: .bottom)
@@ -30,26 +33,37 @@ struct ProductscreenView: View {
                         }
                         
                         HStack{
-                            Image(systemName: "chevron.left")
-                                .resizable()
-                                .frame(width: 15, height: 25, alignment: .center)
-                                .foregroundColor(.white)
-                                
-                            Text("Browse")
-                                .foregroundColor(.white)
+                            
+                            Button(action: {
+                                self.presentationMode.wrappedValue.dismiss()
+                            }, label: {
+                                Group{
+                                    Image(systemName: "chevron.left")
+                                        .resizable()
+                                        .frame(width: 15, height: 25, alignment: .center)
+                                        .foregroundColor(.white)
+                                        
+                                    Text("Home")
+                                        .foregroundColor(.white)
+                                }
+                            })
                             
                             Spacer()
                             
-                            ZStack{
-                                RoundedRectangle(cornerRadius: 25.0)
-                                    .frame(width: 32, height: 32, alignment: .center)
-                                    .foregroundColor(.white)
-                                
-                                Image(systemName: "exclamationmark.circle")
-                                    .resizable()
-                                    .frame(width: 25, height: 25, alignment: .center)
-                                    .foregroundColor(.red)
-                            }
+                            NavigationLink(
+                                destination: ReportProductView(),
+                                label: {
+                                    ZStack{
+                                        RoundedRectangle(cornerRadius: 25.0)
+                                            .frame(width: 32, height: 32, alignment: .center)
+                                            .foregroundColor(.white)
+                                        
+                                        Image(systemName: "exclamationmark.circle")
+                                            .resizable()
+                                            .frame(width: 25, height: 25, alignment: .center)
+                                            .foregroundColor(.red)
+                                    }
+                                })
                         }.padding(.horizontal, 25)
                         .frame(width: Constants.screenWidth, height: 40, alignment: .leading)
                         
