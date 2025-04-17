@@ -42,6 +42,11 @@
 		04A7271B2DABC66700A894FD /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7271A2DABC66700A894FD /* UserProfileView.swift */; };
 		04BCCE312DAA439B00D0924A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCCE302DAA439B00D0924A /* Constants.swift */; };
 		04BF660B2DABA6A1002F0B7E /* RatingBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BF660A2DABA6A1002F0B7E /* RatingBar.swift */; };
+		04C7E8DE2DAF7D1B002791EA /* HomeNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C7E8DD2DAF7D1B002791EA /* HomeNavigationView.swift */; };
+		04C7E8E72DAF7DD7002791EA /* ProductNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C7E8E62DAF7DD7002791EA /* ProductNavigationView.swift */; };
+		04C7E8F52DAF97D5002791EA /* CustomImageTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C7E8F42DAF97D5002791EA /* CustomImageTextField.swift */; };
+		04DF2EA42DAFDEB200D2AADD /* AddReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF2EA32DAFDEB200D2AADD /* AddReminderView.swift */; };
+		04E76FD62DAFECB600534308 /* AllProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E76FD52DAFECB600534308 /* AllProductsView.swift */; };
 		04FEA4312DAE73C100B058F0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FEA4302DAE73C100B058F0 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +109,11 @@
 		04A7271A2DABC66700A894FD /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		04BCCE302DAA439B00D0924A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		04BF660A2DABA6A1002F0B7E /* RatingBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingBar.swift; sourceTree = "<group>"; };
+		04C7E8DD2DAF7D1B002791EA /* HomeNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationView.swift; sourceTree = "<group>"; };
+		04C7E8E62DAF7DD7002791EA /* ProductNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProductNavigationView.swift; path = Shopifly/Features/ProductNavigation/ProductNavigationView.swift; sourceTree = SOURCE_ROOT; };
+		04C7E8F42DAF97D5002791EA /* CustomImageTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageTextField.swift; sourceTree = "<group>"; };
+		04DF2EA32DAFDEB200D2AADD /* AddReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReminderView.swift; sourceTree = "<group>"; };
+		04E76FD52DAFECB600534308 /* AllProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllProductsView.swift; sourceTree = "<group>"; };
 		04FEA4302DAE73C100B058F0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +156,7 @@
 				0415D5A72DAA8372008B11CC /* ProductListView.swift */,
 				04BF660A2DABA6A1002F0B7E /* RatingBar.swift */,
 				040F59982DAD10A5002A5FA7 /* CompareButton.swift */,
+				04C7E8F42DAF97D5002791EA /* CustomImageTextField.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -153,16 +164,20 @@
 		040C32702D9856FF006325BA /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				04E76FD42DAFECA700534308 /* AllProducts */,
+				04DF2EA22DAFDE9E00D2AADD /* AddReminder */,
 				04267E882D98583F001768AE /* Login */,
 				04267E8F2D98595D001768AE /* SignUp */,
 				04826A312DA6D39A00F05667 /* OTP */,
 				040C44992DA780E900B183B5 /* Homescreen */,
+				04C7E8BB2DAF67AD002791EA /* HomeNavigation */,
 				0421D0632DAA909C00677FFF /* Searchscreen */,
 				0421D06F2DAA9CF600677FFF /* Wishlist */,
 				040F59B02DAD3B57002A5FA7 /* AddItem */,
 				04FEA42F2DAE73AB00B058F0 /* Settings */,
 				0468C3E42DABFCF100960B31 /* NearByShops */,
 				0421D0782DAAA22100677FFF /* Productscreen */,
+				04C7E8C42DAF6A5A002791EA /* ProductNavigation */,
 				04A727192DABBEE900A894FD /* UserProfile */,
 				044CC0D32DAE1C71001BB8CF /* WriteReview */,
 				044CC0DC2DAE238E001BB8CF /* ReportProduct */,
@@ -365,6 +380,38 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		04C7E8BB2DAF67AD002791EA /* HomeNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				04C7E8DD2DAF7D1B002791EA /* HomeNavigationView.swift */,
+			);
+			path = HomeNavigation;
+			sourceTree = "<group>";
+		};
+		04C7E8C42DAF6A5A002791EA /* ProductNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				04C7E8E62DAF7DD7002791EA /* ProductNavigationView.swift */,
+			);
+			path = ProductNavigation;
+			sourceTree = "<group>";
+		};
+		04DF2EA22DAFDE9E00D2AADD /* AddReminder */ = {
+			isa = PBXGroup;
+			children = (
+				04DF2EA32DAFDEB200D2AADD /* AddReminderView.swift */,
+			);
+			path = AddReminder;
+			sourceTree = "<group>";
+		};
+		04E76FD42DAFECA700534308 /* AllProducts */ = {
+			isa = PBXGroup;
+			children = (
+				04E76FD52DAFECB600534308 /* AllProductsView.swift */,
+			);
+			path = AllProducts;
+			sourceTree = "<group>";
+		};
 		04FEA42F2DAE73AB00B058F0 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -508,6 +555,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04267E842D985831001768AE /* LoginView.swift in Sources */,
+				04E76FD62DAFECB600534308 /* AllProductsView.swift in Sources */,
 				0421D0712DAA9D0200677FFF /* WishlistView.swift in Sources */,
 				0421D07A2DAAA23000677FFF /* ProductscreenView.swift in Sources */,
 				0468DC032D97A98D0006A7CA /* Persistence.swift in Sources */,
@@ -524,14 +572,18 @@
 				044CC0D52DAE1C86001BB8CF /* WriteReviewView.swift in Sources */,
 				04FEA4312DAE73C100B058F0 /* SettingsView.swift in Sources */,
 				040F59AC2DAD23F9002A5FA7 /* CompareProductsView.swift in Sources */,
+				04C7E8E72DAF7DD7002791EA /* ProductNavigationView.swift in Sources */,
 				0485783E2DA79D260071C78E /* CardStack.swift in Sources */,
 				04BCCE312DAA439B00D0924A /* Constants.swift in Sources */,
+				04C7E8F52DAF97D5002791EA /* CustomImageTextField.swift in Sources */,
 				04826A332DA6D3AA00F05667 /* OTPView.swift in Sources */,
 				040F59992DAD10A5002A5FA7 /* CompareButton.swift in Sources */,
 				040C44A02DA7991C00B183B5 /* CardView.swift in Sources */,
+				04C7E8DE2DAF7D1B002791EA /* HomeNavigationView.swift in Sources */,
 				048578432DA7B9AE0071C78E /* ProductCardView.swift in Sources */,
 				040C44942DA77D1400B183B5 /* OTPTextField.swift in Sources */,
 				04BF660B2DABA6A1002F0B7E /* RatingBar.swift in Sources */,
+				04DF2EA42DAFDEB200D2AADD /* AddReminderView.swift in Sources */,
 				0468DBFA2D97A98B0006A7CA /* ShopiflyApp.swift in Sources */,
 				0468DC062D97A98D0006A7CA /* Shopifly.xcdatamodeld in Sources */,
 				0415D5A82DAA8372008B11CC /* ProductListView.swift in Sources */,
