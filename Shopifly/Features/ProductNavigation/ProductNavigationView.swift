@@ -34,7 +34,7 @@ struct ProductNavigationView: View {
                             Text("All Products")
                         }.tag(3)
                     
-                    Text("Navigation")
+                    MapNavigationView()
                         .tabItem {
                             Image(systemName: "safari")
                             Text("Navigation")
