@@ -43,7 +43,7 @@ struct ProductscreenView: View {
                                         .frame(width: 15, height: 25, alignment: .center)
                                         .foregroundColor(.white)
                                         
-                                    Text("Home")
+                                    Text("Back")
                                         .foregroundColor(.white)
                                 }
                             })

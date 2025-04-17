@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct AllProductsView: View {
+    
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         VStack{
             Group{
@@ -16,10 +19,15 @@ struct AllProductsView: View {
                     .frame(width: Constants.screenWidth, height: 25, alignment: .center)
                 
                 HStack{
-                    Image(systemName: "xmark.circle.fill")
-                        .resizable()
-                        .frame(width: 25, height: 25, alignment: .center)
-                        .foregroundColor(.gray)
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        Image(systemName: "xmark.circle.fill")
+                            .resizable()
+                            .frame(width: 25, height: 25, alignment: .center)
+                            .foregroundColor(.gray)
+                    })
+                    
                 }.padding(.horizontal, 25)
                 .frame(width: Constants.screenWidth, height: 50, alignment: .trailing)
                 

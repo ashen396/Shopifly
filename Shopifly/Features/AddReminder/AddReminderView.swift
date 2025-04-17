@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AddReminderView: View {
+    @Environment(\.presentationMode) var presentationMode
     @State private var dateSelected: Date = Date()
     
     var body: some View {
@@ -17,10 +18,14 @@ struct AddReminderView: View {
                     .frame(width: Constants.screenWidth, height: 20, alignment: .center)
                 
                 HStack{
-                    Image(systemName: "xmark.circle.fill")
-                        .resizable()
-                        .frame(width: 25, height: 25, alignment: .center)
-                        .foregroundColor(.gray)
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        Image(systemName: "xmark.circle.fill")
+                            .resizable()
+                            .frame(width: 25, height: 25, alignment: .center)
+                            .foregroundColor(.gray)
+                    })
                 }.padding(.horizontal, 25)
                 .frame(width: Constants.screenWidth, height: 50, alignment: .trailing)
             }
