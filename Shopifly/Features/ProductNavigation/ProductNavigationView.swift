@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProductNavigationView: View {
     
-    @State private var isCalendarVisible: Bool = false
+    @State private var isSheetVisible: Bool = false
     @State private var selectedTab: Int = 1
     
     var body: some View {
@@ -28,7 +28,7 @@ struct ProductNavigationView: View {
                         }.tag(2)
                     
                     
-                    Text("All Products")
+                    ProductscreenView()
                         .tabItem {
                             Image(systemName: "archivebox")
                             Text("All Products")
@@ -41,16 +41,22 @@ struct ProductNavigationView: View {
                         }.tag(4)
                     
                 }).onChange(of: selectedTab, perform: { value in
-                    if(self.selectedTab == 2){
-                        self.isCalendarVisible = true
-                        self.selectedTab = 1
+                    if(self.selectedTab == 2 || self.selectedTab == 3){
+                        self.isSheetVisible = true
                     }
                 })
             
-            .sheet(isPresented: $isCalendarVisible, onDismiss: {
-                self.isCalendarVisible = false
+            .sheet(isPresented: $isSheetVisible, onDismiss: {
+                selectedTab = 1
+                self.isSheetVisible = false
             }, content: {
-                AddReminderView()
+                if(selectedTab == 2){
+                    AddReminderView()
+                }
+                
+                if(selectedTab == 3){
+                    AllProductsView()
+                }
             })
     }
 }
