@@ -17,6 +17,7 @@ struct PersistenceController {
             let newItem = CardModelEntity(context: viewContext)
             newItem.product = String()
             newItem.location = String()
+            newItem.image = Data()
         }
         do {
             try viewContext.save()

@@ -18,7 +18,7 @@ extension CardModelEntity {
 
     @NSManaged public var product: String?
     @NSManaged public var location: String?
-
+    @NSManaged public var image: Data?
 }
 
 extension CardModelEntity : Identifiable {

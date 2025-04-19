@@ -14,12 +14,14 @@ struct HomescreenView: View{
     
     @State private var search = ""
     @State var firstImage: UIImage = UIImage()
+    @State var imgData: Data = Data()
     
     func FetchImage(){
         Storage.storage().reference(withPath: "RedShoe.png").getData(maxSize: 5 * 1024 * 1024) { (data, error) in
                 DispatchQueue.main.async {
                     if let imageData = data, let image = UIImage(data: imageData){
                         firstImage = image
+                        imgData = data!
                     }
                 }
         }
@@ -39,6 +41,7 @@ struct HomescreenView: View{
         let newModel = CardModelEntity(context: cntx)
         newModel.location = "Loc01"
         newModel.product = "Prod01"
+        newModel.image = imgData
         
         do{
             try cntx.save()
@@ -66,6 +69,9 @@ struct HomescreenView: View{
             let data = try cntx.fetch(fetchReq)
             data.forEach { (CardModelEntity) in
                 print("Loc: \(String(describing: CardModelEntity.location)); Product:  \(String(describing: CardModelEntity.product))")
+                if(CardModelEntity.image != nil){
+                    firstImage = UIImage(data: CardModelEntity.image!)!
+                }
             }
         }catch{
             print("Failed Reading")
@@ -74,7 +80,9 @@ struct HomescreenView: View{
     }
     
     func GetImage(){
-        FetchImage()
+//        FetchImage()
+//        Save()
+        GetData()
     }
     
     var body: some View{
