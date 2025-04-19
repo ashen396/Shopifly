@@ -32,13 +32,21 @@
 		0468DBFC2D97A98B0006A7CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0468DBFB2D97A98B0006A7CA /* ContentView.swift */; };
 		0468DBFE2D97A98D0006A7CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0468DBFD2D97A98D0006A7CA /* Assets.xcassets */; };
 		0468DC012D97A98D0006A7CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0468DC002D97A98D0006A7CA /* Preview Assets.xcassets */; };
-		0468DC032D97A98D0006A7CA /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0468DC022D97A98D0006A7CA /* Persistence.swift */; };
-		0468DC062D97A98D0006A7CA /* Shopifly.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0468DC042D97A98D0006A7CA /* Shopifly.xcdatamodeld */; };
 		0468DC112D97A98D0006A7CA /* ShopiflyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0468DC102D97A98D0006A7CA /* ShopiflyTests.swift */; };
 		0468DC1C2D97A98D0006A7CA /* ShopiflyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0468DC1B2D97A98D0006A7CA /* ShopiflyUITests.swift */; };
 		04826A332DA6D3AA00F05667 /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04826A322DA6D3AA00F05667 /* OTPView.swift */; };
 		0485783E2DA79D260071C78E /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485783D2DA79D260071C78E /* CardStack.swift */; };
 		048578432DA7B9AE0071C78E /* ProductCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048578422DA7B9AE0071C78E /* ProductCardView.swift */; };
+		048DF23B2DB3FFF900809862 /* CardModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 048DF2392DB3FFF900809862 /* CardModel.xcdatamodeld */; };
+		048DF2442DB4008B00809862 /* CardModelEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048DF2422DB4008B00809862 /* CardModelEntity+CoreDataClass.swift */; };
+		048DF2452DB4008B00809862 /* CardModelEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048DF2432DB4008B00809862 /* CardModelEntity+CoreDataProperties.swift */; };
+		048FE26E2DB36FFF00D98B2B /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048FE26D2DB36FFF00D98B2B /* Persistence.swift */; };
+		048FE28F2DB372AD00D98B2B /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 048FE28E2DB372AD00D98B2B /* FirebaseFunctions */; };
+		048FE2912DB372AD00D98B2B /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 048FE2902DB372AD00D98B2B /* FirebaseAnalytics */; };
+		048FE2932DB372AD00D98B2B /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 048FE2922DB372AD00D98B2B /* FirebaseStorage */; };
+		048FE2952DB372AD00D98B2B /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 048FE2942DB372AD00D98B2B /* FirebaseAuth */; };
+		048FE2972DB372AD00D98B2B /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 048FE2962DB372AD00D98B2B /* FirebaseFirestore */; };
+		048FE2992DB372AD00D98B2B /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 048FE2982DB372AD00D98B2B /* FirebaseDatabase */; };
 		04A727152DABB5A900A894FD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A727142DABB5A900A894FD /* MapKit.framework */; };
 		04A7271B2DABC66700A894FD /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7271A2DABC66700A894FD /* UserProfileView.swift */; };
 		04BCCE312DAA439B00D0924A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCCE302DAA439B00D0924A /* Constants.swift */; };
@@ -95,8 +103,6 @@
 		0468DBFB2D97A98B0006A7CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0468DBFD2D97A98D0006A7CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0468DC002D97A98D0006A7CA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		0468DC022D97A98D0006A7CA /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		0468DC052D97A98D0006A7CA /* Shopifly.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shopifly.xcdatamodel; sourceTree = "<group>"; };
 		0468DC072D97A98D0006A7CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0468DC0C2D97A98D0006A7CA /* ShopiflyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShopiflyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0468DC102D97A98D0006A7CA /* ShopiflyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopiflyTests.swift; sourceTree = "<group>"; };
@@ -104,9 +110,14 @@
 		0468DC172D97A98D0006A7CA /* ShopiflyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShopiflyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0468DC1B2D97A98D0006A7CA /* ShopiflyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopiflyUITests.swift; sourceTree = "<group>"; };
 		0468DC1D2D97A98D0006A7CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		047BBC332DB386CA00B566F3 /* Shopifly.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shopifly.xcdatamodel; sourceTree = "<group>"; };
 		04826A322DA6D3AA00F05667 /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
 		0485783D2DA79D260071C78E /* CardStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStack.swift; sourceTree = "<group>"; };
 		048578422DA7B9AE0071C78E /* ProductCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardView.swift; sourceTree = "<group>"; };
+		048DF23A2DB3FFF900809862 /* CardModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CardModel.xcdatamodel; sourceTree = "<group>"; };
+		048DF2422DB4008B00809862 /* CardModelEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardModelEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		048DF2432DB4008B00809862 /* CardModelEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardModelEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		048FE26D2DB36FFF00D98B2B /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		04A727142DABB5A900A894FD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		04A7271A2DABC66700A894FD /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		04BCCE302DAA439B00D0924A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -125,6 +136,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				04A727152DABB5A900A894FD /* MapKit.framework in Frameworks */,
+				048FE2952DB372AD00D98B2B /* FirebaseAuth in Frameworks */,
+				048FE2932DB372AD00D98B2B /* FirebaseStorage in Frameworks */,
+				048FE28F2DB372AD00D98B2B /* FirebaseFunctions in Frameworks */,
+				048FE2912DB372AD00D98B2B /* FirebaseAnalytics in Frameworks */,
+				048FE2992DB372AD00D98B2B /* FirebaseDatabase in Frameworks */,
+				048FE2972DB372AD00D98B2B /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +315,8 @@
 		0468DBED2D97A98B0006A7CA = {
 			isa = PBXGroup;
 			children = (
+				048DF2422DB4008B00809862 /* CardModelEntity+CoreDataClass.swift */,
+				048DF2432DB4008B00809862 /* CardModelEntity+CoreDataProperties.swift */,
 				0468DBF82D97A98B0006A7CA /* Shopifly */,
 				0468DC0F2D97A98D0006A7CA /* ShopiflyTests */,
 				0468DC1A2D97A98D0006A7CA /* ShopiflyUITests */,
@@ -324,9 +343,10 @@
 				0468DBF92D97A98B0006A7CA /* ShopiflyApp.swift */,
 				0468DBFB2D97A98B0006A7CA /* ContentView.swift */,
 				0468DBFD2D97A98D0006A7CA /* Assets.xcassets */,
-				0468DC022D97A98D0006A7CA /* Persistence.swift */,
+				048DF2392DB3FFF900809862 /* CardModel.xcdatamodeld */,
+				047BBC322DB386CA00B566F3 /* Shopifly.xcdatamodeld */,
 				0468DC072D97A98D0006A7CA /* Info.plist */,
-				0468DC042D97A98D0006A7CA /* Shopifly.xcdatamodeld */,
+				048FE26D2DB36FFF00D98B2B /* Persistence.swift */,
 				041016C22DA36DCF00371293 /* GoogleService-Info.plist */,
 				0468DBFF2D97A98D0006A7CA /* Preview Content */,
 			);
@@ -448,6 +468,12 @@
 			);
 			name = Shopifly;
 			packageProductDependencies = (
+				048FE28E2DB372AD00D98B2B /* FirebaseFunctions */,
+				048FE2902DB372AD00D98B2B /* FirebaseAnalytics */,
+				048FE2922DB372AD00D98B2B /* FirebaseStorage */,
+				048FE2942DB372AD00D98B2B /* FirebaseAuth */,
+				048FE2962DB372AD00D98B2B /* FirebaseFirestore */,
+				048FE2982DB372AD00D98B2B /* FirebaseDatabase */,
 			);
 			productName = Shopifly;
 			productReference = 0468DBF62D97A98B0006A7CA /* Shopifly.app */;
@@ -521,6 +547,7 @@
 			);
 			mainGroup = 0468DBED2D97A98B0006A7CA;
 			packageReferences = (
+				048FE28D2DB372AD00D98B2B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 0468DBF72D97A98B0006A7CA /* Products */;
 			projectDirPath = "";
@@ -569,7 +596,6 @@
 				04E76FD62DAFECB600534308 /* AllProductsView.swift in Sources */,
 				0421D0712DAA9D0200677FFF /* WishlistView.swift in Sources */,
 				0421D07A2DAAA23000677FFF /* ProductscreenView.swift in Sources */,
-				0468DC032D97A98D0006A7CA /* Persistence.swift in Sources */,
 				0421D0682DAA90C200677FFF /* SearchscreenView.swift in Sources */,
 				04571D0C2DA6AC3D0010C3D4 /* NavigationButton.swift in Sources */,
 				0468DBFC2D97A98B0006A7CA /* ContentView.swift in Sources */,
@@ -579,15 +605,18 @@
 				0468C3E62DABFD0500960B31 /* NearByShopsView.swift in Sources */,
 				040F59B22DAD3B71002A5FA7 /* AddItemView.swift in Sources */,
 				040C326C2D982FDB006325BA /* CustomTextField.swift in Sources */,
+				048DF23B2DB3FFF900809862 /* CardModel.xcdatamodeld in Sources */,
 				04267E912D98596F001768AE /* SignUpView.swift in Sources */,
 				044CC0DE2DAE23A3001BB8CF /* ReportProductView.swift in Sources */,
 				044CC0D52DAE1C86001BB8CF /* WriteReviewView.swift in Sources */,
 				04FEA4312DAE73C100B058F0 /* SettingsView.swift in Sources */,
 				040F59AC2DAD23F9002A5FA7 /* CompareProductsView.swift in Sources */,
 				04C7E8E72DAF7DD7002791EA /* ProductNavigationView.swift in Sources */,
+				048DF2442DB4008B00809862 /* CardModelEntity+CoreDataClass.swift in Sources */,
 				0485783E2DA79D260071C78E /* CardStack.swift in Sources */,
 				04BCCE312DAA439B00D0924A /* Constants.swift in Sources */,
 				04C7E8F52DAF97D5002791EA /* CustomImageTextField.swift in Sources */,
+				048DF2452DB4008B00809862 /* CardModelEntity+CoreDataProperties.swift in Sources */,
 				04826A332DA6D3AA00F05667 /* OTPView.swift in Sources */,
 				040F59992DAD10A5002A5FA7 /* CompareButton.swift in Sources */,
 				040C44A02DA7991C00B183B5 /* CardView.swift in Sources */,
@@ -597,7 +626,7 @@
 				04BF660B2DABA6A1002F0B7E /* RatingBar.swift in Sources */,
 				04DF2EA42DAFDEB200D2AADD /* AddReminderView.swift in Sources */,
 				0468DBFA2D97A98B0006A7CA /* ShopiflyApp.swift in Sources */,
-				0468DC062D97A98D0006A7CA /* Shopifly.xcdatamodeld in Sources */,
+				048FE26E2DB36FFF00D98B2B /* Persistence.swift in Sources */,
 				0415D5A82DAA8372008B11CC /* ProductListView.swift in Sources */,
 				040C32642D982411006325BA /* CustomButton.swift in Sources */,
 				040C449B2DA780F700B183B5 /* HomescreenView.swift in Sources */,
@@ -778,6 +807,7 @@
 		0468DC222D97A98D0006A7CA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"ADDITIONAL_SDKS[arch=*]" = "";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Shopifly/Shopifly.entitlements;
@@ -927,14 +957,68 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		048FE28D2DB372AD00D98B2B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = exactVersion;
+				version = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		048FE28E2DB372AD00D98B2B /* FirebaseFunctions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 048FE28D2DB372AD00D98B2B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFunctions;
+		};
+		048FE2902DB372AD00D98B2B /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 048FE28D2DB372AD00D98B2B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		048FE2922DB372AD00D98B2B /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 048FE28D2DB372AD00D98B2B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		048FE2942DB372AD00D98B2B /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 048FE28D2DB372AD00D98B2B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		048FE2962DB372AD00D98B2B /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 048FE28D2DB372AD00D98B2B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		048FE2982DB372AD00D98B2B /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 048FE28D2DB372AD00D98B2B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+/* End XCSwiftPackageProductDependency section */
+
 /* Begin XCVersionGroup section */
-		0468DC042D97A98D0006A7CA /* Shopifly.xcdatamodeld */ = {
+		047BBC322DB386CA00B566F3 /* Shopifly.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				0468DC052D97A98D0006A7CA /* Shopifly.xcdatamodel */,
+				047BBC332DB386CA00B566F3 /* Shopifly.xcdatamodel */,
 			);
-			currentVersion = 0468DC052D97A98D0006A7CA /* Shopifly.xcdatamodel */;
+			currentVersion = 047BBC332DB386CA00B566F3 /* Shopifly.xcdatamodel */;
 			path = Shopifly.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		048DF2392DB3FFF900809862 /* CardModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				048DF23A2DB3FFF900809862 /* CardModel.xcdatamodel */,
+			);
+			currentVersion = 048DF23A2DB3FFF900809862 /* CardModel.xcdatamodel */;
+			path = CardModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

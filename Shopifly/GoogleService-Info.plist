@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyD4Wwh3JHbHne6GJSYf2Rsg_uU4SWHmw4w</string>
+	<string>AIzaSyCq9z3w6OY1b9WsjCZzVtxsRxMIZthJO7o</string>
 	<key>GCM_SENDER_ID</key>
-	<string>418512604320</string>
+	<string>805677243630</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.nibm.shopifly</string>
 	<key>PROJECT_ID</key>
-	<string>shopifly-11cf7</string>
+	<string>malware-a61ec</string>
 	<key>STORAGE_BUCKET</key>
-	<string>shopifly-11cf7.firebasestorage.app</string>
+	<string>malware-a61ec.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:418512604320:ios:bbf8ec5e3c0e3211d78dc5</string>
+	<string>1:805677243630:ios:b714eaeff996e9a6e6a7ff</string>
+	<key>DATABASE_URL</key>
+	<string>https://malware-a61ec-default-rtdb.firebaseio.com</string>
 </dict>
 </plist>

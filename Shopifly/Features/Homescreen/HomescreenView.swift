@@ -7,13 +7,83 @@
 
 import Foundation
 import SwiftUI
+import FirebaseStorage
+import CoreData
 
 struct HomescreenView: View{
     
     @State private var search = ""
+    @State var firstImage: UIImage = UIImage()
+    
+    func FetchImage(){
+        Storage.storage().reference(withPath: "RedShoe.png").getData(maxSize: 5 * 1024 * 1024) { (data, error) in
+                DispatchQueue.main.async {
+                    if let imageData = data, let image = UIImage(data: imageData){
+                        firstImage = image
+                    }
+                }
+        }
+    }
+    
+    func Save(){
+        let container = NSPersistentContainer(name: "CardModel")
+        
+        container.loadPersistentStores { (description, error) in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        }
+        
+        let cntx = container.viewContext
+        
+        let newModel = CardModelEntity(context: cntx)
+        newModel.location = "Loc01"
+        newModel.product = "Prod01"
+        
+        do{
+            try cntx.save()
+            print("Saved")
+        }catch{
+            print("Failed Saving")
+        }
+    }
+    
+    func GetData(){
+        let container = NSPersistentContainer(name: "CardModel")
+        
+        container.loadPersistentStores { (description, error) in
+            if let error = error as NSError? {
+                    fatalError("Unresolved error \(error), \(error.userInfo)")
+                }
+        }
+        
+        let fetchReq: NSFetchRequest<CardModelEntity> = CardModelEntity.fetchRequest()
+
+        let cntx = container.viewContext
+        
+        
+        do{
+            let data = try cntx.fetch(fetchReq)
+            data.forEach { (CardModelEntity) in
+                print("Loc: \(String(describing: CardModelEntity.location)); Product:  \(String(describing: CardModelEntity.product))")
+            }
+        }catch{
+            print("Failed Reading")
+        }
+        
+    }
+    
+    func GetImage(){
+        FetchImage()
+    }
     
     var body: some View{
         VStack{
+            CustomButton(title: "Click", foregroundColor: .white, backgroundColor: .blue) {
+                GetImage()
+            }
+            
+            Image(uiImage: firstImage)
             Spacer()
                 .frame(width: Constants.screenWidth, height: 25, alignment: .center)
             

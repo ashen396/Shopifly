@@ -7,6 +7,8 @@
 
 import Foundation
 import SwiftUI
+import FirebaseAuth
+import FirebaseFirestore
 
 struct SignUpView: View{
     @State private var fname = ""
@@ -39,35 +41,35 @@ struct SignUpView: View{
                 }
                 
                 Group{
-                    CustomTextField(title: "Email", bindState: $lname)
+                    CustomTextField(title: "Email", bindState: $email)
                    
                     Spacer()
                         .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
                 }
                 
                 Group{
-                    CustomTextField(title: "Mobile", bindState: $lname)
+                    CustomTextField(title: "Mobile", bindState: $mobile)
                     
                     Spacer()
                         .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
                 }
                 
                 Group{
-                    CustomTextField(title: "Location", bindState: $lname)
+                    CustomTextField(title: "Location", bindState: $location)
                     
                     Spacer()
                         .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
                 }
                 
                 Group{
-                    CustomTextField(title: "Password", bindState: $lname)
+                    CustomTextField(title: "Password", bindState: $password)
                     
                     Spacer()
                         .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
                 }
                 
                 Group{
-                    CustomTextField(title: "Confirm Password", bindState: $lname)
+                    CustomTextField(title: "Confirm Password", bindState: $password)
                     
                     Spacer()
                         .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
@@ -77,7 +79,29 @@ struct SignUpView: View{
             Toggle("By clicking the checkbox, you accept to follow the terms and conditions. View terms & conditions", isOn: $isChecked)
                 .padding(.horizontal, 40)
             
-            NavigationButton(title: "Continue", foregroundColor: Color.white, backgroundColor: Color.blue, destination: OTPView())
+            CustomButton(title: "Continue", foregroundColor: .white, backgroundColor: .blue) {
+                Auth.auth().createUser(withEmail: email, password: password) { (result: AuthDataResult?,error: Error?) in
+                    if(error != nil){
+                        print("Error: \(String(describing: error))")
+                        return
+                    }else{
+                        print("Result: \(String(describing: result?.user.uid))")
+                        
+                        result?.user.sendEmailVerification(completion: { (verificationError: Error?) in
+                            
+                            if(error != nil){
+                                print("Error: \(String(describing: error))")
+                                return
+                            }
+                            
+                            print("IsValid: \(String(describing: result?.user.isEmailVerified))")
+                            
+                            Firestore.firestore().collection("Users").addDocument(data: ["FirstName" : fname, "LastName": lname, "Email": email, "Mobile": mobile, "Location": location])
+                            
+                        })
+                    }
+                }
+            }
 
         }.frame(minWidth: 0, idealWidth: .infinity, maxWidth: .infinity, minHeight: 0, idealHeight: .infinity, maxHeight: .infinity, alignment: .top)
     }
