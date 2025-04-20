@@ -15,6 +15,7 @@ struct HomescreenView: View{
     @State private var search = ""
     @State var firstImage: UIImage = UIImage()
     @State var imgData: Data = Data()
+    @State var cardImages: [UIImage] = [UIImage()]
     
     func FetchImage(){
         Storage.storage().reference(withPath: "RedShoe.png").getData(maxSize: 5 * 1024 * 1024) { (data, error) in
@@ -80,18 +81,14 @@ struct HomescreenView: View{
     }
     
     func GetImage(){
-//        FetchImage()
-//        Save()
-        GetData()
+        GetImageList(collection: "Promotions") { (data) in
+            cardImages = data
+        }
+        
     }
     
     var body: some View{
         VStack{
-            CustomButton(title: "Click", foregroundColor: .white, backgroundColor: .blue) {
-                GetImage()
-            }
-            
-            Image(uiImage: firstImage)
             Spacer()
                 .frame(width: Constants.screenWidth, height: 25, alignment: .center)
             
@@ -134,7 +131,7 @@ struct HomescreenView: View{
                 .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
             
             ScrollView(.vertical, showsIndicators: true){
-                CardStack()
+                CardStack(imageList: cardImages)
                 
                 Spacer()
                     .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
@@ -193,6 +190,9 @@ struct HomescreenView: View{
         }.navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
         .gesture(DragGesture())
+        .onAppear(perform: {
+            GetImage()
+        })
     }
 }
 
