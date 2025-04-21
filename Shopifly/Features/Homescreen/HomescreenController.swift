@@ -36,6 +36,41 @@ func GetImageList(collection: String, completion: @escaping ([UIImage]) -> Void)
     }
 }
 
+struct Favourites: Hashable{
+    var title: String
+    var price: String
+    var shop: String
+    var image: UIImage
+    var backgroundColor: Color
+}
+
+func GetDataList(collection: String, completion: @escaping ([Favourites]) -> Void){
+    var dataArray: [Favourites] = []
+    
+    Firestore.firestore().collection(collection).getDocuments { (data, error) in
+        data?.documents.forEach({ (doc) in
+            
+            let data = doc.data()
+            let title = String(describing: data["Title"]!)
+            let price = String(describing: data["Price"]!)
+            let shop = String(describing: data["Shop"]!)
+            let imageName = String(describing: data["Image"]!)
+            let bColorArray: [Any] = data["BackgroundColor"] as! [Any]
+            let bRed: Double = bColorArray[0] as! Double
+            let bGreen: Double =  bColorArray[1] as! Double
+            let bBlue: Double =  bColorArray[2] as! Double
+            let bAlpha: Double =  bColorArray[3] as! Double
+            let backgroundColor = Color(red: bRed, green: bGreen, blue: bBlue, opacity: bAlpha)
+            GetImage(imageName: imageName) { (image) in
+                
+                let obj = Favourites(title: title, price: price, shop: shop, image: image, backgroundColor: backgroundColor)
+                dataArray.append(obj)
+                completion(dataArray)
+            }
+        })
+    }
+}
+
 func HomescreenController(){
     
 }

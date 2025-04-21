@@ -16,6 +16,7 @@ struct HomescreenView: View{
     @State var firstImage: UIImage = UIImage()
     @State var imgData: Data = Data()
     @State var cardImages: [UIImage] = [UIImage()]
+    @State var favCards: [Favourites] = []
     
     func FetchImage(){
         Storage.storage().reference(withPath: "RedShoe.png").getData(maxSize: 5 * 1024 * 1024) { (data, error) in
@@ -80,11 +81,14 @@ struct HomescreenView: View{
         
     }
     
-    func GetImage(){
+    func FetchData(){
         GetImageList(collection: "Promotions") { (data) in
             cardImages = data
         }
         
+        GetDataList(collection: "Favourites") { (data) in
+            favCards = data
+        }
     }
     
     var body: some View{
@@ -158,8 +162,9 @@ struct HomescreenView: View{
                     //Product Cards
                     ScrollView(.horizontal, showsIndicators: false){
                         LazyHStack{
-                            ProductCardView(image: "RedShoe", backgroundColor: Constants.productBackgroundColor, title: "Red Shoe", price: "1199", storeName:"Shoe Marketplace")
-                            ProductCardView(image: "GreenShoe", backgroundColor: Constants.productBackgroundColor2, title: "Green Shoe", price: "1199", storeName:"Shoe Marketplace")
+                            ForEach(favCards, id: \.self) { (elem: Favourites) in
+                                ProductCardView(image: elem.image, backgroundColor: elem.backgroundColor, title: elem.title, price: elem.price, storeName: elem.shop)
+                            }
                         }
                     }
                 }
@@ -191,7 +196,7 @@ struct HomescreenView: View{
         .navigationBarHidden(true)
         .gesture(DragGesture())
         .onAppear(perform: {
-            GetImage()
+            FetchData()
         })
     }
 }
