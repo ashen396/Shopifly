@@ -7,10 +7,32 @@
 
 import Foundation
 import SwiftUI
+import FirebaseStorage
+import CoreData
+import UserNotifications
 
 struct HomescreenView: View{
     
     @State private var search = ""
+    @State var firstImage: UIImage = UIImage()
+    @State var imgData: Data = Data()
+    @State var cardImages: [UIImage] = [UIImage()]
+    @State var favCards: [Favourites] = []
+    @State var productList: [Product] = []
+    
+    func FetchData(){
+        GetImageList(collection: "Promotions") { (data) in
+            cardImages = data
+        }
+        
+        GetDataList(collection: "Favourites") { (data) in
+            favCards = data
+        }
+        
+        GetProductList(collection: "Products") { (data) in
+            productList = data
+        }
+    }
     
     var body: some View{
         VStack{
@@ -50,13 +72,13 @@ struct HomescreenView: View{
             }.padding(.horizontal, 25)
             .frame(width: UIScreen.main.bounds.width, height: 50, alignment: .leading)
     
-            CustomTextField(title: "Search", bindState: $search)
+            CustomImageTextField(title: "Search", bindState: $search, imageName: "magnifyingglass")
             
             Spacer()
                 .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
             
             ScrollView(.vertical, showsIndicators: true){
-                CardStack()
+                CardStack(imageList: cardImages)
                 
                 Spacer()
                     .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
@@ -83,8 +105,9 @@ struct HomescreenView: View{
                     //Product Cards
                     ScrollView(.horizontal, showsIndicators: false){
                         LazyHStack{
-                            ProductCardView(image: "RedShoe", backgroundColor: Constants.productBackgroundColor, title: "Red Shoe", price: "1199", storeName:"Shoe Marketplace")
-                            ProductCardView(image: "GreenShoe", backgroundColor: Constants.productBackgroundColor2, title: "Green Shoe", price: "1199", storeName:"Shoe Marketplace")
+                            ForEach(favCards, id: \.self) { (elem: Favourites) in
+                                ProductCardView(image: elem.image, backgroundColor: elem.backgroundColor, title: elem.title, price: elem.price, storeName: elem.shop)
+                            }
                         }
                     }
                 }
@@ -102,13 +125,21 @@ struct HomescreenView: View{
                     .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
                 
                 LazyVStack{
-                    ProductListView()
-                    ProductListView()
-                    ProductListView()
-                    ProductListView()
+                    ForEach(productList, id: \.self) { (elem: Product) in
+                        NavigationLink(
+                            destination: ProductNavigationView(productID: elem.productID),
+                            label: {
+                                ProductListView(image: elem.image, title: elem.title, price: elem.price, storeName: elem.shop)
+                            }).foregroundColor(.black)
+                    }
                 }
             }
-        }
+        }.navigationBarBackButtonHidden(true)
+        .navigationBarHidden(true)
+        .gesture(DragGesture())
+        .onAppear(perform: {
+            FetchData()
+        })
     }
 }
 

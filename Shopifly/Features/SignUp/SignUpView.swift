@@ -7,6 +7,8 @@
 
 import Foundation
 import SwiftUI
+import FirebaseAuth
+import FirebaseFirestore
 
 struct SignUpView: View{
     @State private var fname = ""
@@ -20,28 +22,86 @@ struct SignUpView: View{
     var body: some View{
         VStack{
             Text("Sign Up")
-                .font(.largeTitle)
+                .font(.system(size: 40))
                 .fontWeight(.bold)
             
             VStack{
-                CustomTextField(title: "First Name", bindState: $fname)
+                Group{
+                    CustomTextField(title: "First Name", bindState: $fname)
+                    
+                    Spacer()
+                        .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
+                }
                 
-                CustomTextField(title: "Last Name", bindState: $lname)
+                Group{
+                    CustomTextField(title: "Last Name", bindState: $lname)
+                    
+                    Spacer()
+                        .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
+                }
                 
-                CustomTextField(title: "Email", bindState: $lname)
+                Group{
+                    CustomTextField(title: "Email", bindState: $email)
+                   
+                    Spacer()
+                        .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
+                }
                 
-                CustomTextField(title: "Mobile", bindState: $lname)
+                Group{
+                    CustomTextField(title: "Mobile", bindState: $mobile)
+                    
+                    Spacer()
+                        .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
+                }
                 
-                CustomTextField(title: "Location", bindState: $lname)
+                Group{
+                    CustomTextField(title: "Location", bindState: $location)
+                    
+                    Spacer()
+                        .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
+                }
                 
-                CustomTextField(title: "Password", bindState: $lname)
+                Group{
+                    CustomTextField(title: "Password", bindState: $password)
+                    
+                    Spacer()
+                        .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
+                }
                 
-                CustomTextField(title: "Confirm Password", bindState: $lname)
+                Group{
+                    CustomTextField(title: "Confirm Password", bindState: $password)
+                    
+                    Spacer()
+                        .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
+                }
             }
             
             Toggle("By clicking the checkbox, you accept to follow the terms and conditions. View terms & conditions", isOn: $isChecked)
+                .padding(.horizontal, 40)
             
-            NavigationButton(title: "Continue", foregroundColor: Color.white, backgroundColor: Color.blue, destination: OTPView())
+            CustomButton(title: "Continue", foregroundColor: .white, backgroundColor: .blue) {
+                Auth.auth().createUser(withEmail: email, password: password) { (result: AuthDataResult?,error: Error?) in
+                    if(error != nil){
+                        print("Error: \(String(describing: error))")
+                        return
+                    }else{
+                        print("Result: \(String(describing: result?.user.uid))")
+                        
+                        result?.user.sendEmailVerification(completion: { (verificationError: Error?) in
+                            
+                            if(error != nil){
+                                print("Error: \(String(describing: error))")
+                                return
+                            }
+                            
+                            print("IsValid: \(String(describing: result?.user.isEmailVerified))")
+                            
+                            Firestore.firestore().collection("Users").addDocument(data: ["FirstName" : fname, "LastName": lname, "Email": email, "Mobile": mobile, "Location": location])
+                            
+                        })
+                    }
+                }
+            }
 
         }.frame(minWidth: 0, idealWidth: .infinity, maxWidth: .infinity, minHeight: 0, idealHeight: .infinity, maxHeight: .infinity, alignment: .top)
     }

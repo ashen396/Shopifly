@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftUI
 
-func ProductCardView(image: String, backgroundColor:Color, title: String, price: String, storeName: String) -> some View{
+func ProductCardView(image: UIImage, backgroundColor:Color, title: String, price: String, storeName: String) -> some View{
     
     return Rectangle()
         .frame(width: 320, height: 122, alignment: .leading)
@@ -16,7 +16,7 @@ func ProductCardView(image: String, backgroundColor:Color, title: String, price:
         .foregroundColor(backgroundColor)
         .overlay(
             HStack{
-                Image(image)
+                Image(uiImage: image)
                     .resizable()
                     .frame(width: 100, height: 100, alignment: .center)
                 

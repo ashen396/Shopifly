@@ -8,15 +8,22 @@
 import SwiftUI
 
 struct CardStack: View {
+    
+    var imageList: [UIImage] = [UIImage()]
+    @State private var isFirst: Bool = false
+    @State private var isLast: Bool = false
+    @State private var index:Int = 0
+    
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false){
             LazyHStack{
-                CardView(cardName: "CardImage01", isFirst: true)
-                CardView(cardName: "CardImage02")
-                CardView(cardName: "CardImage01")
-                CardView(cardName: "CardImage02")
-                CardView(cardName: "CardImage01")
-                CardView(cardName: "CardImage02", isLast: true)
+                ForEach(imageList, id: \.self){
+                    item in
+                    
+                    if(item.size.height > 10){
+                        CardView(image: item)
+                    }
+                }
             }.padding(.leading, 48)
             .padding(.trailing, 30)
         }.frame(minWidth: 0, idealWidth: .infinity, maxWidth: .infinity, minHeight: 0, idealHeight: UIScreen.main.bounds.height / 4.4, maxHeight: UIScreen.main.bounds.height / 4.4, alignment: .leading)

@@ -7,21 +7,11 @@
 
 import SwiftUI
 
-func CardView(cardName: String, isFirst: Bool = false, isLast: Bool = false) -> some View{
+func CardView(image: UIImage, isFirst: Bool = false, isLast: Bool = false) -> some View{
     return
         HStack{
-            if(isFirst == true){
-                Image(cardName)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-            }else if(isLast == true){
-                Image(cardName)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-            }else{
-                Image(cardName)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-            }
+            Image(uiImage: image)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
         }
 }
