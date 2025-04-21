@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import FirebaseStorage
 import CoreData
+import UserNotifications
 
 struct HomescreenView: View{
     
@@ -17,69 +18,7 @@ struct HomescreenView: View{
     @State var imgData: Data = Data()
     @State var cardImages: [UIImage] = [UIImage()]
     @State var favCards: [Favourites] = []
-    
-    func FetchImage(){
-        Storage.storage().reference(withPath: "RedShoe.png").getData(maxSize: 5 * 1024 * 1024) { (data, error) in
-                DispatchQueue.main.async {
-                    if let imageData = data, let image = UIImage(data: imageData){
-                        firstImage = image
-                        imgData = data!
-                    }
-                }
-        }
-    }
-    
-    func Save(){
-        let container = NSPersistentContainer(name: "CardModel")
-        
-        container.loadPersistentStores { (description, error) in
-            if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        }
-        
-        let cntx = container.viewContext
-        
-        let newModel = CardModelEntity(context: cntx)
-        newModel.location = "Loc01"
-        newModel.product = "Prod01"
-        newModel.image = imgData
-        
-        do{
-            try cntx.save()
-            print("Saved")
-        }catch{
-            print("Failed Saving")
-        }
-    }
-    
-    func GetData(){
-        let container = NSPersistentContainer(name: "CardModel")
-        
-        container.loadPersistentStores { (description, error) in
-            if let error = error as NSError? {
-                    fatalError("Unresolved error \(error), \(error.userInfo)")
-                }
-        }
-        
-        let fetchReq: NSFetchRequest<CardModelEntity> = CardModelEntity.fetchRequest()
-
-        let cntx = container.viewContext
-        
-        
-        do{
-            let data = try cntx.fetch(fetchReq)
-            data.forEach { (CardModelEntity) in
-                print("Loc: \(String(describing: CardModelEntity.location)); Product:  \(String(describing: CardModelEntity.product))")
-                if(CardModelEntity.image != nil){
-                    firstImage = UIImage(data: CardModelEntity.image!)!
-                }
-            }
-        }catch{
-            print("Failed Reading")
-        }
-        
-    }
+    @State var productList: [Product] = []
     
     func FetchData(){
         GetImageList(collection: "Promotions") { (data) in
@@ -88,6 +27,10 @@ struct HomescreenView: View{
         
         GetDataList(collection: "Favourites") { (data) in
             favCards = data
+        }
+        
+        GetProductList(collection: "Products") { (data) in
+            productList = data
         }
     }
     
@@ -182,14 +125,13 @@ struct HomescreenView: View{
                     .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
                 
                 LazyVStack{
-                    NavigationLink(
-                        destination: ProductNavigationView(),
-                        label: {
-                            ProductListView()
-                    })
-                    ProductListView()
-                    ProductListView()
-                    ProductListView()
+                    ForEach(productList, id: \.self) { (elem: Product) in
+                        NavigationLink(
+                            destination: ProductNavigationView(productID: elem.productID),
+                            label: {
+                                ProductListView(image: elem.image, title: elem.title, price: elem.price, storeName: elem.shop)
+                            }).foregroundColor(.black)
+                    }
                 }
             }
         }.navigationBarBackButtonHidden(true)

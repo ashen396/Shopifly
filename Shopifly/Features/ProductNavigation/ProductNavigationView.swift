@@ -11,6 +11,7 @@ struct ProductNavigationView: View {
     
     @State private var isSheetVisible: Bool = false
     @State private var selectedTab: Int = 1
+    @State var productID: String = ""
     
     var body: some View {
         TabView(selection: $selectedTab,
