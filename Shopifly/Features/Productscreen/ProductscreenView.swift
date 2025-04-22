@@ -13,7 +13,7 @@ struct ProductscreenView: View {
     @State var productID: String = ""
     @State var product: Product = Product(productID: "", title: "", price: "", shop: "", image: UIImage())
     
-    @State var reviews: [Review] = [Review(user: User(userID: "", username: "", userImage: UIImage()), rating: "", comment: "", commentID: "", date: "")]
+    @State var reviews: [Review] = [Review(user: User(userID: "", username: "", userImage: UIImage()), rating: 1, comment: "", commentID: "", date: "")]
     
     @State private var rate: Int = 1
     
@@ -26,7 +26,6 @@ struct ProductscreenView: View {
     func FetchReviews(){
         GetReviewsByProductID(collection: "Reviews", fieldName: "ProductID", productID: productID, completion: { (data) in
             reviews = data
-//            rate = Int(String(describing: data.rating)) ?? 1
         })
     }
     
@@ -146,7 +145,7 @@ struct ProductscreenView: View {
             ScrollView{
                 VStack{
                     
-                    ForEach(reviews) { review in
+                    ForEach(reviews, id: \.self) { review in
                         VStack{
                             HStack{
                                 NavigationLink(
@@ -164,7 +163,7 @@ struct ProductscreenView: View {
                                         Text(review.user.username)
                                             .foregroundColor(Color.gray)
                                         
-                                        RatingBar(rateCount: review.rating, isClickable: true)
+                                        RatingBar(rateCount: review.rating, isClickable: false)
                                         
                                         Spacer()
                                         
@@ -178,8 +177,9 @@ struct ProductscreenView: View {
                                     // Comment
                                     VStack{
                                         Text(review.comment)
+                                            .padding(.leading, 5)
                                             .padding(.trailing, 50)
-                                            .frame(width: Constants.screenWidth - 85, height: 50, alignment: .leading)
+                                            .frame(width: Constants.screenWidth - 85, height: 50, alignment: .topLeading)
                                             .multilineTextAlignment(.leading)
                                     }
                                     
@@ -209,248 +209,6 @@ struct ProductscreenView: View {
                         }.padding(.horizontal, 15)
                         .frame(width: Constants.screenWidth, height: 150, alignment: .topLeading)
                     }
-                    
-                    // Rating 01
-//                    VStack{
-//                        HStack{
-//                            NavigationLink(
-//                                destination: UserProfileView(),
-//                                label: {
-//                                    Image(uiImage: review.user.userImage)
-//                                        .resizable()
-//                                        .frame(width: 60, height: 60, alignment: .topLeading)
-//                                })
-//
-//                            VStack{
-//
-//                                // Username
-//                                HStack{
-//                                    Text(review.user.username)
-//                                        .foregroundColor(Color.gray)
-//
-//                                    RatingBar(rateCount: $rate, isClickable: true)
-//
-//                                    Spacer()
-//
-//                                    Text(review.date)
-//                                        .font(.callout)
-//                                        .fontWeight(.light)
-//                                        .foregroundColor(Color.gray)
-//                                        .padding(.trailing, 25)
-//                                }.frame(width: Constants.screenWidth - 85, height: 20, alignment: .leading)
-//
-//                                // Comment
-//                                VStack{
-//                                    Text(review.comment)
-//                                        .padding(.trailing, 50)
-//                                        .frame(width: Constants.screenWidth - 85, height: 50, alignment: .leading)
-//                                        .multilineTextAlignment(.leading)
-//                                }
-//
-//
-//                            }.frame(width: Constants.screenWidth - 85, height: 50, alignment: .topLeading)
-//
-//                        }
-//
-//                        Spacer()
-//                            .frame(width: Constants.screenWidth, height: 25, alignment: .center)
-//
-//                        HStack{
-//                            Image("ReviewImage")
-//                                .resizable()
-//                                .frame(width: 48, height: 48, alignment: .leading)
-//
-//                            Image("ReviewImage")
-//                                .resizable()
-//                                .frame(width: 48, height: 48, alignment: .leading)
-//
-//                            Image("ReviewImage")
-//                                .resizable()
-//                                .frame(width: 48, height: 48, alignment: .leading)
-//                        }.padding(.leading, 40)
-//                        .frame(width: Constants.screenWidth - 85, height: 48, alignment: .leading)
-//
-//                    }.padding(.horizontal, 15)
-//                    .frame(width: Constants.screenWidth, height: 150, alignment: .topLeading)
-                    
-                    
-//                    //Rating 02
-//                    VStack{
-//                        HStack{
-//                            Image("ProfilePic1")
-//                                .resizable()
-//                                .frame(width: 60, height: 60, alignment: .topLeading)
-//
-//                            VStack{
-//
-//                                // Username
-//                                HStack{
-//                                    Text("@JohnSmith")
-//                                        .foregroundColor(Color.gray)
-//
-//                                    RatingBar()
-//
-//                                    Spacer()
-//
-//                                    Text("1 day ago")
-//                                        .font(.callout)
-//                                        .fontWeight(.light)
-//                                        .foregroundColor(Color.gray)
-//                                        .padding(.trailing, 25)
-//                                }.frame(width: Constants.screenWidth - 85, height: 20, alignment: .leading)
-//
-//                                // Comment
-//                                VStack{
-//                                    Text("Lorem ipsum dolor sit amet, consectetur adispsicing elit...")
-//                                        .padding(.trailing, 50)
-//                                        .frame(width: Constants.screenWidth - 85, height: 50, alignment: .leading)
-//                                        .multilineTextAlignment(.leading)
-//                                }
-//
-//
-//                            }.frame(width: Constants.screenWidth - 85, height: 50, alignment: .topLeading)
-//
-//                        }
-//
-//                        Spacer()
-//                            .frame(width: Constants.screenWidth, height: 25, alignment: .center)
-//
-//                        HStack{
-//                            Image("ReviewImage")
-//                                .resizable()
-//                                .frame(width: 48, height: 48, alignment: .leading)
-//
-//                            Image("ReviewImage")
-//                                .resizable()
-//                                .frame(width: 48, height: 48, alignment: .leading)
-//
-//                            Image("ReviewImage")
-//                                .resizable()
-//                                .frame(width: 48, height: 48, alignment: .leading)
-//                        }.padding(.leading, 40)
-//                        .frame(width: Constants.screenWidth - 85, height: 48, alignment: .leading)
-//
-//                    }.padding(.horizontal, 15)
-//                    .frame(width: Constants.screenWidth, height: 150, alignment: .topLeading)
-//
-//                    //Rating 03
-//                    VStack{
-//                        HStack{
-//                            Image("ProfilePic1")
-//                                .resizable()
-//                                .frame(width: 60, height: 60, alignment: .topLeading)
-//
-//                            VStack{
-//
-//                                // Username
-//                                HStack{
-//                                    Text("@JohnSmith")
-//                                        .foregroundColor(Color.gray)
-//
-//                                    RatingBar()
-//
-//                                    Spacer()
-//
-//                                    Text("1 day ago")
-//                                        .font(.callout)
-//                                        .fontWeight(.light)
-//                                        .foregroundColor(Color.gray)
-//                                        .padding(.trailing, 25)
-//                                }.frame(width: Constants.screenWidth - 85, height: 20, alignment: .leading)
-//
-//                                // Comment
-//                                VStack{
-//                                    Text("Lorem ipsum dolor sit amet, consectetur adispsicing elit...")
-//                                        .padding(.trailing, 50)
-//                                        .frame(width: Constants.screenWidth - 85, height: 50, alignment: .leading)
-//                                        .multilineTextAlignment(.leading)
-//                                }
-//
-//
-//                            }.frame(width: Constants.screenWidth - 85, height: 50, alignment: .topLeading)
-//
-//                        }
-//
-//                        Spacer()
-//                            .frame(width: Constants.screenWidth, height: 25, alignment: .center)
-//
-//                        HStack{
-//                            Image("ReviewImage")
-//                                .resizable()
-//                                .frame(width: 48, height: 48, alignment: .leading)
-//
-//                            Image("ReviewImage")
-//                                .resizable()
-//                                .frame(width: 48, height: 48, alignment: .leading)
-//
-//                            Image("ReviewImage")
-//                                .resizable()
-//                                .frame(width: 48, height: 48, alignment: .leading)
-//                        }.padding(.leading, 40)
-//                        .frame(width: Constants.screenWidth - 85, height: 48, alignment: .leading)
-//
-//                    }.padding(.horizontal, 15)
-//                    .frame(width: Constants.screenWidth, height: 150, alignment: .topLeading)
-//
-//                    //Rating 04
-//                    VStack{
-//                        HStack{
-//                            Image("ProfilePic1")
-//                                .resizable()
-//                                .frame(width: 60, height: 60, alignment: .topLeading)
-//
-//                            VStack{
-//
-//                                // Username
-//                                HStack{
-//                                    Text("@JohnSmith")
-//                                        .foregroundColor(Color.gray)
-//
-//                                    RatingBar()
-//
-//                                    Spacer()
-//
-//                                    Text("1 day ago")
-//                                        .font(.callout)
-//                                        .fontWeight(.light)
-//                                        .foregroundColor(Color.gray)
-//                                        .padding(.trailing, 25)
-//                                }.frame(width: Constants.screenWidth - 85, height: 20, alignment: .leading)
-//
-//                                // Comment
-//                                VStack{
-//                                    Text("Lorem ipsum dolor sit amet, consectetur adispsicing elit...")
-//                                        .padding(.trailing, 50)
-//                                        .frame(width: Constants.screenWidth - 85, height: 50, alignment: .leading)
-//                                        .multilineTextAlignment(.leading)
-//                                }
-//
-//
-//                            }.frame(width: Constants.screenWidth - 85, height: 50, alignment: .topLeading)
-//
-//                        }
-//
-//                        Spacer()
-//                            .frame(width: Constants.screenWidth, height: 25, alignment: .center)
-//
-//                        HStack{
-//                            Image("ReviewImage")
-//                                .resizable()
-//                                .frame(width: 48, height: 48, alignment: .leading)
-//
-//                            Image("ReviewImage")
-//                                .resizable()
-//                                .frame(width: 48, height: 48, alignment: .leading)
-//
-//                            Image("ReviewImage")
-//                                .resizable()
-//                                .frame(width: 48, height: 48, alignment: .leading)
-//                        }.padding(.leading, 40)
-//                        .frame(width: Constants.screenWidth - 85, height: 48, alignment: .leading)
-                        
-//                    }.padding(.horizontal, 15)
-//                    .frame(width: Constants.screenWidth, height: 120, alignment: .topLeading)
-
                 }
             }.frame(width: Constants.screenWidth, height: 270, alignment: .topLeading)
             

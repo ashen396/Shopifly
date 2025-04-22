@@ -32,7 +32,7 @@ struct User: Hashable {
 
 struct Review: Hashable {
     var user: User
-    var rating: String
+    var rating: Int
     var comment: String
     var commentID: String
     var date: String
@@ -52,8 +52,7 @@ func GetUserImage(imageName: String, completion: @escaping (UIImage) -> Void){
 func GetUserByID(collection: String, fieldName: String, userID: String, completion: @escaping (User) -> Void){
     var data: User = User(userID: "", username: "", userImage: UIImage())
     
-    Firestore.firestore().collection(collection).whereField(fieldName, isEqualTo: "gimanthaashen").getDocuments { (users, error) in
-        
+    Firestore.firestore().collection(collection).whereField(fieldName, isEqualTo: userID).getDocuments { (users, error) in
         users?.documents.forEach({ (doc) in
             let userData = doc.data()
             
@@ -69,19 +68,19 @@ func GetUserByID(collection: String, fieldName: String, userID: String, completi
 }
 
 func GetReviewsByProductID(collection: String, fieldName: String, productID: String, completion: @escaping ([Review]) -> Void){
-    var reviews: [Review] = []
-    
     Firestore.firestore().collection(collection).whereField(fieldName, isEqualTo: productID).getDocuments { (docs, error) in
+        var reviews: [Review] = []
+        
         docs?.documents.forEach({ (document) in
             let docData = document.data()
             
             GetUserByID(collection: "Users", fieldName: "UserID", userID: String(describing: docData["UserID"]!)) { (data) in
-                let review = Review(user: data, rating: String(describing: docData["Rating"]!), comment: String(describing: docData["Comment"]!), commentID: String(describing: docData["ReviewID"]!), date: String(describing: docData["Date"]!))
-                
-                reviews.append(review)
+                let review = Review(user: data, rating: Int(String(describing: docData["Rating"]!))!, comment: String(describing: docData["Comment"]!), commentID: String(describing: docData["ReviewID"]!), date: String(describing: docData["Date"]!))
+
+                reviews.append(contentsOf: [review])
+                completion(reviews)
             }
         })
-        completion(reviews)
     }
     
 }
