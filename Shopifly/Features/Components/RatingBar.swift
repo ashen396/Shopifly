@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct RatingBar: View {
-//    @Binding var rateCount: Int
     @State var rateCount: Int = 1
     @State var isClickable: Bool = false
     
@@ -19,7 +18,7 @@ struct RatingBar: View {
                 .frame(width: 15, height: 15, alignment: .center)
                 .foregroundColor(Color.orange)
                 .onTapGesture(perform: {
-                    if(isClickable){
+                    if(isClickable == true){
                         rateCount = 1
                     }
                 })
@@ -32,7 +31,7 @@ struct RatingBar: View {
                 .frame(width: 15, height: 15, alignment: .center)
                 .foregroundColor(rateCount >= 2 ? Color.orange : Color(UIColor.systemGray4))
                 .onTapGesture(perform: {
-                    if(isClickable){
+                    if(isClickable == true){
                         rateCount = 2
                     }
                 })
@@ -45,7 +44,7 @@ struct RatingBar: View {
                 .frame(width: 15, height: 15, alignment: .center)
                 .foregroundColor(rateCount >= 3 ? Color.orange : Color(UIColor.systemGray4))
                 .onTapGesture(perform: {
-                    if(isClickable){
+                    if(isClickable == true){
                         rateCount = 3
                     }
                 })
@@ -71,7 +70,7 @@ struct RatingBar: View {
                 .frame(width: 15, height: 15, alignment: .center)
                 .foregroundColor(rateCount >= 5 ? Color.orange : Color(UIColor.systemGray4))
                 .onTapGesture(perform: {
-                    if(isClickable){
+                    if(isClickable == true){
                         rateCount = 5
                     }
                 })
@@ -79,9 +78,3 @@ struct RatingBar: View {
         }.frame(width: 95, height: 20, alignment: .leading)
     }
 }
-
-//struct RatingBar_Previews: PreviewProvider {
-//    static var previews: some View {
-//        RatingBar()
-//    }
-//}
