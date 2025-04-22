@@ -20,7 +20,7 @@ struct HomescreenView: View{
     @State var favCards: [Favourites] = []
     @State var productList: [Product] = []
     
-    func FetchData(){
+    private func FetchData(){
         GetImageList(collection: "Promotions") { (data) in
             cardImages = data
         }

@@ -91,7 +91,7 @@ struct WriteReviewView: View {
                         .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
                     
                     HStack{
-                        RatingBar()
+//                        RatingBar()
                     }.padding(.horizontal, 25)
                     .frame(width: Constants.screenWidth, height: 50, alignment: .leading)
                     
