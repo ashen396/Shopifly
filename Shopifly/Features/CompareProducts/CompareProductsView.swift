@@ -85,7 +85,7 @@ struct CompareProductsView: View {
                                         Text("@JohnSmith")
                                             .foregroundColor(Color.gray)
                                         
-                                        RatingBar()
+//                                        RatingBar()
                                         
                                         Spacer()
                                         
@@ -145,7 +145,7 @@ struct CompareProductsView: View {
                                         Text("@JohnSmith")
                                             .foregroundColor(Color.gray)
                                         
-                                        RatingBar()
+//                                        RatingBar()
                                         
                                         Spacer()
                                         
@@ -204,7 +204,7 @@ struct CompareProductsView: View {
                                         Text("@JohnSmith")
                                             .foregroundColor(Color.gray)
                                         
-                                        RatingBar()
+//                                        RatingBar()
                                         
                                         Spacer()
                                         
@@ -263,7 +263,7 @@ struct CompareProductsView: View {
                                         Text("@JohnSmith")
                                             .foregroundColor(Color.gray)
                                         
-                                        RatingBar()
+//                                        RatingBar()
                                         
                                         Spacer()
                                         

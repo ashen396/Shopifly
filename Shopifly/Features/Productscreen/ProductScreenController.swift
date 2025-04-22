@@ -1,0 +1,87 @@
+//
+//  ProductScreenController.swift
+//  Shopifly
+//
+//  Created by Mac on 4/21/25.
+//
+
+import Foundation
+import SwiftUI
+import FirebaseFirestore
+import FirebaseStorage
+
+func GetProductByID(collection: String, fieldName: String, productID: String, completion: @escaping (Product) -> Void){
+    
+    Firestore.firestore().collection(collection).whereField(fieldName, isEqualTo: productID).limit(to: 1).getDocuments { (docs, error) in
+        let doc = docs?.documents[0]
+        var product: Product = Product(productID: "", title: "", price: "", shop: "", image: UIImage())
+        
+        product.title = String(describing: doc!["Name"]!)
+        product.price = String(describing: doc!["Price"]!)
+        product.shop = String(describing: doc!["Shop"]!)
+        
+        completion(product)
+    }
+}
+
+struct User: Hashable {
+    var userID: String
+    var username: String
+    var userImage: UIImage
+}
+
+struct Review: Hashable {
+    var user: User
+    var rating: String
+    var comment: String
+    var commentID: String
+    var date: String
+//    var images: [UIImage]
+}
+
+func GetUserImage(imageName: String, completion: @escaping (UIImage) -> Void){
+    Storage.storage().reference(withPath: imageName).getData(maxSize: 5 * 1024 * 1024) { (data, error) in
+        DispatchQueue.main.async {
+            if let imageData = data, let image = UIImage(data: imageData){
+                completion(image)
+            }
+        }
+    }
+}
+
+func GetUserByID(collection: String, fieldName: String, userID: String, completion: @escaping (User) -> Void){
+    var data: User = User(userID: "", username: "", userImage: UIImage())
+    
+    Firestore.firestore().collection(collection).whereField(fieldName, isEqualTo: "gimanthaashen").getDocuments { (users, error) in
+        
+        users?.documents.forEach({ (doc) in
+            let userData = doc.data()
+            
+            GetUserImage(imageName: String(describing: userData["UserImage"]!)) { (userImage) in
+                data.userID = String(describing: userData["UserID"]!)
+                data.username = String(describing: "@\(userData["FirstName"]!)\(userData["LastName"]!)")
+                data.userImage = userImage
+
+                completion(data)
+            }
+        })
+    }
+}
+
+func GetReviewsByProductID(collection: String, fieldName: String, productID: String, completion: @escaping ([Review]) -> Void){
+    var reviews: [Review] = []
+    
+    Firestore.firestore().collection(collection).whereField(fieldName, isEqualTo: productID).getDocuments { (docs, error) in
+        docs?.documents.forEach({ (document) in
+            let docData = document.data()
+            
+            GetUserByID(collection: "Users", fieldName: "UserID", userID: String(describing: docData["UserID"]!)) { (data) in
+                let review = Review(user: data, rating: String(describing: docData["Rating"]!), comment: String(describing: docData["Comment"]!), commentID: String(describing: docData["ReviewID"]!), date: String(describing: docData["Date"]!))
+                
+                reviews.append(review)
+            }
+        })
+        completion(reviews)
+    }
+    
+}

@@ -16,20 +16,20 @@ struct ProductNavigationView: View {
     var body: some View {
         TabView(selection: $selectedTab,
                 content:  {
-                    ProductscreenView()
+                    ProductscreenView(productID: productID)
                         .tabItem {
                             Image(systemName: "bag")
                             Text("Product")
                         }.tag(1)
                 
-                    ProductscreenView()
+                    ProductscreenView(productID: productID)
                         .tabItem {
                             Image(systemName: "calendar.badge.plus")
                             Text("Reminder")
                         }.tag(2)
                     
                     
-                    ProductscreenView()
+                    ProductscreenView(productID: productID)
                         .tabItem {
                             Image(systemName: "archivebox")
                             Text("All Products")

@@ -8,12 +8,21 @@
 import SwiftUI
 
 struct RatingBar: View {
+//    @Binding var rateCount: Int
+    @State var rateCount: Int = 1
+    @State var isClickable: Bool = false
+    
     var body: some View {
         HStack{
             Image(systemName: "star.fill")
                 .resizable()
                 .frame(width: 15, height: 15, alignment: .center)
                 .foregroundColor(Color.orange)
+                .onTapGesture(perform: {
+                    if(isClickable){
+                        rateCount = 1
+                    }
+                })
             
             Spacer()
                 .frame(width: 5, height: 20, alignment: .center)
@@ -21,7 +30,12 @@ struct RatingBar: View {
             Image(systemName: "star.fill")
                 .resizable()
                 .frame(width: 15, height: 15, alignment: .center)
-                .foregroundColor(Color(UIColor.systemGray4))
+                .foregroundColor(rateCount >= 2 ? Color.orange : Color(UIColor.systemGray4))
+                .onTapGesture(perform: {
+                    if(isClickable){
+                        rateCount = 2
+                    }
+                })
             
             Spacer()
                 .frame(width: 5, height: 20, alignment: .center)
@@ -29,7 +43,12 @@ struct RatingBar: View {
             Image(systemName: "star.fill")
                 .resizable()
                 .frame(width: 15, height: 15, alignment: .center)
-                .foregroundColor(Color(UIColor.systemGray4))
+                .foregroundColor(rateCount >= 3 ? Color.orange : Color(UIColor.systemGray4))
+                .onTapGesture(perform: {
+                    if(isClickable){
+                        rateCount = 3
+                    }
+                })
             
             Spacer()
                 .frame(width: 5, height: 20, alignment: .center)
@@ -37,7 +56,12 @@ struct RatingBar: View {
             Image(systemName: "star.fill")
                 .resizable()
                 .frame(width: 15, height: 15, alignment: .center)
-                .foregroundColor(Color(UIColor.systemGray4))
+                .foregroundColor(rateCount >= 4 ? Color.orange : Color(UIColor.systemGray4))
+                .onTapGesture(perform: {
+                    if(isClickable){
+                        rateCount = 4
+                    }
+                })
             
             Spacer()
                 .frame(width: 5, height: 20, alignment: .center)
@@ -45,14 +69,19 @@ struct RatingBar: View {
             Image(systemName: "star.fill")
                 .resizable()
                 .frame(width: 15, height: 15, alignment: .center)
-                .foregroundColor(Color(UIColor.systemGray4))
+                .foregroundColor(rateCount >= 5 ? Color.orange : Color(UIColor.systemGray4))
+                .onTapGesture(perform: {
+                    if(isClickable){
+                        rateCount = 5
+                    }
+                })
             
         }.frame(width: 95, height: 20, alignment: .leading)
     }
 }
 
-struct RatingBar_Previews: PreviewProvider {
-    static var previews: some View {
-        RatingBar()
-    }
-}
+//struct RatingBar_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RatingBar()
+//    }
+//}
