@@ -9,61 +9,24 @@ import SwiftUI
 
 struct SearchscreenView: View {
     
-    @State private var search = "Shoes"
+    @Binding var searchProduct: String
+    @Binding var isSearchVisible: Bool
+    @State var products: [Product] = []
+    
+    private func SearchProducts(){
+        GetProductsByKeywords(collection: "Products", searchKeyword: searchProduct) { (productList) in
+            products = productList
+        }
+    }
     
     var body: some View {
         VStack{
-            Spacer()
-                .frame(width: Constants.screenWidth, height: 25, alignment: .center)
             
-            //Header
+            //Search Bar
             HStack{
-                HStack{
-                    Spacer()
-                        .frame(width: 5, height: 25, alignment: .center)
-                    
-                    Text("Shopifly")
-                        .font(.title)
-                        .fontWeight(.bold)
-                    
-                    Spacer()
-                }
-                
-                HStack{
-                    VStack{
-                        Text("John Doe")
-                            .font(.title2)
-                        
-                        Text("Colombo")
-                            .font(.callout)
-                            .foregroundColor(Color(UIColor.systemGray2))
-                    }
-                    
-                    Image("ProfilePicture")
-                        .resizable()
-                        .frame(width: 50, height: 50, alignment: .trailing)
-                    
-                    Spacer()
-                        .frame(width: 5, height: 25, alignment: .center)
-                }
-            }.padding(.horizontal, 25)
-            .frame(width: UIScreen.main.bounds.width, height: 50, alignment: .leading)
-            
-            HStack{
-                TextField("Search", text: $search)
-                    .font(.title3)
-                    .padding(EdgeInsets(top: 0, leading: 48, bottom: 0, trailing: 15))
-                    .frame(width: UIScreen.main.bounds.width - 140, height: 48)
-                    .background(Color(UIColor.systemGray6))
-                    .cornerRadius(10)
-                    .overlay(HStack{
-                        Image(systemName: "magnifyingglass")
-                            .resizable()
-                            .frame(width: 18, height: 18, alignment: .center)
-                            .padding(.leading, 15)
-                            .foregroundColor(Color(UIColor.systemGray2))
-                        Spacer()
-                    })
+                CustomImageTextField(title: searchProduct, bindState: $searchProduct, imageName: "magnifyingglass", actionOnCommit: {
+                    SearchProducts()
+                }, reduceWidth: CGFloat(140))
                 
                 Spacer()
                     .frame(width: 25, height: 48, alignment: .center)
@@ -71,6 +34,10 @@ struct SearchscreenView: View {
                 Text("Cancel")
                     .font(.title3)
                     .foregroundColor(.blue)
+                    .onTapGesture {
+                        isSearchVisible = false
+                        searchProduct.removeAll()
+                    }
             }
             
             Spacer()
@@ -78,7 +45,7 @@ struct SearchscreenView: View {
             
             ScrollView(.vertical, showsIndicators: true){
                 HStack{
-                    Text("Items (3)")
+                    Text("Items (\(products.count))")
                 }.font(.title3)
                 .foregroundColor(Color(UIColor.systemGray))
                 .padding(.horizontal, 25)
@@ -88,9 +55,14 @@ struct SearchscreenView: View {
                     .frame(width: Constants.screenWidth, height: 25, alignment: .center)
                 
                 LazyVStack{
-                    ProductListView()
-                    ProductListView()
-                    ProductListView()
+                    ForEach(products, id: \.self) { (product: Product) in
+                        NavigationLink(
+                            destination: ProductscreenView(productID: product.productID),
+                            label: {
+                                ProductListView(image: product.image, title: product.title, price: product.price, storeName: product.shop)
+                                    .foregroundColor(.black)
+                            })
+                    }
                 }
                 
                 Spacer()
@@ -105,11 +77,8 @@ struct SearchscreenView: View {
             }
             
         }.frame(width: Constants.screenWidth, height: Constants.screenHeight, alignment: .top)
-    }
-}
-
-struct SearchscreenView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchscreenView()
+        .onAppear(perform: {
+            SearchProducts()
+        })
     }
 }

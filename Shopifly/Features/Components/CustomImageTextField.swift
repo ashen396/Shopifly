@@ -9,11 +9,11 @@ import Foundation
 import SwiftUI
 
 
-func CustomImageTextField(title: String, bindState: Binding<String>, imageName: String) -> some View{
-    return TextField(title, text: bindState)
+func CustomImageTextField(title: String, bindState: Binding<String>, imageName: String, actionOnCommit: @escaping () -> Void, reduceWidth: CGFloat? = 50) -> some View{
+    return TextField(title, text: bindState, onCommit: actionOnCommit)
         .font(.title3)
         .padding(EdgeInsets(top: 0, leading: 48, bottom: 0, trailing: 15))
-        .frame(width: UIScreen.main.bounds.width - 50, height: 48)
+        .frame(width: UIScreen.main.bounds.width - reduceWidth!, height: 48)
         .background(Color(UIColor.systemGray6))
         .cornerRadius(10)
         .overlay(HStack{
