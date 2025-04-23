@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct WishlistView: View {
+    
+    @State private var productList: [Product] = ([])
+    
     var body: some View {
         VStack{
             // Header
@@ -27,9 +30,9 @@ struct WishlistView: View {
             
             ScrollView(.vertical, showsIndicators: true){
                 LazyVStack{
-                    ProductListView()
-                    ProductListView()
-                    ProductListView()
+                    ForEach(productList, id:\.self) { (product) in
+                        ProductListView(image: product.image, title: product.title, price: product.price, storeName: product.shop)
+                    }
                 }
             }
             
@@ -37,6 +40,11 @@ struct WishlistView: View {
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
         .gesture(DragGesture())
+        .onAppear(perform: {
+            GetProductsByUserID(collection: "Wishlist", fieldName: "UserID", userID: "gimanthaashen") { (products) in
+                    productList = products
+            }
+        })
     }
 }
 
