@@ -13,7 +13,7 @@ struct ProductscreenView: View {
     @State var productID: String = ""
     @State var product: Product = Product(productID: "", title: "", price: "", shop: "", image: UIImage())
     
-    @State var reviews: [Review] = [Review(user: User(userID: "", username: "", userImage: UIImage()), rating: 1, comment: "", commentID: "", date: "")]
+    @State var reviews: [Review] = [Review(user: User(userID: "", username: "", userImage: UIImage()), rating: 1, comment: "", commentID: "", date: "", images: [UIImage()])]
     
     @State private var rate: Int = 1
     
@@ -192,22 +192,19 @@ struct ProductscreenView: View {
                                 .frame(width: Constants.screenWidth, height: 25, alignment: .center)
                             
                             HStack{
-                                Image("ReviewImage")
-                                    .resizable()
-                                    .frame(width: 48, height: 48, alignment: .leading)
-                                
-                                Image("ReviewImage")
-                                    .resizable()
-                                    .frame(width: 48, height: 48, alignment: .leading)
-                                
-                                Image("ReviewImage")
-                                    .resizable()
-                                    .frame(width: 48, height: 48, alignment: .leading)
+                                ForEach(review.images, id: \.self){ fetchedImage in
+                                    Image(uiImage: fetchedImage)
+                                }
                             }.padding(.leading, 40)
                             .frame(width: Constants.screenWidth - 85, height: 48, alignment: .leading)
                             
                         }.padding(.horizontal, 15)
-                        .frame(width: Constants.screenWidth, height: 150, alignment: .topLeading)
+                        .frame(width: Constants.screenWidth, height: 125, alignment: .topLeading)
+                        
+                        if(review.images.count > 0){
+                            Spacer()
+                                .frame(width: Constants.screenWidth, height: 50, alignment: .center)
+                        }
                     }
                 }
             }.frame(width: Constants.screenWidth, height: 270, alignment: .topLeading)

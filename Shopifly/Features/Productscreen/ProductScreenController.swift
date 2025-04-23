@@ -36,7 +36,7 @@ struct Review: Hashable {
     var comment: String
     var commentID: String
     var date: String
-//    var images: [UIImage]
+    var images: [UIImage]
 }
 
 func GetUserImage(imageName: String, completion: @escaping (UIImage) -> Void){
@@ -67,6 +67,20 @@ func GetUserByID(collection: String, fieldName: String, userID: String, completi
     }
 }
 
+func GetImageArray(imageList: [String], completion: @escaping ([UIImage]) -> Void){
+    var imageArray: [UIImage] = []
+    imageList.forEach { (imageName) in
+        Storage.storage().reference(withPath: imageName).getData(maxSize: 5 * 1024 * 1024) { (data, error) in
+            DispatchQueue.main.async {
+                if let imageData = data, let image = UIImage(data: imageData){
+                    imageArray.append(image)
+                    completion(imageArray)
+                }
+            }
+        }
+    }
+}
+
 func GetReviewsByProductID(collection: String, fieldName: String, productID: String, completion: @escaping ([Review]) -> Void){
     Firestore.firestore().collection(collection).whereField(fieldName, isEqualTo: productID).getDocuments { (docs, error) in
         var reviews: [Review] = []
@@ -74,9 +88,21 @@ func GetReviewsByProductID(collection: String, fieldName: String, productID: Str
         docs?.documents.forEach({ (document) in
             let docData = document.data()
             
+            let imageArray: [String] = docData["Images"] == nil ? [] : docData["Images"] as! [String]
+            var imageList: [UIImage] = [UIImage()]
+            
+            GetImageArray(imageList: imageArray) { fetchedImages in
+                imageList = fetchedImages
+            }
+            
             GetUserByID(collection: "Users", fieldName: "UserID", userID: String(describing: docData["UserID"]!)) { (data) in
-                let review = Review(user: data, rating: Int(String(describing: docData["Rating"]!))!, comment: String(describing: docData["Comment"]!), commentID: String(describing: docData["ReviewID"]!), date: String(describing: docData["Date"]!))
+                
+                let review = Review(user: data, rating: Int(String(describing: docData["Rating"]!))!, comment: String(describing: docData["Comment"]!), commentID: String(describing: docData["ReviewID"]!), date: String(describing: docData["Date"]!), images: imageList)
 
+
+                reviews.sort { (review1, review2) -> Bool in
+                   return review1.commentID > review2.commentID
+                }
                 reviews.append(contentsOf: [review])
                 completion(reviews)
             }
