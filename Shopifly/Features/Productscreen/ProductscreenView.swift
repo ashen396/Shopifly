@@ -149,7 +149,7 @@ struct ProductscreenView: View {
                         VStack{
                             HStack{
                                 NavigationLink(
-                                    destination: UserProfileView(),
+                                    destination: UserProfileView(userID: review.user.userID, userImage: review.user.userImage),
                                     label: {
                                         Image(uiImage: review.user.userImage)
                                             .resizable()
@@ -199,12 +199,7 @@ struct ProductscreenView: View {
                             .frame(width: Constants.screenWidth - 85, height: 48, alignment: .leading)
                             
                         }.padding(.horizontal, 15)
-                        .frame(width: Constants.screenWidth, height: 125, alignment: .topLeading)
-                        
-                        if(review.images.count > 0){
-                            Spacer()
-                                .frame(width: Constants.screenWidth, height: 50, alignment: .center)
-                        }
+                        .frame(width: Constants.screenWidth, height: review.images.count > 1 ? 175 : 100, alignment: .topLeading)
                     }
                 }
             }.frame(width: Constants.screenWidth, height: 270, alignment: .topLeading)

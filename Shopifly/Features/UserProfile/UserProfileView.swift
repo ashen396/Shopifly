@@ -8,16 +8,20 @@
 import SwiftUI
 
 struct UserProfileView: View {
+    
+    @State var userID: String = ""
+    @State var userImage: UIImage = UIImage()
+    
     var body: some View {
         VStack{
             HStack{
-                Image("ProfilePic1hd")
+                Image(uiImage: userImage)
                     .resizable()
                     .frame(width: Constants.screenWidth / 2, height:  Constants.screenWidth / 2, alignment: .center)
             }.frame(width: Constants.screenWidth, height: Constants.screenWidth / 2, alignment: .center)
             .padding(.top, 100)
             
-            Text("@JohnSmith")
+            Text("@\(userID)")
                 .foregroundColor(Color.gray)
             
             HStack{
