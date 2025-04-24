@@ -16,7 +16,6 @@ struct CompareProductsSearchView: View{
     @State var productID: String
     
     private func SearchProducts(){
-        print(chosenProduct.productID)
         GetProductsByKeywords(collection: "Products", searchKeyword: search) { (productList) in
             products = productList
         }
@@ -50,7 +49,7 @@ struct CompareProductsSearchView: View{
                 ForEach(products, id: \.self) { (product: Product) in
                     if(!String(product.productID).elementsEqual(productID)){
                         NavigationLink(
-                            destination: ProductscreenView(productID: product.productID),
+                            destination: CompareProductsView(product1: chosenProduct, product2ID: product.productID, selectedProduct: chosenProduct),
                             label: {
                                 ProductListView(image: product.image, title: product.title, price: product.price, storeName: product.shop)
                                     .foregroundColor(.black)
@@ -71,9 +70,3 @@ struct CompareProductsSearchView: View{
         .navigationBarBackButtonHidden(true)
     }
 }
-
-//struct CompareProductsSearchViewPreview: PreviewProvider{
-//    static var previews: some View{
-//        CompareProductsSearchView()
-//    }
-//}

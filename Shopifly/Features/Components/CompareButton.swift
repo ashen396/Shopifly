@@ -36,3 +36,32 @@ func CompareButton(title1: String) -> some View{
             .frame(width: 275, height: 55, alignment: .leading)
         )
 }
+
+func CompareMultipleButton(title1: String, title2: String)-> some View{
+    return RoundedRectangle(cornerRadius: 35.0)
+        .foregroundColor(.black)
+        .frame(width: 275, height: 55, alignment: .center)
+        .overlay(
+            HStack{
+                Text(title1)
+                    .font(.title3)
+                    .fontWeight(.medium)
+                    .foregroundColor(.white)
+                    .padding(.leading, 20)
+                
+                Spacer()
+//                    .frame(width: 20, height: 55, alignment: .center)
+                
+                RoundedRectangle(cornerRadius: 20)
+                    .foregroundColor(.white)
+                    .frame(width: 125, height: 40, alignment: .center)
+                    .overlay(
+                        Text(title2)
+                            .font(.title3)
+                            .fontWeight(.medium)
+                            .foregroundColor(.black)
+                    )
+            }.padding(.horizontal, 10)
+            .frame(width: 350, height: 55, alignment: .leading)
+        )
+}
