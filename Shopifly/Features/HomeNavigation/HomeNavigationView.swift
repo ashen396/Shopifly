@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct HomeNavigationView: View {
+    @State var index: Int = 1
     var body: some View {
-        TabView(selection: .constant(1),
+        TabView(selection: $index,
                 content:  {
                     HomescreenView()
                         .tabItem {
@@ -17,23 +18,23 @@ struct HomeNavigationView: View {
                             Text("Home")
                         }.tag(1)
                     
-                    AddItemView()
+                    AddItemView(pageIndex: $index)
                         .tabItem {
                             Image(systemName: "plus.circle")
                             Text("Review")
-                        }
+                        }.tag(2)
                     
                     WishlistView()
                         .tabItem {
                             Image(systemName: "heart")
                             Text("Wishlist")
-                        }
+                        }.tag(3)
                     
                     SettingsView()
                         .tabItem {
                             Image(systemName: "gear")
                             Text("Settings")
-                        }
+                        }.tag(4)
                 })
     }
 }

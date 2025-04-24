@@ -9,12 +9,16 @@ import SwiftUI
 import MapKit
 
 struct AddItemView: View {
+    @State private var showImagePicker = false
+        @State private var image: UIImage? = UIImage()
     
     @State private var productName: String = ""
     @State private var storeName: String = ""
     @State private var price: String = ""
     @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 6.9721, longitude: 79.8612), span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
     let locationMan = CLLocationManager()
+    
+    @Binding var pageIndex:Int
     
     var body: some View {
         VStack{
@@ -128,18 +132,25 @@ struct AddItemView: View {
                     Spacer()
                         .frame(width: Constants.screenWidth, height: Constants.spacingHeight2, alignment: .center)
                     
-                    CustomButton(title: "Add Product", foregroundColor: .white, backgroundColor: .blue)
+                    Image(uiImage: image!)
+                                       .resizable()
+                                       .scaledToFit()
+                                       .frame(width: 300, height: 300)
+                                       .cornerRadius(12)
+                    
+                    CustomButton(title: "Choose Image", foregroundColor: .white, backgroundColor: .blue) {
+                        showImagePicker = true
+                    }.padding()
+                    .sheet(isPresented: $showImagePicker, onDismiss: {
+                        pageIndex = 2
+                    }) {
+                        ImagePicker(selectedImage: $image)
+                    }
                 }
             }
         }.frame(width: Constants.screenWidth, height: Constants.screenHeight - 120, alignment: .top)
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
         .gesture(DragGesture())
-    }
-}
-
-struct AddItemView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddItemView()
     }
 }

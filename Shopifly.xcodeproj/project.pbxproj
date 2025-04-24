@@ -53,6 +53,7 @@
 		04A727152DABB5A900A894FD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A727142DABB5A900A894FD /* MapKit.framework */; };
 		04A7271B2DABC66700A894FD /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7271A2DABC66700A894FD /* UserProfileView.swift */; };
 		04B193E72DBA5E8700A5EAE2 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B193E62DBA5E8700A5EAE2 /* PasswordTextField.swift */; };
+		04B193EC2DBA802A00A5EAE2 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B193EB2DBA802A00A5EAE2 /* ImagePicker.swift */; };
 		04BCCE312DAA439B00D0924A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCCE302DAA439B00D0924A /* Constants.swift */; };
 		04BF660B2DABA6A1002F0B7E /* RatingBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BF660A2DABA6A1002F0B7E /* RatingBar.swift */; };
 		04C6BFFB2DB6696E00FB72CF /* ProductScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C6BFFA2DB6696E00FB72CF /* ProductScreenController.swift */; };
@@ -129,6 +130,7 @@
 		04A727142DABB5A900A894FD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		04A7271A2DABC66700A894FD /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		04B193E62DBA5E8700A5EAE2 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
+		04B193EB2DBA802A00A5EAE2 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		04BCCE302DAA439B00D0924A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		04BF660A2DABA6A1002F0B7E /* RatingBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingBar.swift; sourceTree = "<group>"; };
 		04C6BFFA2DB6696E00FB72CF /* ProductScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductScreenController.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				040F59982DAD10A5002A5FA7 /* CompareButton.swift */,
 				04C7E8F42DAF97D5002791EA /* CustomImageTextField.swift */,
 				04B193E62DBA5E8700A5EAE2 /* PasswordTextField.swift */,
+				04B193EB2DBA802A00A5EAE2 /* ImagePicker.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -636,6 +639,7 @@
 				04C7E8F52DAF97D5002791EA /* CustomImageTextField.swift in Sources */,
 				048DF2452DB4008B00809862 /* CardModelEntity+CoreDataProperties.swift in Sources */,
 				04826A332DA6D3AA00F05667 /* OTPView.swift in Sources */,
+				04B193EC2DBA802A00A5EAE2 /* ImagePicker.swift in Sources */,
 				040F59992DAD10A5002A5FA7 /* CompareButton.swift in Sources */,
 				040C44A02DA7991C00B183B5 /* CardView.swift in Sources */,
 				04C7E8DE2DAF7D1B002791EA /* HomeNavigationView.swift in Sources */,

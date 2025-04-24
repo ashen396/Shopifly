@@ -29,7 +29,7 @@ struct PasswordTextField: View {
             Button {
                 showPassword.toggle()
             } label: {
-                Image(systemName: showPassword ? "eye.slash" : "eye")
+                Image(systemName: showPassword ? "eye" : "eye.slash")
                     .foregroundColor(.gray)
             }
         }.font(.title3)
