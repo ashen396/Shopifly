@@ -23,10 +23,8 @@ struct LoginView: View {
         Auth.auth().signIn(withEmail: email, password: password) { (loginResult, error) in
             
             if(error != nil){
-                print("Error")
                 alertVisible = true
             }else{
-                print("Done")
                 isAuth.toggle()
             }
         }
@@ -101,9 +99,6 @@ struct LoginView: View {
                     VStack{
                         
                         // Login with Apple Button
-    //                    CustomButton(title: "Continue with Apple", foregroundColor: Color.white, backgroundColor: Color.black, function: {
-    //                        SetData()
-    //                    })
                         NavigationButton(title: "Continue with Apple", foregroundColor: Color.white, backgroundColor: Color.black, stroke: false, padding: 0, destination: SignUpView())
                         
                         Spacer()

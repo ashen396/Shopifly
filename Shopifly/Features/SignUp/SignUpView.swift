@@ -17,7 +17,12 @@ struct SignUpView: View{
     @State private var mobile = ""
     @State private var location = ""
     @State private var password = ""
+    @State private var confirmPassword = ""
     @State private var isChecked = false
+    
+    @State private var alertVisible: Bool = false
+    @State private var errorMessage: String = ""
+    @State private var showPassword: Bool = false
     
     var body: some View{
         VStack{
@@ -62,14 +67,14 @@ struct SignUpView: View{
                 }
                 
                 Group{
-                    CustomTextField(title: "Password", bindState: $password)
+                    PasswordTextField(title: "Password", password: $password, showPassword: $showPassword)
                     
                     Spacer()
                         .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
                 }
                 
                 Group{
-                    CustomTextField(title: "Confirm Password", bindState: $password)
+                    PasswordTextField(title: "Confirm Password", password: $confirmPassword, showPassword: $showPassword)
                     
                     Spacer()
                         .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
@@ -80,28 +85,38 @@ struct SignUpView: View{
                 .padding(.horizontal, 40)
             
             CustomButton(title: "Continue", foregroundColor: .white, backgroundColor: .blue) {
-                Auth.auth().createUser(withEmail: email, password: password) { (result: AuthDataResult?,error: Error?) in
-                    if(error != nil){
-                        print("Error: \(String(describing: error))")
-                        return
-                    }else{
-                        print("Result: \(String(describing: result?.user.uid))")
-                        
-                        result?.user.sendEmailVerification(completion: { (verificationError: Error?) in
-                            
+                if(isChecked == true){
+                    if(password == confirmPassword){
+                        Auth.auth().createUser(withEmail: email, password: password) { (result: AuthDataResult?,error: Error?) in
                             if(error != nil){
-                                print("Error: \(String(describing: error))")
+                                errorMessage = error.debugDescription.description
+                                alertVisible = true
                                 return
+                            }else{
+                                result?.user.sendEmailVerification(completion: { (verificationError: Error?) in
+                                    
+                                    if(error != nil){
+                                        errorMessage = error.debugDescription.description
+                                        alertVisible = true
+                                        return
+                                    }
+                                    
+                                    Firestore.firestore().collection("Users").addDocument(data: ["FirstName" : fname, "LastName": lname, "Email": email, "Mobile": mobile, "Location": location])
+                                    
+                                })
                             }
-                            
-                            print("IsValid: \(String(describing: result?.user.isEmailVerified))")
-                            
-                            Firestore.firestore().collection("Users").addDocument(data: ["FirstName" : fname, "LastName": lname, "Email": email, "Mobile": mobile, "Location": location])
-                            
-                        })
+                        }
+                    }else{
+                        errorMessage = "Passwords do not match"
+                        alertVisible = true
                     }
+                }else{
+                    errorMessage = "Accept Terms & Conditions"
+                    alertVisible = true
                 }
-            }
+            }.alert(isPresented: $alertVisible, content: {
+                Alert(title: Text("Sign Up Error"), message: Text(errorMessage), dismissButton: .default(Text("OK")))
+            })
 
         }.frame(minWidth: 0, idealWidth: .infinity, maxWidth: .infinity, minHeight: 0, idealHeight: .infinity, maxHeight: .infinity, alignment: .top)
     }
