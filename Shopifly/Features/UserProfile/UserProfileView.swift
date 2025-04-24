@@ -102,12 +102,44 @@ struct UserProfileView: View {
             }.padding(.horizontal, 25)
             .frame(width: Constants.screenWidth, height: 20, alignment: .leading)
             
-            VStack{
-                ForEach(userReviews, id: \.self) { (review: UserReview) in
-                    Text(review.storeName)
+            ScrollView(showsIndicators: true){
+                VStack{
+                    ForEach(userReviews, id: \.self) { (review: UserReview) in
+                        VStack{
+                            HStack{
+                                Image(uiImage: review.storeImage)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 100, height: 100, alignment: .leading)
+                                
+                                VStack{
+                                    Text(review.storeName)
+                                        .font(.title3)
+                                        .fontWeight(.semibold)
+                                        .frame(width: 250, height: 20, alignment: .leading)
+                                    
+                                    Spacer()
+                                        .frame(width: 250, height: 5, alignment: .center)
+                                    
+                                    RatingBar(rateCount: review.rating, isClickable: false)
+                                        .frame(width: 250, height: 20, alignment: .leading)
+                                    
+                                    Text(review.comment)
+                                        .font(.body)
+                                        .fontWeight(.light)
+                                        .frame(width: 250, height: 20, alignment: .leading)
+                                }
+                            }.padding(.horizontal, 25)
+                            .frame(width: Constants.screenWidth, height: 120, alignment: .leading)
+                            
+                            Rectangle()
+                                .padding(.horizontal, 25)
+                                .frame(width: Constants.screenWidth, height: 1, alignment: .center)
+                                .foregroundColor(Color(UIColor.systemGray3))
+                        }
+                    }
                 }
             }
-            
         }.frame(width: Constants.screenWidth, height: Constants.screenHeight, alignment: .topLeading)
         .onAppear {
 //            LoadData()
