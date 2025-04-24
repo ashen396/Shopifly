@@ -62,6 +62,6 @@ func CompareMultipleButton(title1: String, title2: String)-> some View{
                             .foregroundColor(.black)
                     )
             }.padding(.horizontal, 10)
-            .frame(width: 350, height: 55, alignment: .leading)
+            .frame(width: 275, height: 55, alignment: .leading)
         )
 }

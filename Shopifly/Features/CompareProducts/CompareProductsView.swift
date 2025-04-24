@@ -10,6 +10,7 @@ import SwiftUI
 struct CompareProductsView: View {
     
     @State var product1: Product
+    @State var product2Title: String
     @State var product2: Product?
     @State var product2ID: String
     @State var selectedProduct: Product
@@ -76,7 +77,7 @@ struct CompareProductsView: View {
             .padding(.horizontal, 20)
             .frame(width: Constants.screenWidth, height: 40, alignment: .leading)
                         
-            CompareMultipleButton(title1: product1.title, title2: product2?.title ?? "Product2")
+            CompareMultipleButton(title1: product1.title, title2: product2Title)
         }.frame(width: Constants.screenWidth, height: UIScreen.main.bounds.height, alignment: .top)
         .ignoresSafeArea()
         .onAppear {

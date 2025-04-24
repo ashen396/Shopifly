@@ -23,42 +23,42 @@ struct CompareProductsSearchView: View{
     
     var body: some View{
         VStack{
-        VStack{
-            // Search Bar
-            HStack{
-                CustomImageTextField(title: "Search Product", bindState: $search, imageName: "magnifyingglass", actionOnCommit: {
-                    SearchProducts()
-                }, reduceWidth: CGFloat(140))
+            VStack{
+                // Search Bar
+                HStack{
+                    CustomImageTextField(title: "Search Product", bindState: $search, imageName: "magnifyingglass", actionOnCommit: {
+                        SearchProducts()
+                    }, reduceWidth: CGFloat(140))
+                    
+                    Spacer()
+                        .frame(width: 25, height: 48, alignment: .center)
+                    
+                    Text("Cancel")
+                        .font(.title3)
+                        .foregroundColor(.blue)
+                        .onTapGesture {
+                            search.removeAll()
+                            self.presentationMode.wrappedValue.dismiss()
+                        }
+                }
                 
                 Spacer()
-                    .frame(width: 25, height: 48, alignment: .center)
+                    .frame(width: Constants.screenWidth, height: 40, alignment: .center)
                 
-                Text("Cancel")
-                    .font(.title3)
-                    .foregroundColor(.blue)
-                    .onTapGesture {
-                        search.removeAll()
-                        self.presentationMode.wrappedValue.dismiss()
-                    }
-            }
-            
-            Spacer()
-                .frame(width: Constants.screenWidth, height: 40, alignment: .center)
-            
-            LazyVStack{
-                ForEach(products, id: \.self) { (product: Product) in
-                    if(!String(product.productID).elementsEqual(productID)){
-                        NavigationLink(
-                            destination: CompareProductsView(product1: chosenProduct, product2ID: product.productID, selectedProduct: chosenProduct),
-                            label: {
-                                ProductListView(image: product.image, title: product.title, price: product.price, storeName: product.shop)
-                                    .foregroundColor(.black)
-                            })
+                LazyVStack{
+                    ForEach(products, id: \.self) { (product: Product) in
+                        if(!String(product.productID).elementsEqual(productID)){
+                            NavigationLink(
+                                destination: CompareProductsView(product1: chosenProduct, product2Title: product.title, product2ID: product.productID, selectedProduct: chosenProduct),
+                                label: {
+                                    ProductListView(image: product.image, title: product.title, price: product.price, storeName: product.shop)
+                                        .foregroundColor(.black)
+                                })
+                        }
                     }
                 }
-            }
-            
-        }.frame(width: Constants.screenWidth, height: Constants.screenHeight - 120 , alignment: .top)
+                
+            }.frame(width: Constants.screenWidth, height: Constants.screenHeight - 120 , alignment: .top)
             
             CompareButton(title1: chosenProduct.title)
         }.padding(.top, 40)
