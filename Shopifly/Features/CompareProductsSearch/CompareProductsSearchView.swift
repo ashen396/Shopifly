@@ -9,28 +9,27 @@ import Foundation
 import SwiftUI
 
 struct CompareProductsSearchView: View{
+    @Environment(\.presentationMode) var presentationMode
+    @State private var search: String = ""
+    @State var products: [Product] = []
+    @State var chosenProduct: Product
+    @State var productID: String
     
-    @State private var search: String = "Shoes"
+    private func SearchProducts(){
+        print(chosenProduct.productID)
+        GetProductsByKeywords(collection: "Products", searchKeyword: search) { (productList) in
+            products = productList
+        }
+    }
     
     var body: some View{
         VStack{
         VStack{
             // Search Bar
             HStack{
-                TextField("Search", text: $search)
-                    .font(.title3)
-                    .padding(EdgeInsets(top: 0, leading: 48, bottom: 0, trailing: 15))
-                    .frame(width: UIScreen.main.bounds.width - 140, height: 48)
-                    .background(Color(UIColor.systemGray6))
-                    .cornerRadius(10)
-                    .overlay(HStack{
-                        Image(systemName: "magnifyingglass")
-                            .resizable()
-                            .frame(width: 18, height: 18, alignment: .center)
-                            .padding(.leading, 15)
-                            .foregroundColor(Color(UIColor.systemGray2))
-                        Spacer()
-                    })
+                CustomImageTextField(title: "Search Product", bindState: $search, imageName: "magnifyingglass", actionOnCommit: {
+                    SearchProducts()
+                }, reduceWidth: CGFloat(140))
                 
                 Spacer()
                     .frame(width: 25, height: 48, alignment: .center)
@@ -38,27 +37,43 @@ struct CompareProductsSearchView: View{
                 Text("Cancel")
                     .font(.title3)
                     .foregroundColor(.blue)
+                    .onTapGesture {
+                        search.removeAll()
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
             }
             
             Spacer()
                 .frame(width: Constants.screenWidth, height: 40, alignment: .center)
             
             LazyVStack{
-                ProductListView()
-                ProductListView()
-                ProductListView()
+                ForEach(products, id: \.self) { (product: Product) in
+                    if(!String(product.productID).elementsEqual(productID)){
+                        NavigationLink(
+                            destination: ProductscreenView(productID: product.productID),
+                            label: {
+                                ProductListView(image: product.image, title: product.title, price: product.price, storeName: product.shop)
+                                    .foregroundColor(.black)
+                            })
+                    }
+                }
             }
             
         }.frame(width: Constants.screenWidth, height: Constants.screenHeight - 120 , alignment: .top)
             
-            CompareButton()
+            CompareButton(title1: chosenProduct.title)
         }.padding(.top, 40)
         .frame(width: Constants.screenWidth, height: Constants.screenHeight, alignment: .top)
+            .onAppear(perform: {
+                SearchProducts()
+            })
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
     }
 }
 
-struct CompareProductsSearchViewPreview: PreviewProvider{
-    static var previews: some View{
-        CompareProductsSearchView()
-    }
-}
+//struct CompareProductsSearchViewPreview: PreviewProvider{
+//    static var previews: some View{
+//        CompareProductsSearchView()
+//    }
+//}

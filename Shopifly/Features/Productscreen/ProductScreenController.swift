@@ -20,6 +20,7 @@ func GetProductByID(collection: String, fieldName: String, productID: String, co
             product.title = String(describing: doc!["Name"]!)
             product.price = String(describing: doc!["Price"]!)
             product.shop = String(describing: doc!["Shop"]!)
+            product.backgroundColor = doc?["BackgroundColor"] as? [Double]
             product.image = image
             
             completion(product)

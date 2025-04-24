@@ -312,7 +312,7 @@ struct CompareProductsView: View {
                 }.frame(width: Constants.screenWidth, height: 300, alignment: .topLeading)
             }.frame(width: Constants.screenWidth, height: 325, alignment: .top)
             
-            CompareButton()
+            CompareButton(title1: "Test")
             
         }.frame(width: Constants.screenWidth, height: UIScreen.main.bounds.height, alignment: .top)
         .ignoresSafeArea()

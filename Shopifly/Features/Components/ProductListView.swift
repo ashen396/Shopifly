@@ -14,6 +14,7 @@ struct Product: Hashable{
     var price: String
     var shop: String
     var image: UIImage
+    var backgroundColor: Array<Double>?
 }
 
 func GetProductList(collection: String, completion: @escaping ([Product]) -> Void){

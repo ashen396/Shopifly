@@ -8,13 +8,13 @@
 import Foundation
 import SwiftUI
 
-func CompareButton() -> some View{
+func CompareButton(title1: String) -> some View{
     return RoundedRectangle(cornerRadius: 35.0)
         .foregroundColor(.black)
         .frame(width: 275, height: 55, alignment: .center)
         .overlay(
             HStack{
-                Text("Red Shoe")
+                Text(title1)
                     .font(.title3)
                     .fontWeight(.medium)
                     .foregroundColor(.white)

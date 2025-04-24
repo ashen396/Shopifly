@@ -31,10 +31,10 @@ struct ProductscreenView: View {
     
     var body: some View {
         VStack{
-            LinearGradient(gradient: Gradient(colors: [Color(red: 0.44, green: 0.03, blue: 0.07, opacity: 1.00), Color(red: 0.84, green: 0.02, blue: 0.12, opacity: 1.00)]), startPoint: .top, endPoint: .bottom)
+            LinearGradient(gradient: Gradient(colors: [Color(red: product.backgroundColor != nil ? (product.backgroundColor![0] - 0.4) : 1.0, green: product.backgroundColor != nil ? (product.backgroundColor![1] - 0.4) : 1.0, blue: product.backgroundColor != nil ? (product.backgroundColor![2] - 0.4) : 1.0, opacity: 1.00), Color(red: product.backgroundColor != nil ? product.backgroundColor![0] : 1.0, green: product.backgroundColor != nil ? product.backgroundColor![1] : 1.0, blue: product.backgroundColor != nil ? product.backgroundColor![2] : 1.0, opacity: 1.00)]), startPoint: .top, endPoint: .bottom)
                 .frame(width: Constants.screenWidth, height: Constants.screenWidth / 4.4, alignment: .top)
             ZStack{
-                Image("RedShoeLarge")
+                Image(uiImage: product.image)
                     .resizable()
                     .frame(width: Constants.screenWidth / 1.5, height: Constants.screenWidth / 1.5, alignment: .top)
                 
@@ -107,7 +107,7 @@ struct ProductscreenView: View {
                 
                 
             }.frame(width: Constants.screenWidth, height: Constants.screenWidth / 1.5, alignment: .center)
-            .background(Color(red: 0.81, green: 0.02, blue: 0.12, opacity: 1.00))
+            .background(Color(red: product.backgroundColor != nil ? product.backgroundColor![0] : 1.0, green: product.backgroundColor != nil ? product.backgroundColor![1] : 1.0, blue: product.backgroundColor != nil ? product.backgroundColor![2] : 1.0, opacity: 1.00))
             .padding(.top, -10)
             
             Text(product.title)
@@ -125,8 +125,10 @@ struct ProductscreenView: View {
                     Spacer()
             
                 HStack{
-                    Text("Compare")
-                        .foregroundColor(.blue)
+                    NavigationLink(destination: CompareProductsSearchView(chosenProduct: product, productID: productID), label: {
+                        Text("Compare")
+                            .foregroundColor(.blue)
+                    })
                     
                     Image(systemName: "chevron.right")
                         .resizable()
