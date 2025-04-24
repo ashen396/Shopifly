@@ -31,7 +31,9 @@ struct WishlistView: View {
             ScrollView(.vertical, showsIndicators: true){
                 LazyVStack{
                     ForEach(productList, id:\.self) { (product) in
-                        ProductListView(image: product.image, title: product.title, price: product.price, storeName: product.shop)
+                        ProductWishListView(image: product.image, title: product.title, price: product.price, storeName: product.shop) {
+                            RemoveFromWishlist(collection: "Wishlist", userID:  "gimanthaashen", productID: product.productID)
+                        }
                     }
                 }
             }

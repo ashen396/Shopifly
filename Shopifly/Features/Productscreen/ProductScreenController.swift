@@ -17,6 +17,7 @@ func GetProductByID(collection: String, fieldName: String, productID: String, co
         var product: Product = Product(productID: "", title: "", price: "", shop: "", image: UIImage())
         
         GetImage(imageName: String(describing: doc!["Image"]!)) { (image) in
+            product.productID = String(describing: doc!["ProductID"]!)
             product.title = String(describing: doc!["Name"]!)
             product.price = String(describing: doc!["Price"]!)
             product.shop = String(describing: doc!["Shop"]!)
