@@ -8,17 +8,34 @@
 import Foundation
 import SwiftUI
 //import FirebaseFirestore
+import FirebaseAuth
 
 struct LoginView: View {
     
     @State private var email = ""
     @State private var password = ""
     @State var showPassword: Bool = false
+    @State var alertVisible: Bool = false
+    @State var isAuth: Bool = false
+    
+    private func Authentication(){
+        
+        Auth.auth().signIn(withEmail: email, password: password) { (loginResult, error) in
+            
+            if(error != nil){
+                print("Error")
+                alertVisible = true
+            }else{
+                print("Done")
+                isAuth.toggle()
+            }
+        }
+    }
     
     var body: some View{
         NavigationView{
             VStack{
-                
+                NavigationLink("", destination: HomeNavigationView(), isActive: $isAuth)
                 // Heading
                 VStack{
                     Text("Shopifly")
@@ -57,8 +74,11 @@ struct LoginView: View {
                     .padding(.trailing, 10)
                     
                     // Login Button
-                    NavigationButton(title: "Continue", foregroundColor: .white, backgroundColor: .blue, destination: HomeNavigationView())
-
+                    CustomButton(title: "Continue", foregroundColor: .white, backgroundColor: .blue, padding: 0) {
+                        Authentication()
+                    }.alert(isPresented: $alertVisible, content: {
+                        Alert(title: Text("Login Error"), message: Text("Error Login"), dismissButton: .default(Text("OK")))
+                    })
                     
                     // Separator
                     HStack{
