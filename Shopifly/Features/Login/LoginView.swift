@@ -13,6 +13,7 @@ struct LoginView: View {
     
     @State private var email = ""
     @State private var password = ""
+    @State var showPassword: Bool = false
     
     var body: some View{
         NavigationView{
@@ -40,7 +41,7 @@ struct LoginView: View {
                         .frame(width: Constants.screenWidth, height: 20, alignment: .center)
                     
                     // Password Textfield
-                    CustomTextField(title: "Password", bindState: $password)
+                    PasswordTextField(title: "Password", password: $password, showPassword: $showPassword)
                     
                     Spacer()
                         .frame(width: Constants.screenWidth, height: 15, alignment: .center)

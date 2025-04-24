@@ -22,20 +22,11 @@ struct UserProfileView: View {
     @State var productsList: [Product]?
     @State private var userReviews: [UserReview] = []
     
-//    private func GetReviewsByUserID(collection: String, fieldName: String, userID: String, completion: @escaping ([UserReview]) -> Void){
     private func GetReviewsByUserID(){
         Firestore.firestore().collection("Reviews").whereField("UserID", isEqualTo: userID).getDocuments { (docs, error) in
-//            var userReview: UserReview
             
             docs?.documents.forEach({ (document) in
                 let docData = document.data()
-                
-//                let imageArray: [String] = docData["Images"] == nil ? [] : docData["Images"] as! [String]
-//                var imageList: [UIImage] = [UIImage()]
-//
-//                GetImageArray(imageList: imageArray) { fetchedImages in
-//                    imageList = fetchedImages
-//                }
                 
                 GetProductByID(collection: "Products", fieldName: "ProductID", productID: String(describing: docData["ProductID"]!)) { (fetchedProduct) in
                     var userReview = UserReview(storeName: "", storeImage: UIImage(), rating: 1, comment: "")
@@ -45,30 +36,10 @@ struct UserProfileView: View {
                     userReview.comment =  String(describing: docData["Comment"]!)
                     
                     userReviews.append(userReview)
-//                    completion(userReviews!)
                 }
-                
-//                GetUserByID(collection: "Users", fieldName: "UserID", userID: String(describing: docData["UserID"]!)) { (data) in
-//
-//                    let review = Review(user: data, rating: Int(String(describing: docData["Rating"]!))!, comment: String(describing: docData["Comment"]!), commentID: String(describing: docData["ReviewID"]!), date: String(describing: docData["Date"]!), images: imageList)
-//
-//
-//                    reviews.sort { (review1, review2) -> Bool in
-//                       return review1.commentID > review2.commentID
-//                    }
-//                    reviews.append(contentsOf: [review])
-//                    completion(reviews)
-//                }
-//            })
             })
         }
     }
-    
-//    private func LoadData(){
-//        GetReviewsByUserID(collection: "Reviews", fieldName: "UserID", userID: userID) { reviewList in
-//
-//        }
-//    }
     
     var body: some View {
         VStack{
@@ -142,7 +113,6 @@ struct UserProfileView: View {
             }
         }.frame(width: Constants.screenWidth, height: Constants.screenHeight, alignment: .topLeading)
         .onAppear {
-//            LoadData()
             GetReviewsByUserID()
         }
     }

@@ -52,6 +52,7 @@
 		048FE2992DB372AD00D98B2B /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 048FE2982DB372AD00D98B2B /* FirebaseDatabase */; };
 		04A727152DABB5A900A894FD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A727142DABB5A900A894FD /* MapKit.framework */; };
 		04A7271B2DABC66700A894FD /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7271A2DABC66700A894FD /* UserProfileView.swift */; };
+		04B193E72DBA5E8700A5EAE2 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B193E62DBA5E8700A5EAE2 /* PasswordTextField.swift */; };
 		04BCCE312DAA439B00D0924A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCCE302DAA439B00D0924A /* Constants.swift */; };
 		04BF660B2DABA6A1002F0B7E /* RatingBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BF660A2DABA6A1002F0B7E /* RatingBar.swift */; };
 		04C6BFFB2DB6696E00FB72CF /* ProductScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C6BFFA2DB6696E00FB72CF /* ProductScreenController.swift */; };
@@ -127,6 +128,7 @@
 		048FE26D2DB36FFF00D98B2B /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		04A727142DABB5A900A894FD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		04A7271A2DABC66700A894FD /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		04B193E62DBA5E8700A5EAE2 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
 		04BCCE302DAA439B00D0924A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		04BF660A2DABA6A1002F0B7E /* RatingBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingBar.swift; sourceTree = "<group>"; };
 		04C6BFFA2DB6696E00FB72CF /* ProductScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductScreenController.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				04BF660A2DABA6A1002F0B7E /* RatingBar.swift */,
 				040F59982DAD10A5002A5FA7 /* CompareButton.swift */,
 				04C7E8F42DAF97D5002791EA /* CustomImageTextField.swift */,
+				04B193E62DBA5E8700A5EAE2 /* PasswordTextField.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -622,6 +625,7 @@
 				044CC0DE2DAE23A3001BB8CF /* ReportProductView.swift in Sources */,
 				044CC0D52DAE1C86001BB8CF /* WriteReviewView.swift in Sources */,
 				04FEA4312DAE73C100B058F0 /* SettingsView.swift in Sources */,
+				04B193E72DBA5E8700A5EAE2 /* PasswordTextField.swift in Sources */,
 				040F59AC2DAD23F9002A5FA7 /* CompareProductsView.swift in Sources */,
 				04C7E8E72DAF7DD7002791EA /* ProductNavigationView.swift in Sources */,
 				048DF2442DB4008B00809862 /* CardModelEntity+CoreDataClass.swift in Sources */,
