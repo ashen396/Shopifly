@@ -11,10 +11,10 @@ struct ProductscreenView: View {
     
     @Environment(\.presentationMode) var presentationMode
     @State var productID: String = ""
-    @State var isWishedProduct: Bool = false
+    @State private var isWishedProduct: Bool = false
     @State var product: Product = Product(productID: "", title: "", price: "", shop: "", image: UIImage())
     
-    @State var reviews: [Review] = [Review(user: User(userID: "", username: "", userImage: UIImage()), rating: 1, comment: "", commentID: "", date: "", images: [UIImage()])]
+    @State private var reviews: [Review] = [Review(user: User(userID: "", username: "", userImage: UIImage()), rating: 1, comment: "", commentID: "", date: "", images: [UIImage()])]
     
     @State private var rate: Int = 1
     
