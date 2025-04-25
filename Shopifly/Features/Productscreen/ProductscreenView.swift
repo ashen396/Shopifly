@@ -218,7 +218,7 @@ struct ProductscreenView: View {
                 }
             }.frame(width: Constants.screenWidth, height: 270, alignment: .topLeading)
             
-            NavigationButton(title: "Write a Review", foregroundColor: .white, backgroundColor: .blue, destination: WriteReviewView())
+            NavigationButton(title: "Write a Review", foregroundColor: .white, backgroundColor: .blue, destination: WriteReviewView(productID: productID))
         }.frame(width: Constants.screenWidth, height: UIScreen.main.bounds.height, alignment: .top)
         .ignoresSafeArea()
         .navigationBarHidden(true)

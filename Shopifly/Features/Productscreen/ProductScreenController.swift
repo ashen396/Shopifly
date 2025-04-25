@@ -165,7 +165,7 @@ func AddToWishlist(isSelected: Bool, productID: String, productName: String, use
         
         Firestore.firestore().collection("Wishlist").addDocument(data: doc) { (error) in
             if((error) != nil){
-                print(error)
+                print(error!)
                 return
             }else{
                 completion(true)

@@ -13,8 +13,8 @@ struct WriteReviewView: View {
     @State private var showImagePicker = false
     @State private var image: UIImage? = UIImage()
     @State private var image2: UIImage? = UIImage()
-    @State private var rating: Int? = 1
     @State var productID: String = ""
+    @State private var rateCount: Int = 1
     
     var body: some View {
         VStack{
@@ -126,7 +126,60 @@ struct WriteReviewView: View {
                         .frame(width: Constants.screenWidth, height: 30, alignment: .leading)
                     }
                     
-                    RatingBar(rateCount: 1, isClickable: true)
+                    HStack{
+                        Image(systemName: "star.fill")
+                            .resizable()
+                            .frame(width: 15, height: 15, alignment: .center)
+                            .foregroundColor(Color.orange)
+                            .onTapGesture(perform: {
+                                rateCount = 1
+                            })
+                        
+                        Spacer()
+                            .frame(width: 5, height: 20, alignment: .center)
+                        
+                        Image(systemName: "star.fill")
+                            .resizable()
+                            .frame(width: 15, height: 15, alignment: .center)
+                            .foregroundColor(rateCount >= 2 ? Color.orange : Color(UIColor.systemGray4))
+                            .onTapGesture(perform: {
+                                rateCount = 2
+                            })
+                        
+                        Spacer()
+                            .frame(width: 5, height: 20, alignment: .center)
+                        
+                        Image(systemName: "star.fill")
+                            .resizable()
+                            .frame(width: 15, height: 15, alignment: .center)
+                            .foregroundColor(rateCount >= 3 ? Color.orange : Color(UIColor.systemGray4))
+                            .onTapGesture(perform: {
+                                rateCount = 3
+                            })
+                        
+                        Spacer()
+                            .frame(width: 5, height: 20, alignment: .center)
+                        
+                        Image(systemName: "star.fill")
+                            .resizable()
+                            .frame(width: 15, height: 15, alignment: .center)
+                            .foregroundColor(rateCount >= 4 ? Color.orange : Color(UIColor.systemGray4))
+                            .onTapGesture(perform: {
+                                rateCount = 4
+                            })
+                        
+                        Spacer()
+                            .frame(width: 5, height: 20, alignment: .center)
+                        
+                        Image(systemName: "star.fill")
+                            .resizable()
+                            .frame(width: 15, height: 15, alignment: .center)
+                            .foregroundColor(rateCount >= 5 ? Color.orange : Color(UIColor.systemGray4))
+                            .onTapGesture(perform: {
+                                rateCount = 5
+                            })
+                        
+                    }.frame(width: 95, height: 20, alignment: .leading)
                     
                     Spacer()
                         .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
@@ -165,7 +218,8 @@ struct WriteReviewView: View {
                     
                     CustomButton(title: "Post Review", foregroundColor: .white, backgroundColor: .blue)
                         .onTapGesture {
-                            SaveReview(productID: productID, userID: UserDefaults.standard.string(forKey: "UserID")!, comment: review, rating: String(describing: $rating))
+                            print("Triggered")
+                            SaveReview(productID: productID, userID: UserDefaults.standard.string(forKey: "UserID")!, comment: review, rating: String(describing: rateCount))
                         }
                     
                     Spacer()
