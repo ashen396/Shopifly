@@ -7,7 +7,7 @@
 
 import Foundation
 import SwiftUI
-//import FirebaseFirestore
+import FirebaseFirestore
 import FirebaseAuth
 
 struct LoginView: View {
@@ -25,7 +25,21 @@ struct LoginView: View {
             if(error != nil){
                 alertVisible = true
             }else{
-                isAuth.toggle()
+                Firestore.firestore().collection("Users").whereField("Email", isEqualTo: email).getDocuments { (docs, error) in
+                    let documents = docs?.documents
+                    
+                    documents?.forEach({ (doc) in
+                        let userDefaults = UserDefaults.standard
+                        let firstName = String(describing: doc["FirstName"]!)
+                        let lastName = String(describing: doc["LastName"]!)
+                        
+                        userDefaults.set(String(describing: "\(firstName)"), forKey: "Username")
+                        userDefaults.set(String(describing: "\(firstName.lowercased())\(lastName.lowercased())"), forKey: "UserID")
+                        
+                        print("LoginUser: \(userDefaults)")
+                        isAuth.toggle()
+                    })
+                }
             }
         }
     }

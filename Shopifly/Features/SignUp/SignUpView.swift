@@ -24,6 +24,37 @@ struct SignUpView: View{
     @State private var errorMessage: String = ""
     @State private var showPassword: Bool = false
     
+    private func CreateUserAccount(){
+        if(isChecked == true){
+            if(password == confirmPassword){
+                Auth.auth().createUser(withEmail: email, password: password) { (result: AuthDataResult?,error: Error?) in
+                    if(error != nil){
+                        errorMessage = error.debugDescription.description
+                        alertVisible = true
+                        return
+                    }else{
+                        result?.user.sendEmailVerification(completion: { (verificationError: Error?) in
+                            
+                            if(error != nil){
+                                errorMessage = error.debugDescription.description
+                                alertVisible = true
+                                return
+                            }
+                            
+                            Firestore.firestore().collection("Users").addDocument(data: ["FirstName" : fname, "LastName": lname, "Email": email, "Mobile": mobile, "Location": location])
+                        })
+                    }
+                }
+            }else{
+                errorMessage = "Passwords do not match"
+                alertVisible = true
+            }
+        }else{
+            errorMessage = "Accept Terms & Conditions"
+            alertVisible = true
+        }
+    }
+    
     var body: some View{
         VStack{
             Text("Sign Up")
@@ -85,35 +116,7 @@ struct SignUpView: View{
                 .padding(.horizontal, 40)
             
             CustomButton(title: "Continue", foregroundColor: .white, backgroundColor: .blue) {
-                if(isChecked == true){
-                    if(password == confirmPassword){
-                        Auth.auth().createUser(withEmail: email, password: password) { (result: AuthDataResult?,error: Error?) in
-                            if(error != nil){
-                                errorMessage = error.debugDescription.description
-                                alertVisible = true
-                                return
-                            }else{
-                                result?.user.sendEmailVerification(completion: { (verificationError: Error?) in
-                                    
-                                    if(error != nil){
-                                        errorMessage = error.debugDescription.description
-                                        alertVisible = true
-                                        return
-                                    }
-                                    
-                                    Firestore.firestore().collection("Users").addDocument(data: ["FirstName" : fname, "LastName": lname, "Email": email, "Mobile": mobile, "Location": location])
-                                    
-                                })
-                            }
-                        }
-                    }else{
-                        errorMessage = "Passwords do not match"
-                        alertVisible = true
-                    }
-                }else{
-                    errorMessage = "Accept Terms & Conditions"
-                    alertVisible = true
-                }
+                CreateUserAccount()
             }.alert(isPresented: $alertVisible, content: {
                 Alert(title: Text("Sign Up Error"), message: Text(errorMessage), dismissButton: .default(Text("OK")))
             })

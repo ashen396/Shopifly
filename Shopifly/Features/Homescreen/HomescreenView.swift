@@ -55,7 +55,7 @@ struct HomescreenView: View{
                 
                 HStack{
                     VStack{
-                        Text("John Doe")
+                        Text(UserDefaults.standard.string(forKey: "Username") ?? "Error!")
                             .font(.title2)
                         
                         Text("Colombo")
