@@ -11,12 +11,12 @@ import UIKit
 
 struct ContentView: View {
     var body: some View {
-        let isUserLogged = UserDefaults.standard.bool(forKey: "isUserLogged")
-        if(isUserLogged == true){
-            HomeNavigationView()
-        }else{
+//        let isUserLogged = UserDefaults.standard.bool(forKey: "isUserLogged")
+//        if(isUserLogged == true){
+//            HomeNavigationView()
+//        }else{
             LoginView()
-        }
+//        }
     }
 }
 
