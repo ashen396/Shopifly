@@ -28,6 +28,7 @@
 		04571D0C2DA6AC3D0010C3D4 /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04571D0B2DA6AC3D0010C3D4 /* NavigationButton.swift */; };
 		045E65F82DB92C1E004205E9 /* WishlistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045E65F72DB92C1E004205E9 /* WishlistController.swift */; };
 		045F310C2DBA9B780046CD5B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F310B2DBA9B780046CD5B /* LoginController.swift */; };
+		045F31112DBB187F0046CD5B /* AddItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F31102DBB187F0046CD5B /* AddItemController.swift */; };
 		04640C962DB8F63100BCECD6 /* SearchscreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04640C952DB8F63100BCECD6 /* SearchscreenController.swift */; };
 		0468A6A82DB0BCDD008FCC16 /* MapNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0468A6A72DB0BCDD008FCC16 /* MapNavigationView.swift */; };
 		0468C3E62DABFD0500960B31 /* NearByShopsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0468C3E52DABFD0500960B31 /* NearByShopsView.swift */; };
@@ -105,6 +106,7 @@
 		04571D0B2DA6AC3D0010C3D4 /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
 		045E65F72DB92C1E004205E9 /* WishlistController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistController.swift; sourceTree = "<group>"; };
 		045F310B2DBA9B780046CD5B /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		045F31102DBB187F0046CD5B /* AddItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemController.swift; sourceTree = "<group>"; };
 		04640C952DB8F63100BCECD6 /* SearchscreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchscreenController.swift; sourceTree = "<group>"; };
 		0468A6A72DB0BCDD008FCC16 /* MapNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapNavigationView.swift; sourceTree = "<group>"; };
 		0468C3E52DABFD0500960B31 /* NearByShopsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearByShopsView.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				040F59B12DAD3B71002A5FA7 /* AddItemView.swift */,
+				045F31102DBB187F0046CD5B /* AddItemController.swift */,
 			);
 			path = AddItem;
 			sourceTree = "<group>";
@@ -649,6 +652,7 @@
 				04C7E8DE2DAF7D1B002791EA /* HomeNavigationView.swift in Sources */,
 				046E7B342DB4BB5800FC760B /* HomescreenController.swift in Sources */,
 				048578432DA7B9AE0071C78E /* ProductCardView.swift in Sources */,
+				045F31112DBB187F0046CD5B /* AddItemController.swift in Sources */,
 				040C44942DA77D1400B183B5 /* OTPTextField.swift in Sources */,
 				04BF660B2DABA6A1002F0B7E /* RatingBar.swift in Sources */,
 				04DF2EA42DAFDEB200D2AADD /* AddReminderView.swift in Sources */,

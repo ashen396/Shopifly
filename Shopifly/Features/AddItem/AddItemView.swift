@@ -135,7 +135,7 @@ struct AddItemView: View {
                     Image(uiImage: image!)
                                        .resizable()
                                        .scaledToFit()
-                                       .frame(width: 300, height: 300)
+                                       .frame(width: 100, height: 100)
                                        .cornerRadius(12)
                     
                     CustomButton(title: "Choose Image", foregroundColor: .white, backgroundColor: .blue) {
@@ -145,6 +145,12 @@ struct AddItemView: View {
                         pageIndex = 2
                     }) {
                         ImagePicker(selectedImage: $image)
+                    }
+                    
+                    Spacer()
+                    
+                    CustomButton(title: "Add Product", foregroundColor: .white, backgroundColor: .blue) {
+                        AddProduct(productName: productName, productImage: image!, shop: storeName, price: price, location: region.center)
                     }
                 }
             }

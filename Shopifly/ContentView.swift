@@ -13,7 +13,7 @@ struct ContentView: View {
     var body: some View {
         let isUserLogged = UserDefaults.standard.bool(forKey: "isUserLogged")
         if(isUserLogged == true){
-            HomescreenView()
+            HomeNavigationView()
         }else{
             LoginView()
         }
