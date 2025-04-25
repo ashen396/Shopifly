@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CompareProductsView: View {
     
+    @Environment(\.presentationMode) var presentationMode
+    
     @State var product1: Product
     @State var product2Title: String
     @State var product2: Product?
@@ -65,13 +67,19 @@ struct CompareProductsView: View {
                         }
                         
                         HStack{
-                            Image(systemName: "chevron.left")
-                                .resizable()
-                                .frame(width: 15, height: 25, alignment: .center)
-                                .foregroundColor(.white)
-                                
-                            Text("Back")
-                                .foregroundColor(.white)
+                            Button(action: {
+                                self.presentationMode.wrappedValue.dismiss()
+                            }, label: {
+                                Group{
+                                    Image(systemName: "chevron.left")
+                                        .resizable()
+                                        .frame(width: 15, height: 25, alignment: .center)
+                                        .foregroundColor(.white)
+                                        
+                                    Text("Back")
+                                        .foregroundColor(.white)
+                                }
+                            })
                         }.padding(.horizontal, 25)
                         .frame(width: Constants.screenWidth, height: 40, alignment: .leading)
                     }

@@ -103,6 +103,11 @@ struct ProductscreenView: View {
                                 )
                         }.frame(width: Constants.screenWidth, height: 75, alignment: .topTrailing)
                         .padding(.trailing, 25)
+                        .onTapGesture {
+                            AddToWishlist(isSelected: isWishedProduct, productID: productID, productName: product.title, userID: reviews[0].user.userID) { (updateWishlist) in
+                                isWishedProduct = updateWishlist
+                            }
+                        }
                     }
                 }.frame(width: Constants.screenWidth, height: Constants.screenWidth, alignment: .top)
                 .padding(.top, 40)
@@ -147,64 +152,69 @@ struct ProductscreenView: View {
             
             // Ratings
             ScrollView{
-                VStack{
-                    
-                    ForEach(reviews, id: \.self) { review in
-                        VStack{
-                            HStack{
-                                NavigationLink(
-                                    destination: UserProfileView(userID: review.user.userID, userImage: review.user.userImage),
-                                    label: {
-                                        Image(uiImage: review.user.userImage)
-                                            .resizable()
-                                            .frame(width: 60, height: 60, alignment: .topLeading)
-                                    })
-                                
-                                VStack{
+                if(reviews.count > 0){
+                    VStack{
+                        ForEach(reviews, id: \.self) { review in
+                            if(review.comment != nil){
+                            VStack{
+                                HStack{
+                                    NavigationLink(
+                                        destination: UserProfileView(userID: review.user.userID, userImage: review.user.userImage),
+                                        label: {
+                                            Image(uiImage: review.user.userImage)
+                                                .resizable()
+                                                .frame(width: 60, height: 60, alignment: .topLeading)
+                                        })
                                     
-                                    // Username
-                                    HStack{
-                                        Text(review.user.username)
-                                            .foregroundColor(Color.gray)
-                                        
-                                        RatingBar(rateCount: review.rating, isClickable: false)
-                                        
-                                        Spacer()
-                                        
-                                        Text(review.date)
-                                            .font(.callout)
-                                            .fontWeight(.light)
-                                            .foregroundColor(Color.gray)
-                                            .padding(.trailing, 25)
-                                    }.frame(width: Constants.screenWidth - 85, height: 20, alignment: .leading)
-                                    
-                                    // Comment
                                     VStack{
-                                        Text(review.comment)
-                                            .padding(.leading, 5)
-                                            .padding(.trailing, 50)
-                                            .frame(width: Constants.screenWidth - 85, height: 50, alignment: .topLeading)
-                                            .multilineTextAlignment(.leading)
-                                    }
+                                        
+                                        // Username
+                                        HStack{
+                                            Text(review.user.username)
+                                                .foregroundColor(Color.gray)
+                                            
+                                            RatingBar(rateCount: review.rating, isClickable: false)
+                                            
+                                            Spacer()
+                                            
+                                            Text(review.date)
+                                                .font(.callout)
+                                                .fontWeight(.light)
+                                                .foregroundColor(Color.gray)
+                                                .padding(.trailing, 25)
+                                        }.frame(width: Constants.screenWidth - 85, height: 20, alignment: .leading)
+                                        
+                                        // Comment
+                                        VStack{
+                                            Text(review.comment)
+                                                .padding(.leading, 5)
+                                                .padding(.trailing, 50)
+                                                .frame(width: Constants.screenWidth - 85, height: 50, alignment: .topLeading)
+                                                .multilineTextAlignment(.leading)
+                                        }
+                                        
+                                        
+                                    }.frame(width: Constants.screenWidth - 85, height: 50, alignment: .topLeading)
                                     
-                                    
-                                }.frame(width: Constants.screenWidth - 85, height: 50, alignment: .topLeading)
-                                
-                            }
-                            
-                            Spacer()
-                                .frame(width: Constants.screenWidth, height: 25, alignment: .center)
-                            
-                            HStack{
-                                ForEach(review.images, id: \.self){ fetchedImage in
-                                    Image(uiImage: fetchedImage)
                                 }
-                            }.padding(.leading, 40)
-                            .frame(width: Constants.screenWidth - 85, height: 48, alignment: .leading)
-                            
-                        }.padding(.horizontal, 15)
-                        .frame(width: Constants.screenWidth, height: review.images.count > 1 ? 175 : 100, alignment: .topLeading)
+                                
+                                Spacer()
+                                    .frame(width: Constants.screenWidth, height: 25, alignment: .center)
+                                
+                                HStack{
+                                    ForEach(review.images, id: \.self){ fetchedImage in
+                                        Image(uiImage: fetchedImage)
+                                    }
+                                }.padding(.leading, 40)
+                                .frame(width: Constants.screenWidth - 85, height: 48, alignment: .leading)
+                                
+                            }.padding(.horizontal, 15)
+                            .frame(width: Constants.screenWidth, height: review.images.count > 1 ? 175 : 100, alignment: .topLeading)
+                            }
+                        }
                     }
+                }else{
+                    Text("No Reviews Available!")
                 }
             }.frame(width: Constants.screenWidth, height: 270, alignment: .topLeading)
             

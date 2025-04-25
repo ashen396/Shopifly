@@ -127,6 +127,50 @@ func GetUserWishlist(productID: String, userID: String, completion: @escaping (B
         }
 }
 
-func AddToWishlist(){
-    
+func SendNotification(message: String){
+    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+        if(granted){
+            let content = UNMutableNotificationContent()
+            content.title = "Shopifly Announcement"
+            content.body = message
+            content.sound = .default
+            
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 20, repeats: false)
+            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+            
+            UNUserNotificationCenter.current().add(request)
+        }
+    }
+}
+
+func AddToWishlist(isSelected: Bool, productID: String, productName: String, userID: String, completion: @escaping (Bool) -> Void){
+    if(isSelected == true){
+        Firestore.firestore().collection("Wishlist").whereField("UserID", isEqualTo: userID).whereField("ProductID", isEqualTo: productID)
+            .limit(to: 1).getDocuments { (docs, error) in
+                let documents = docs?.documents
+                
+                documents?.forEach({ (doc) in
+                    Firestore.firestore().collection("Wishlist").document(doc.documentID).delete { (error) in
+                        if(error != nil){
+                            print("WishList Error: \(error)")
+                        }else{
+                            completion(false)
+                            SendNotification(message: "Removed \(productName) from wishlist! Check out other products.")
+                        }
+                    }
+                })
+            }
+    }else{
+        let doc = ["UserID": userID, "ProductID": productID]
+        
+        Firestore.firestore().collection("Wishlist").addDocument(data: doc) { (error) in
+            if((error) != nil){
+                print(error)
+                return
+            }else{
+                completion(true)
+                SendNotification(message: "Like more items like \(productName)? Check out other products.")
+            }
+        }
+    }
 }
