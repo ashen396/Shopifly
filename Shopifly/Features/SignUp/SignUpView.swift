@@ -23,6 +23,7 @@ struct SignUpView: View{
     @State private var alertVisible: Bool = false
     @State private var errorMessage: String = ""
     @State private var showPassword: Bool = false
+    @State private var userCreated: Bool = false
     
     private func CreateUserAccount(){
         if(isChecked == true){
@@ -42,6 +43,8 @@ struct SignUpView: View{
                             }
                             
                             Firestore.firestore().collection("Users").addDocument(data: ["FirstName" : fname, "LastName": lname, "Email": email, "Mobile": mobile, "Location": location])
+                            
+                            userCreated = true
                         })
                     }
                 }
@@ -57,6 +60,8 @@ struct SignUpView: View{
     
     var body: some View{
         VStack{
+            NavigationLink("", destination: LoginView(), isActive: $userCreated)
+            
             Text("Sign Up")
                 .font(.system(size: 40))
                 .fontWeight(.bold)

@@ -11,7 +11,12 @@ import UIKit
 
 struct ContentView: View {
     var body: some View {
-        LoginView()
+        let isUserLogged = UserDefaults.standard.bool(forKey: "isUserLogged")
+        if(isUserLogged == true){
+            HomescreenView()
+        }else{
+            LoginView()
+        }
     }
 }
 

@@ -35,8 +35,8 @@ struct LoginView: View {
                         
                         userDefaults.set(String(describing: "\(firstName)"), forKey: "Username")
                         userDefaults.set(String(describing: "\(firstName.lowercased())\(lastName.lowercased())"), forKey: "UserID")
+                        userDefaults.set(true, forKey: "isUserLogged")
                         
-                        print("LoginUser: \(userDefaults)")
                         isAuth.toggle()
                     })
                 }
@@ -44,10 +44,19 @@ struct LoginView: View {
         }
     }
     
+//    func auth() {
+//        isAuth.toggle()
+////        let userID = String(describing: UserDefaults.standard.string(forKey: "UserID")!)
+////        if(userID.isEmpty == false){
+////            isAuth = true
+////        }
+//    }
+    
     var body: some View{
         NavigationView{
             VStack{
                 NavigationLink("", destination: HomeNavigationView(), isActive: $isAuth)
+                
                 // Heading
                 VStack{
                     Text("Shopifly")
