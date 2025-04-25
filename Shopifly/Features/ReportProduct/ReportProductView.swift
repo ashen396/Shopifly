@@ -6,11 +6,26 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 
 struct ReportProductView: View {
     
     @State private var pickerSelection = ""
     @State private var summary = ""
+    @State private var productID: String = ""
+    @Environment(\.presentationMode) var presentationMode
+    
+    private func ReportProduct(){
+        let data = ["ProductID": productID, "ReportedByID": UserDefaults.standard.string(forKey: "UserID"), "Date": String(describing: Date()), "ReportType": pickerSelection, "Comment": summary]
+            Firestore.firestore().collection("ProductReport").addDocument(data: data as [String : Any]) { (error) in
+                if(error != nil){
+                    print(error as Any)
+                    return
+                }else{
+                    self.presentationMode.wrappedValue.dismiss()
+                }
+        }
+    }
     
     var body: some View {
         VStack{
@@ -97,6 +112,9 @@ struct ReportProductView: View {
             }
             
             CustomButton(title: "Report", foregroundColor: .white, backgroundColor: .blue)
+                .onTapGesture {
+                    ReportProduct()
+                }
             
         }.frame(width: Constants.screenWidth, height: Constants.screenHeight, alignment: .top)
     }
