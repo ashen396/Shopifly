@@ -44,14 +44,6 @@ struct LoginView: View {
         }
     }
     
-//    func auth() {
-//        isAuth.toggle()
-////        let userID = String(describing: UserDefaults.standard.string(forKey: "UserID")!)
-////        if(userID.isEmpty == false){
-////            isAuth = true
-////        }
-//    }
-    
     var body: some View{
         NavigationView{
             let isUserLogged = UserDefaults.standard.bool(forKey: "isUserLogged")
@@ -64,7 +56,6 @@ struct LoginView: View {
                         Text("Shopifly")
                             .font(.system(size: 54))
                             .fontWeight(.bold)
-        //                    .padding(.bottom, 20)
                         
                         Text("Rate products to share experience with others")
                             .font(.body)

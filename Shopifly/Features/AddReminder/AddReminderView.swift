@@ -6,10 +6,38 @@
 //
 
 import SwiftUI
+import EventKit
 
 struct AddReminderView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var dateSelected: Date = Date()
+    @State var productName: String = ""
+    @State var storeName: String = ""
+    @State var showAlert: Bool = false
+    @State var errorMessage: String = ""
+    
+    private func AddEvent(){
+        let eventStore = EKEventStore()
+        eventStore.requestAccess(to: .reminder) { (accessGranted, error) in
+            let calendars = eventStore.calendars(for: .reminder)
+            
+            if let calendar = eventStore.defaultCalendarForNewEvents ?? calendars.first(where: { $0.allowsContentModifications }) {
+            let event = EKEvent(eventStore: eventStore)
+            event.title = "Checkout \(productName) at \(storeName)"
+            event.startDate = dateSelected
+            event.endDate = dateSelected.advanced(by: 3600)
+            event.calendar = calendar
+
+            do {
+                    try eventStore.save(event, span: .thisEvent)
+                    self.presentationMode.wrappedValue.dismiss()
+                } catch {
+                    errorMessage = error.localizedDescription.description
+                    showAlert = true
+                }
+            }
+        }
+    }
     
     var body: some View {
         VStack{
@@ -45,12 +73,16 @@ struct AddReminderView: View {
                 Spacer()
                     .frame(width: Constants.screenWidth, height: Constants.spacingHeight2, alignment: .center)
                 
-                DatePicker("Date", selection: $dateSelected)
+                DatePicker("Date", selection: $dateSelected, displayedComponents: [.date, .hourAndMinute])
                     .datePickerStyle(GraphicalDatePickerStyle())
                     .padding(.horizontal, 40)
             }.frame(width: Constants.screenWidth, height: 650, alignment: .center)
             
-            CustomButton(title: "Add to Calendar", foregroundColor: .white, backgroundColor: .blue)
+            CustomButton(title: "Add to Calendar", foregroundColor: .white, backgroundColor: .blue){
+                AddEvent()
+            }.alert(isPresented: $showAlert, content: {
+                Alert(title: Text("Error"), message: Text(errorMessage), dismissButton: .default(Text("OK")))
+            })
             
         }.frame(width: Constants.screenWidth, height: Constants.screenHeight, alignment: .top)
     }

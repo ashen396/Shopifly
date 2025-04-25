@@ -115,3 +115,18 @@ func GetReviewsByProductID(collection: String, fieldName: String, productID: Str
     }
     
 }
+
+func GetUserWishlist(productID: String, userID: String, completion: @escaping (Bool) -> Void){
+    Firestore.firestore().collection("Wishlist").whereField("UserID", isEqualTo: userID).whereField("ProductID", isEqualTo: productID)
+        .limit(to: 1).getDocuments { (docs, error) in
+            if(docs?.count ?? 0 > 0){
+                completion(true)
+            }else{
+                completion(false)
+            }
+        }
+}
+
+func AddToWishlist(){
+    
+}

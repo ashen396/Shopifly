@@ -70,5 +70,9 @@
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Use images from library for proof</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>This app needs access to the calendar to create events.</string>
+	<key>NSRemindersUsageDescription</key>
+	<string>This app needs access to reminders.</string>
 </dict>
 </plist>

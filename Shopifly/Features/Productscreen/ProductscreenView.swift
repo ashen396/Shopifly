@@ -11,6 +11,7 @@ struct ProductscreenView: View {
     
     @Environment(\.presentationMode) var presentationMode
     @State var productID: String = ""
+    @State var isWishedProduct: Bool = false
     @State var product: Product = Product(productID: "", title: "", price: "", shop: "", image: UIImage())
     
     @State var reviews: [Review] = [Review(user: User(userID: "", username: "", userImage: UIImage()), rating: 1, comment: "", commentID: "", date: "", images: [UIImage()])]
@@ -94,9 +95,10 @@ struct ProductscreenView: View {
                                 .foregroundColor(.white)
                                 .shadow(color: Color.init( white: 0, opacity: 0.2), radius: 10, x: 0.0, y: 2.0)
                                 .overlay(
-                                    Image(systemName: "heart")
+                                    Image(systemName: isWishedProduct ? "heart.fill" : "heart")
                                         .resizable()
                                         .frame(width: 40, height: 35, alignment: .center)
+                                        .foregroundColor(isWishedProduct ? Color.red : Color.black)
                                         .font(.system(size: 40, weight: Font.Weight.ultraLight))
                                 )
                         }.frame(width: Constants.screenWidth, height: 75, alignment: .topTrailing)
@@ -215,6 +217,9 @@ struct ProductscreenView: View {
         .onAppear(perform: {
             FetchProductData()
             FetchReviews()
+            GetUserWishlist(productID: productID, userID: UserDefaults.standard.string(forKey: "UserID") ?? "") { (isWishedItem) in
+                isWishedProduct = isWishedItem
+            }
         })
     }
 }
