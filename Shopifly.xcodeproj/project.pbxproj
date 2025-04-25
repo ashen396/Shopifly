@@ -40,6 +40,8 @@
 		0468DC1C2D97A98D0006A7CA /* ShopiflyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0468DC1B2D97A98D0006A7CA /* ShopiflyUITests.swift */; };
 		046E7B342DB4BB5800FC760B /* HomescreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046E7B332DB4BB5800FC760B /* HomescreenController.swift */; };
 		04826A332DA6D3AA00F05667 /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04826A322DA6D3AA00F05667 /* OTPView.swift */; };
+		0482F9172DBBAC36003874AD /* AddImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0482F9162DBBAC36003874AD /* AddImageButton.swift */; };
+		0482F91C2DBBB523003874AD /* WriteReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0482F91B2DBBB523003874AD /* WriteReviewController.swift */; };
 		0485783E2DA79D260071C78E /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485783D2DA79D260071C78E /* CardStack.swift */; };
 		048578432DA7B9AE0071C78E /* ProductCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048578422DA7B9AE0071C78E /* ProductCardView.swift */; };
 		048DF23B2DB3FFF900809862 /* CardModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 048DF2392DB3FFF900809862 /* CardModel.xcdatamodeld */; };
@@ -125,6 +127,8 @@
 		046E7B332DB4BB5800FC760B /* HomescreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomescreenController.swift; sourceTree = "<group>"; };
 		047BBC332DB386CA00B566F3 /* Shopifly.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shopifly.xcdatamodel; sourceTree = "<group>"; };
 		04826A322DA6D3AA00F05667 /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
+		0482F9162DBBAC36003874AD /* AddImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageButton.swift; sourceTree = "<group>"; };
+		0482F91B2DBBB523003874AD /* WriteReviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewController.swift; sourceTree = "<group>"; };
 		0485783D2DA79D260071C78E /* CardStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStack.swift; sourceTree = "<group>"; };
 		048578422DA7B9AE0071C78E /* ProductCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardView.swift; sourceTree = "<group>"; };
 		048DF23A2DB3FFF900809862 /* CardModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CardModel.xcdatamodel; sourceTree = "<group>"; };
@@ -194,6 +198,7 @@
 				04C7E8F42DAF97D5002791EA /* CustomImageTextField.swift */,
 				04B193E62DBA5E8700A5EAE2 /* PasswordTextField.swift */,
 				04B193EB2DBA802A00A5EAE2 /* ImagePicker.swift */,
+				0482F9162DBBAC36003874AD /* AddImageButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -308,6 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				044CC0D42DAE1C86001BB8CF /* WriteReviewView.swift */,
+				0482F91B2DBBB523003874AD /* WriteReviewController.swift */,
 			);
 			path = WriteReview;
 			sourceTree = "<group>";
@@ -623,6 +629,7 @@
 				045F310C2DBA9B780046CD5B /* LoginController.swift in Sources */,
 				0421D0682DAA90C200677FFF /* SearchscreenView.swift in Sources */,
 				04571D0C2DA6AC3D0010C3D4 /* NavigationButton.swift in Sources */,
+				0482F91C2DBBB523003874AD /* WriteReviewController.swift in Sources */,
 				0468DBFC2D97A98B0006A7CA /* ContentView.swift in Sources */,
 				040F59942DAD0D60002A5FA7 /* CompareProductsSearchView.swift in Sources */,
 				04A7271B2DABC66700A894FD /* UserProfileView.swift in Sources */,
@@ -652,6 +659,7 @@
 				04C7E8DE2DAF7D1B002791EA /* HomeNavigationView.swift in Sources */,
 				046E7B342DB4BB5800FC760B /* HomescreenController.swift in Sources */,
 				048578432DA7B9AE0071C78E /* ProductCardView.swift in Sources */,
+				0482F9172DBBAC36003874AD /* AddImageButton.swift in Sources */,
 				045F31112DBB187F0046CD5B /* AddItemController.swift in Sources */,
 				040C44942DA77D1400B183B5 /* OTPTextField.swift in Sources */,
 				04BF660B2DABA6A1002F0B7E /* RatingBar.swift in Sources */,

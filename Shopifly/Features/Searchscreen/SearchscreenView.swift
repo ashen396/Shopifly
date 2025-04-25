@@ -69,9 +69,12 @@ struct SearchscreenView: View {
                     .frame(width: Constants.screenWidth, height: 25, alignment: .center)
                 
                 HStack{
-                    Text("Shops (0)")
-                }.font(.title3)
-                .foregroundColor(Color(UIColor.systemGray))
+                    NavigationLink(destination: NearByShopsView()) {
+                        Text("View in map")
+                            .font(.title3)
+                            .foregroundColor(Color.blue)
+                    }
+                }
                 .padding(.horizontal, 25)
                 .frame(width: Constants.screenWidth, height: 20, alignment: .leading)
             }

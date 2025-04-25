@@ -10,12 +10,12 @@ import MapKit
 
 struct AddItemView: View {
     @State private var showImagePicker = false
-        @State private var image: UIImage? = UIImage()
+    @State private var image: UIImage? = UIImage()
     
     @State private var productName: String = ""
     @State private var storeName: String = ""
     @State private var price: String = ""
-    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 6.9721, longitude: 79.8612), span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
+    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 6.9062952, longitude: 79.8517723), span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
     let locationMan = CLLocationManager()
     
     @Binding var pageIndex:Int
