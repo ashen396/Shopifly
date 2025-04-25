@@ -36,25 +36,39 @@ struct ReportProductView: View {
             }.padding(.horizontal, 25)
             .frame(width: Constants.screenWidth, height: 30, alignment: .leading)
             
-            Spacer()
-                .frame(width: Constants.screenWidth, height: 10, alignment: .center)
+            Group{
+                Spacer()
+                    .frame(width: Constants.screenWidth, height: 10, alignment: .center)
+                
+                Picker("Incorrect Information", selection: $pickerSelection) {
+                    Text("Incorrect Information")
+                    Text("Counterfeit Product")
+                }.pickerStyle(MenuPickerStyle())
+                .padding(.horizontal, 25)
+                .frame(width: Constants.screenWidth, height: 20, alignment: .leading)
+            }
             
-            Picker("Incorrect Information", selection: $pickerSelection) {
-                Text("Incorrect Information")
-                Text("Counterfeit Product")
-            }.pickerStyle(MenuPickerStyle())
-            .padding(.horizontal, 25)
-            .frame(width: Constants.screenWidth, height: 20, alignment: .leading)
+            Group{
+                Spacer()
+                    .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
+                
+                HStack{
+                    Text("Attach images (optional)")
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                }.padding(.horizontal, 25)
+                .frame(width: Constants.screenWidth, height: 30, alignment: .leading)
+            }
             
-            Spacer()
-                .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
-            
-            HStack{
-                Text("Attach images (optional)")
-                    .font(.title3)
-                    .fontWeight(.semibold)
-            }.padding(.horizontal, 25)
-            .frame(width: Constants.screenWidth, height: 30, alignment: .leading)
+            Group{
+                Spacer()
+                    .frame(width: Constants.screenWidth, height: Constants.spacingHeight2, alignment: .center)
+                
+                HStack{
+                    AddImageButton()
+                }.padding(.leading, 25)
+                .frame(width: Constants.screenWidth, height: Constants.spacingHeight2, alignment: .leading)
+            }
             
             Spacer()
                 .frame(width: Constants.screenWidth, height: Constants.spacingHeight2, alignment: .center)

@@ -41,6 +41,16 @@ struct UserProfileView: View {
         }
     }
     
+    private func ReportUser(){
+        let data = ["UserID": userID, "ReportedByID": UserDefaults.standard.string(forKey: "UserID"), "Date": String(describing: Date())]
+        Firestore.firestore().collection("UserReports").addDocument(data: data as [String : Any]) { (error) in
+            if(error != nil){
+                print(error as Any)
+                return
+            }
+        }
+    }
+    
     var body: some View {
         VStack{
             HStack{
@@ -54,6 +64,7 @@ struct UserProfileView: View {
                 .foregroundColor(Color.gray)
             
             HStack{
+                if(userID != UserDefaults.standard.string(forKey: "UserID")){
                 RoundedRectangle(cornerRadius: 25.0)
                     .frame(width: 125, height: 40, alignment: .center)
                     .foregroundColor(.red)
@@ -62,7 +73,10 @@ struct UserProfileView: View {
                             .font(.title3)
                             .fontWeight(.bold)
                             .foregroundColor(.white)
-                    )
+                    ).onTapGesture {
+                        ReportUser()
+                    }
+                }
             }.padding(.top, 10)
             .frame(width: Constants.screenWidth, height: 75, alignment: .center)
             
