@@ -144,6 +144,7 @@ struct LoginView: View {
                     .padding(.bottom, 20)
                     
                     NavigationLink("", destination: HomeNavigationView(), isActive: $isAuth)
+                    
                 }.frame(minWidth: 0, idealWidth: .infinity, maxWidth: .infinity, minHeight: 0, idealHeight: .infinity, maxHeight: .infinity, alignment: .top)
                 .padding(.horizontal, 25)
             }

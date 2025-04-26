@@ -11,6 +11,8 @@ import FirebaseAuth
 import FirebaseFirestore
 
 struct SignUpView: View{
+    @Environment(\.presentationMode) var presentationMode
+    
     @State private var fname = ""
     @State private var lname = ""
     @State private var email = ""
@@ -45,6 +47,7 @@ struct SignUpView: View{
                             Firestore.firestore().collection("Users").addDocument(data: ["FirstName" : fname, "LastName": lname, "Email": email, "Mobile": mobile, "Location": location])
                             
                             userCreated = true
+                            self.presentationMode.wrappedValue.dismiss()
                         })
                     }
                 }
@@ -60,8 +63,6 @@ struct SignUpView: View{
     
     var body: some View{
         VStack{
-            NavigationLink("", destination: LoginView(), isActive: $userCreated)
-            
             Text("Sign Up")
                 .font(.system(size: 40))
                 .fontWeight(.bold)
