@@ -56,6 +56,7 @@
 		048FE2992DB372AD00D98B2B /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 048FE2982DB372AD00D98B2B /* FirebaseDatabase */; };
 		04A727152DABB5A900A894FD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A727142DABB5A900A894FD /* MapKit.framework */; };
 		04A7271B2DABC66700A894FD /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7271A2DABC66700A894FD /* UserProfileView.swift */; };
+		04A7866E2DBC57B100C6F25D /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7866D2DBC57B100C6F25D /* LoginModel.swift */; };
 		04B193E72DBA5E8700A5EAE2 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B193E62DBA5E8700A5EAE2 /* PasswordTextField.swift */; };
 		04B193EC2DBA802A00A5EAE2 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B193EB2DBA802A00A5EAE2 /* ImagePicker.swift */; };
 		04BCCE312DAA439B00D0924A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCCE302DAA439B00D0924A /* Constants.swift */; };
@@ -137,6 +138,7 @@
 		048FE26D2DB36FFF00D98B2B /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		04A727142DABB5A900A894FD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		04A7271A2DABC66700A894FD /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		04A7866D2DBC57B100C6F25D /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		04B193E62DBA5E8700A5EAE2 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
 		04B193EB2DBA802A00A5EAE2 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		04BCCE302DAA439B00D0924A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 			children = (
 				04267E832D985830001768AE /* LoginView.swift */,
 				045F310B2DBA9B780046CD5B /* LoginController.swift */,
+				04A7866D2DBC57B100C6F25D /* LoginModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -651,6 +654,7 @@
 				04BCCE312DAA439B00D0924A /* Constants.swift in Sources */,
 				045E65F82DB92C1E004205E9 /* WishlistController.swift in Sources */,
 				04C7E8F52DAF97D5002791EA /* CustomImageTextField.swift in Sources */,
+				04A7866E2DBC57B100C6F25D /* LoginModel.swift in Sources */,
 				048DF2452DB4008B00809862 /* CardModelEntity+CoreDataProperties.swift in Sources */,
 				04826A332DA6D3AA00F05667 /* OTPView.swift in Sources */,
 				04B193EC2DBA802A00A5EAE2 /* ImagePicker.swift in Sources */,

@@ -63,16 +63,19 @@ struct LoginView: View {
                             .frame(width: 200, height: .none, alignment: .center)
                             .padding(.top, 10)
                     }.frame(width: .none, height: .none, alignment: .top)
+                    .accessibilityLabel("Shopifly")
                     
                     VStack{
                         // Email Textfield
                         CustomTextField(title: "Email", bindState: $email)
+                            .accessibilityLabel("Email Textfield")
                         
                         Spacer()
                             .frame(width: Constants.screenWidth, height: 20, alignment: .center)
                         
                         // Password Textfield
                         PasswordTextField(title: "Password", password: $password, showPassword: $showPassword)
+                            .accessibilityLabel("Password Textfield")
                         
                         Spacer()
                             .frame(width: Constants.screenWidth, height: 15, alignment: .center)
@@ -82,6 +85,7 @@ struct LoginView: View {
                             Text("Forgot Password?")
                                 .foregroundColor(.blue)
                                 .font(.caption)
+                                .accessibilityLabel("Forgot Password")
                         }.frame(minWidth: 0, idealWidth: 100, maxWidth: .infinity, minHeight: 20, idealHeight: 20, maxHeight: 20, alignment: .trailing)
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 20))
                         .padding(.bottom, 25)
@@ -93,6 +97,7 @@ struct LoginView: View {
                         }.alert(isPresented: $alertVisible, content: {
                             Alert(title: Text("Login Error"), message: Text("Error Login"), dismissButton: .default(Text("OK")))
                         })
+                        .accessibilityLabel("Login Button")
                         
                         // Separator
                         HStack{
@@ -121,7 +126,8 @@ struct LoginView: View {
                                 .frame(width: Constants.screenWidth, height: Constants.spacingHeight, alignment: .center)
                             
                             // Login with Google Button
-                            NavigationButton(title: "Continue with Google", foregroundColor: Color.black, backgroundColor: Color.white, stroke: true, padding: 0, destination: SignUpView())
+                            NavigationButton(title: "Continue with Email", foregroundColor: Color.black, backgroundColor: Color.white, stroke: true, padding: 0, destination: SignUpView())
+                            .accessibilityLabel("Signup Button")
                         }.padding(.top, 15)
                         
                         Spacer()
@@ -137,6 +143,7 @@ struct LoginView: View {
                     }.padding(.top, 120)
                     .padding(.bottom, 20)
                     
+                    NavigationLink("", destination: HomeNavigationView(), isActive: $isAuth)
                 }.frame(minWidth: 0, idealWidth: .infinity, maxWidth: .infinity, minHeight: 0, idealHeight: .infinity, maxHeight: .infinity, alignment: .top)
                 .padding(.horizontal, 25)
             }
